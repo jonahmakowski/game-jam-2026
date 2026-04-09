@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cbleqvptdfd41"]
 
 [ext_resource type="PackedScene" uid="uid://bpdcf1nfa3e8l" path="res://Scenes/Abyss/Player/player.tscn" id="1_5p8cj"]
+[ext_resource type="PackedScene" uid="uid://b6ydojbgko7ok" path="res://Scenes/Abyss/Ore/ore.tscn" id="2_e11qs"]
+[ext_resource type="Resource" uid="uid://bo8rf66bpefv5" path="res://Resources/Ore/test_ore.tres" id="3_5mi52"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5p8cj"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -14,8 +16,6 @@ background_mode = 2
 sky = SubResource("Sky_bd6b6")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_bd6b6"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_e11qs"]
 size = Vector2(30, 30)
@@ -31,10 +31,6 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1369933654]
 environment = SubResource("Environment_e11qs")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1058553539]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1309023, 0.65869164, 0)
-mesh = SubResource("BoxMesh_bd6b6")
-
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1294592827]
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D" unique_id=2003631737]
@@ -45,3 +41,7 @@ shape = SubResource("WorldBoundaryShape3D_5mi52")
 
 [node name="Node3D" parent="." unique_id=1872069197 instance=ExtResource("1_5p8cj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1124934, 0)
+
+[node name="Ore" parent="." unique_id=1575974477 instance=ExtResource("2_e11qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9091748, 0.8252671, 0)
+ore_type = ExtResource("3_5mi52")

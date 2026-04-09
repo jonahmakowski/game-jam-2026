@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bpdcf1nfa3e8l"]
 
 [ext_resource type="Script" uid="uid://c17tq0ce3cdnu" path="res://Scenes/Abyss/Player/player.gd" id="1_uvnfx"]
+[ext_resource type="PackedScene" uid="uid://cws328fh74g2v" path="res://Scenes/Abyss/Player/Player UI/hud.tscn" id="2_vnmss"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tugb3"]
 
@@ -20,3 +21,13 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5561248, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Pivot Node" unique_id=78418270]
+
+[node name="RayCast3D" type="RayCast3D" parent="Pivot Node" unique_id=1600897517]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -5)
+collision_mask = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1178654271]
+
+[node name="HUD" parent="CanvasLayer" unique_id=1035626391 instance=ExtResource("2_vnmss")]
+unique_name_in_owner = true
