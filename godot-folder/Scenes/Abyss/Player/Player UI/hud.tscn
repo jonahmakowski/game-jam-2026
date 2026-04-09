@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://cws328fh74g2v"]
+
+[ext_resource type="Shader" uid="uid://cqmiykqmlxtfa" path="res://Scenes/Abyss/Player/Player UI/health_bar.gdshader" id="1_vdn35"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vdn35"]
+shader = ExtResource("1_vdn35")
+shader_parameter/progress = 1.0
+
+[node name="Hud" type="Control" unique_id=1035626391]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=639026752]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 87.0
+grow_horizontal = 2
+
+[node name="OxygenContainer" type="PanelContainer" parent="VBoxContainer" unique_id=21782282]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/OxygenContainer" unique_id=678419260]
+material = SubResource("ShaderMaterial_vdn35")
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/OxygenContainer/MarginContainer" unique_id=108172220]
+use_parent_material = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/OxygenContainer/MarginContainer" unique_id=1478167048]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "x/x"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="VBoxContainer" unique_id=894154493]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InventoryContainer" type="PanelContainer" parent="VBoxContainer" unique_id=2008380635]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/InventoryContainer" unique_id=772171169]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/InventoryContainer/MarginContainer" unique_id=1073586721]
+layout_mode = 2
