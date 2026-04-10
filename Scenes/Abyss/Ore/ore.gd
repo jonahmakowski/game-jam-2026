@@ -1,7 +1,12 @@
 @tool
+class_name OreScene
 extends StaticBody3D
 
-@export var ore_type: Ore
+@export var ore_type: Ore:
+	set(val):
+		if val != ore_type:
+			ore_type = val
+			update_data()
 
 var current_health: int
 
@@ -11,17 +16,25 @@ var current_health: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	update_data()
+
+
+func update_data():
+	if not is_node_ready():
+		return
+
 	# Set model to the one from the ore_type var
 	for child in model.get_children():
 		child.queue_free()
 
-	model.add_child(ore_type.model.instantiate())
+	if ore_type != null:
+		model.add_child(ore_type.model.instantiate())
 
-	# Update collisions to the new model
-	set_collisions()
+		# Update collisions to the new model
+		set_collisions()
 
-	# Set current health to max health
-	current_health = ore_type.health
+		# Set current health to max health
+		current_health = ore_type.health
 
 
 func set_collisions():
@@ -29,3 +42,9 @@ func set_collisions():
 	var box := BoxShape3D.new()
 	box.size = aabb.size
 	collision_shape.shape = box
+
+
+func mine(damage: int):
+	current_health -= damage
+	if current_health <= 0:
+		queue_free()

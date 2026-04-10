@@ -6,7 +6,7 @@ const MOUSE_SENSATIVITY = 0.002
 const CONTROLLER_SENSATIVITY = 0.1
 const PITCH_LIMIT = 85.0
 
-var colliding_with: Node3D
+var looking_at: Node3D
 
 @onready var pivot_node: Node3D = %"Pivot Node"
 @onready var hud: HUD = %HUD
@@ -28,19 +28,19 @@ func _process(_delta: float) -> void:
 	pivot_node.rotation.x = clamp(current_pitch, min_pitch, max_pitch)
 
 	# Allow mouse to be uncaptured
-	if Input.is_action_just_pressed("uncapture_mouse"):
+	if Input.is_action_just_pressed("uncapture_mouse") and Input.mouse_mode != Input.MOUSE_MODE_VISIBLE:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 	# Allow mouse to be recaptured
-	if Input.is_action_just_pressed("capture_mouse"):
+	if Input.is_action_just_pressed("capture_mouse") and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 	# Scan for interactable objects
 	if ray_cast_3d.is_colliding():
-		if ray_cast_3d.get_collider() != colliding_with:
-			colliding_with = ray_cast_3d.get_collider()
+		if ray_cast_3d.get_collider() != looking_at:
+			looking_at = ray_cast_3d.get_collider()
 	else:
-		colliding_with = null
+		looking_at = null
 
 
 func _physics_process(delta: float) -> void:
@@ -73,3 +73,9 @@ func _input(event: InputEvent) -> void:
 		var min_pitch: float = deg_to_rad(-PITCH_LIMIT)
 		var max_pitch: float = deg_to_rad(PITCH_LIMIT)
 		pivot_node.rotation.x = clamp(current_pitch, min_pitch, max_pitch)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("mine_attack"):
+		if looking_at is OreScene:
+			(looking_at as OreScene).mine(1)

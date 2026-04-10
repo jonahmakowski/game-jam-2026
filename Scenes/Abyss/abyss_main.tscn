@@ -2,18 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://bpdcf1nfa3e8l" path="res://Scenes/Abyss/Player/player.tscn" id="1_5p8cj"]
 [ext_resource type="PackedScene" uid="uid://b6ydojbgko7ok" path="res://Scenes/Abyss/Ore/ore.tscn" id="2_e11qs"]
-[ext_resource type="Resource" uid="uid://bo8rf66bpefv5" path="res://Resources/Ore/test_ore.tres" id="3_5mi52"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5p8cj"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_e11qs"]
 
 [sub_resource type="Sky" id="Sky_bd6b6"]
-sky_material = SubResource("ProceduralSkyMaterial_5p8cj")
+sky_material = SubResource("PhysicalSkyMaterial_e11qs")
 
 [sub_resource type="Environment" id="Environment_e11qs"]
 background_mode = 2
 sky = SubResource("Sky_bd6b6")
+ambient_light_source = 1
 tonemap_mode = 2
 glow_enabled = true
 
@@ -24,9 +22,11 @@ size = Vector2(30, 30)
 
 [node name="AbyssMain" type="Node3D" unique_id=192705289]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=215530851]
+[node name="DirectionalLight3D - Only Visible in Editor" type="DirectionalLight3D" parent="." unique_id=215530851]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+visible = false
 shadow_enabled = true
+editor_only = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1369933654]
 environment = SubResource("Environment_e11qs")
@@ -44,4 +44,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1124934, 0)
 
 [node name="Ore" parent="." unique_id=1575974477 instance=ExtResource("2_e11qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9091748, 0.8252671, 0)
-ore_type = ExtResource("3_5mi52")

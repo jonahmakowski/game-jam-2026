@@ -1,20 +1,19 @@
 [gd_scene format=3 uid="uid://b6ydojbgko7ok"]
 
 [ext_resource type="Script" uid="uid://r22344j6hpqw" path="res://Scenes/Abyss/Ore/ore.gd" id="1_aq6hm"]
-[ext_resource type="PackedScene" uid="uid://dgtc2sk61ogl" path="res://Assets/Abyss/rock.blend" id="2_orasj"]
+[ext_resource type="Resource" uid="uid://bo8rf66bpefv5" path="res://Resources/Ore/test_ore.tres" id="2_aq6hm"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_aq6hm"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_orasj"]
 size = Vector3(1.4816924, 1.5268981, 1.5113955)
 
 [node name="Ore" type="StaticBody3D" unique_id=1575974477]
 collision_layer = 3
 script = ExtResource("1_aq6hm")
+ore_type = ExtResource("2_aq6hm")
 
 [node name="Model" type="Node3D" parent="." unique_id=1323842623]
 unique_name_in_owner = true
 
-[node name="rock" parent="Model" unique_id=234147678 instance=ExtResource("2_orasj")]
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=159637619]
 unique_name_in_owner = true
-shape = SubResource("BoxShape3D_aq6hm")
+shape = SubResource("BoxShape3D_orasj")

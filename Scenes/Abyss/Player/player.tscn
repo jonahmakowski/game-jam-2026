@@ -18,7 +18,7 @@ shape = SubResource("CapsuleShape3D_a3d8c")
 
 [node name="Pivot Node" type="Node3D" parent="." unique_id=428695211]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5561248, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Pivot Node" unique_id=78418270]
 
@@ -31,3 +31,8 @@ collision_mask = 2
 
 [node name="HUD" parent="CanvasLayer" unique_id=1035626391 instance=ExtResource("2_vnmss")]
 unique_name_in_owner = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1319382313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shadow_enabled = true
+distance_fade_enabled = true
