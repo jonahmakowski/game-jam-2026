@@ -7,7 +7,7 @@
 size = Vector3(1.4816924, 1.5268981, 1.5113955)
 
 [node name="Ore" type="StaticBody3D" unique_id=1575974477]
-collision_layer = 3
+collision_layer = 7
 script = ExtResource("1_aq6hm")
 ore_type = ExtResource("2_aq6hm")
 

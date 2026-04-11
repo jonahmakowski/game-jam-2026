@@ -43,7 +43,7 @@ func set_collisions():
 	collision_shape.shape = box
 
 
-func mine(damage: int):
+func mine(damage: int, at_point: Vector3):
 	current_health -= damage
 	if current_health <= 0:
 		PlayerData.inventory.append(ore_type.to_drop)

@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dbi216gf0m628"]
+
+[ext_resource type="Script" uid="uid://b14tiw3rknmfc" path="res://Scenes/Abyss/Player/Rope/rope.gd" id="1_8fxrn"]
+[ext_resource type="PackedScene" uid="uid://d0uprbxeskuqw" path="res://Scenes/Abyss/Player/Rope/rope_segment.tscn" id="1_klvi4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8fxrn"]
+radius = 0.1
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_8fxrn"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_8fxrn"]
+material = SubResource("ORMMaterial3D_8fxrn")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_62cc6"]
+radius = 0.1
+height = 0.2
+
+[node name="Rope" type="Node3D" unique_id=366522592]
+script = ExtResource("1_8fxrn")
+segment_scene = ExtResource("1_klvi4")
+
+[node name="RopeStart" type="AnimatableBody3D" parent="." unique_id=1381372684]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RopeStart" unique_id=1364089667]
+shape = SubResource("SphereShape3D_8fxrn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RopeStart" unique_id=799507432]
+mesh = SubResource("SphereMesh_8fxrn")
+
+[node name="RopeEnd" type="AnimatableBody3D" parent="." unique_id=824368801]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RopeEnd" unique_id=1255214943]
+shape = SubResource("SphereShape3D_8fxrn")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RopeEnd" unique_id=1847143206]
+mesh = SubResource("SphereMesh_62cc6")
