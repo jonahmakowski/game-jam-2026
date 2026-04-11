@@ -14,7 +14,6 @@ var current_health: int
 @onready var collision_shape: CollisionShape3D = %CollisionShape3D
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	update_data()
 
@@ -47,4 +46,5 @@ func set_collisions():
 func mine(damage: int):
 	current_health -= damage
 	if current_health <= 0:
+		PlayerData.inventory.append(ore_type.to_drop)
 		queue_free()

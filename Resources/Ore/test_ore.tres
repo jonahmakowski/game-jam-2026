@@ -2,10 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://dgtc2sk61ogl" path="res://Assets/Abyss/rock.blend" id="1_gfd8j"]
 [ext_resource type="Script" uid="uid://cncnbd3umy0c7" path="res://Resources/Definitions/ore.gd" id="1_kb161"]
+[ext_resource type="Resource" uid="uid://cjxg765yiadj4" path="res://Resources/Item/test_item.tres" id="3_nfk8e"]
 
 [resource]
 script = ExtResource("1_kb161")
 name = "Test Ore"
+to_drop = ExtResource("3_nfk8e")
 model = ExtResource("1_gfd8j")
 health = 10
 metadata/_custom_type_script = "uid://cncnbd3umy0c7"

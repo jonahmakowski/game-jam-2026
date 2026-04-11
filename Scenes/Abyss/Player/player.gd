@@ -77,5 +77,6 @@ func _input(event: InputEvent) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("mine_attack"):
-		if looking_at is OreScene:
-			(looking_at as OreScene).mine(1)
+		if looking_at != null and not looking_at.is_queued_for_deletion():
+			if looking_at is OreScene:
+				(looking_at as OreScene).mine(1)

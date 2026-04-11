@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://b76l16pla20ed" path="res://Scenes/Abyss/Player/Player UI/hud.gd" id="1_qyhws"]
 [ext_resource type="Shader" uid="uid://cqmiykqmlxtfa" path="res://Scenes/Abyss/Player/Player UI/energy_bar.gdshader" id="1_vdn35"]
+[ext_resource type="PackedScene" uid="uid://1w8k1gkawc67" path="res://Scenes/Abyss/Player/Player UI/inventory_item.tscn" id="2_my05r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vdn35"]
 shader = ExtResource("1_vdn35")
-shader_parameter/progress = 1.0
 
 [node name="HUD" type="Control" unique_id=1035626391]
 layout_mode = 3
@@ -17,31 +17,36 @@ grow_vertical = 2
 mouse_filter = 2
 mouse_behavior_recursive = 1
 script = ExtResource("1_qyhws")
+inventory_item = ExtResource("2_my05r")
 
-[node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=639026752]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2051463763]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 87.0
 grow_horizontal = 2
 
-[node name="EnergyContainer" type="PanelContainer" parent="VBoxContainer" unique_id=21782282]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=365827441]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="EnergyContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=21782282]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/EnergyContainer" unique_id=678419260]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/EnergyContainer" unique_id=678419260]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="EnergyBar" type="ColorRect" parent="VBoxContainer/EnergyContainer/MarginContainer" unique_id=108172220]
+[node name="EnergyBar" type="ColorRect" parent="HBoxContainer/VBoxContainer/EnergyContainer/MarginContainer" unique_id=108172220]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_vdn35")
 layout_mode = 2
 
-[node name="EnergyLabel" type="Label" parent="VBoxContainer/EnergyContainer/MarginContainer" unique_id=1478167048]
+[node name="EnergyLabel" type="Label" parent="HBoxContainer/VBoxContainer/EnergyContainer/MarginContainer" unique_id=1478167048]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
@@ -50,10 +55,34 @@ text = "x / x"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Spacer" type="Control" parent="VBoxContainer" unique_id=1810354487]
+[node name="InventoryContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=672144548]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/InventoryContainer" unique_id=340024360]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="InventoryBar" type="ColorRect" parent="HBoxContainer/VBoxContainer/InventoryContainer/MarginContainer" unique_id=1549448982]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_vdn35")
+layout_mode = 2
+
+[node name="InventoryLabel" type="Label" parent="HBoxContainer/VBoxContainer/InventoryContainer/MarginContainer" unique_id=1249494913]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "x / x"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=2102118544]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=456108935]
 layout_mode = 1
@@ -64,5 +93,32 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="CenterContainer" unique_id=2074792866]
-custom_minimum_size = Vector2(15, 15)
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="Inventory" type="HBoxContainer" parent="." unique_id=94383046]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="InventoryViewer" type="PanelContainer" parent="Inventory" unique_id=1357265192]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Inventory/InventoryViewer" unique_id=548353547]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="InventoryBox" type="VBoxContainer" parent="Inventory/InventoryViewer/MarginContainer" unique_id=303292088]
+unique_name_in_owner = true
 layout_mode = 2

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://1w8k1gkawc67"]
+
+[sub_resource type="GDScript" id="GDScript_16chf"]
+resource_name = "script"
+script/source = "extends HBoxContainer
+
+@onready var texture_rect: TextureRect = %TextureRect
+@onready var label: Label = %Label
+
+func set_data(texture: Texture2D, text: String):
+	texture_rect.texture = texture
+	label.text = text
+"
+
+[node name="InventoryItem" type="HBoxContainer" unique_id=116154979]
+offset_right = 9.0
+offset_bottom = 23.0
+size_flags_horizontal = 3
+script = SubResource("GDScript_16chf")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=394737030]
+unique_name_in_owner = true
+layout_mode = 2
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Spacer" type="Control" parent="." unique_id=978668181]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="." unique_id=316999188]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 2
+vertical_alignment = 1

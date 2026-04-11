@@ -24,3 +24,15 @@ static func get_aabb(node: Node3D) -> AABB:
 		elif child is Node3D:
 			aabb = aabb.merge(get_aabb(child))
 	return aabb
+
+
+static func get_inventory_counts() -> Dictionary[Item, int]:
+	var to_return: Dictionary[Item, int]
+
+	for item in PlayerData.inventory:
+		if item in to_return.keys():
+			to_return[item] += 1
+		else:
+			to_return[item] = 1
+
+	return to_return
