@@ -4,8 +4,8 @@ extends Control
 @export var inventory_item: PackedScene
 
 @onready var energy_label: Label = %EnergyLabel
-@onready var energy_bar: ColorRect = %EnergyBar
-@onready var inventory_bar: ColorRect = %InventoryBar
+@onready var energy_bar: TextureProgressBar = %EnergyBar
+@onready var inventory_bar: TextureProgressBar = %InventoryBar
 @onready var inventory_label: Label = %InventoryLabel
 @onready var inventory_viewer: PanelContainer = %InventoryViewer
 @onready var inventory_box: VBoxContainer = %InventoryBox
@@ -22,14 +22,14 @@ func _input(event: InputEvent) -> void:
 
 
 func set_inventory(full: int, current: int):
-	var percentage = float(current) / float(full)
-	inventory_bar.set_instance_shader_parameter("progress", percentage)
+	inventory_bar.value = current
+	inventory_bar.max_value = full
 	inventory_label.text = "%s / %d" % [current, full]
 
 
 func set_energy(full: int, current: float):
-	var percentage = current / full
-	energy_bar.set_instance_shader_parameter("progress", percentage)
+	energy_bar.value = current
+	energy_bar.max_value = full
 	energy_label.text = "%s / %d" % [Helper.format_float(current), full]
 
 

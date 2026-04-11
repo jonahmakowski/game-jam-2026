@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://cws328fh74g2v"]
 
 [ext_resource type="Script" uid="uid://b76l16pla20ed" path="res://Scenes/Abyss/Player/Player UI/hud.gd" id="1_qyhws"]
-[ext_resource type="Shader" uid="uid://cqmiykqmlxtfa" path="res://Scenes/Abyss/Player/Player UI/energy_bar.gdshader" id="1_vdn35"]
 [ext_resource type="PackedScene" uid="uid://1w8k1gkawc67" path="res://Scenes/Abyss/Player/Player UI/inventory_item.tscn" id="2_my05r"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vdn35"]
-shader = ExtResource("1_vdn35")
+[sub_resource type="Gradient" id="Gradient_qyhws"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_my05r"]
+gradient = SubResource("Gradient_qyhws")
 
 [node name="HUD" type="Control" unique_id=1035626391]
 layout_mode = 3
@@ -41,10 +43,15 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="EnergyBar" type="ColorRect" parent="HBoxContainer/VBoxContainer/EnergyContainer/MarginContainer" unique_id=108172220]
+[node name="EnergyBar" type="TextureProgressBar" parent="HBoxContainer/VBoxContainer/EnergyContainer/MarginContainer" unique_id=1662429240]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_vdn35")
 layout_mode = 2
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 10
+stretch_margin_right = 10
+stretch_margin_bottom = 10
+texture_progress = SubResource("GradientTexture1D_my05r")
 
 [node name="EnergyLabel" type="Label" parent="HBoxContainer/VBoxContainer/EnergyContainer/MarginContainer" unique_id=1478167048]
 unique_name_in_owner = true
@@ -66,10 +73,15 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="InventoryBar" type="ColorRect" parent="HBoxContainer/VBoxContainer/InventoryContainer/MarginContainer" unique_id=1549448982]
+[node name="InventoryBar" type="TextureProgressBar" parent="HBoxContainer/VBoxContainer/InventoryContainer/MarginContainer" unique_id=1090319480]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_vdn35")
 layout_mode = 2
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 10
+stretch_margin_right = 10
+stretch_margin_bottom = 10
+texture_progress = SubResource("GradientTexture1D_my05r")
 
 [node name="InventoryLabel" type="Label" parent="HBoxContainer/VBoxContainer/InventoryContainer/MarginContainer" unique_id=1249494913]
 unique_name_in_owner = true
