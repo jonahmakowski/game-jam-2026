@@ -1,63 +1,91 @@
-class_name RopeScene
 extends Node3D
 
-const PIN_BIAS := 2.0
+@export var rope_length: float = 3.0
+@export var segments: int = 20
+@export var rope_radius: float = 0.02
+@export var endpoint_a: Node3D
+@export var endpoint_b: Node3D
 
-@export var segment_count := 20
-@export var segment_height := 0.1
-@export var segment_radius := 0.02
-@export var segment_scene: PackedScene
+var immediate_mesh: ImmediateMesh
 
-@onready var rope_start: AnimatableBody3D = %RopeStart
-@onready var rope_end: AnimatableBody3D = %RopeEnd
+@onready var mesh_instance: MeshInstance3D = $MeshInstance3D
 
 
 func _ready():
-	generate_rope()
+	immediate_mesh = ImmediateMesh.new()
+	mesh_instance.mesh = immediate_mesh
 
 
-func set_rope_start(p: Vector3):
-	rope_start.global_position = p
+func _process(_delta):
+	if endpoint_a == null or endpoint_b == null:
+		return
+	draw_rope()
 
 
-func set_rope_end(p: Vector3):
-	rope_end.global_position = p
+func draw_rope():
+	immediate_mesh.clear_surfaces()
+
+	var points = get_catenary_points()
+	var sides = 6
+
+	immediate_mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLES)
+
+	for i in range(points.size() - 1):
+		var a = points[i]
+		var b = points[i + 1]
+
+		var forward = (b - a).normalized()
+
+		var up = Vector3.UP
+		if abs(forward.dot(up)) > 0.9:
+			up = Vector3.RIGHT
+		var right = forward.cross(up).normalized()
+		var actual_up = right.cross(forward).normalized()
+
+		for s in range(sides):
+			var angle_a = (float(s) / sides) * TAU
+			var angle_b = (float(s + 1) / sides) * TAU
+
+			var offset_a = (cos(angle_a) * right + sin(angle_a) * actual_up) * rope_radius
+			var offset_b = (cos(angle_b) * right + sin(angle_b) * actual_up) * rope_radius
+
+			var normal_a = (cos(angle_a) * right + sin(angle_a) * actual_up).normalized()
+			var normal_b = (cos(angle_b) * right + sin(angle_b) * actual_up).normalized()
+
+			immediate_mesh.surface_set_normal(normal_a)
+			immediate_mesh.surface_add_vertex(a + offset_a)
+			immediate_mesh.surface_set_normal(normal_a)
+			immediate_mesh.surface_add_vertex(b + offset_a)
+			immediate_mesh.surface_set_normal(normal_b)
+			immediate_mesh.surface_add_vertex(a + offset_b)
+
+			immediate_mesh.surface_set_normal(normal_a)
+			immediate_mesh.surface_add_vertex(b + offset_a)
+			immediate_mesh.surface_set_normal(normal_b)
+			immediate_mesh.surface_add_vertex(b + offset_b)
+			immediate_mesh.surface_set_normal(normal_b)
+			immediate_mesh.surface_add_vertex(a + offset_b)
+
+	immediate_mesh.surface_end()
 
 
-func generate_rope():
-	var previous_node = rope_start
+func get_catenary_points() -> Array:
+	var start = endpoint_a.global_position
+	var end = endpoint_b.global_position
+	var points = []
 
-	rope_start.position = Vector3(0, 0, 0)
-	rope_end.position = Vector3(0, segment_count * segment_height, 0)
+	var slack = max(rope_length - start.distance_to(end), 0.0)
 
-	for i in range(segment_count):
-		var pin = PinJoint3D.new()
-		pin.position.y = i * segment_height
-		pin.set_param(PinJoint3D.PARAM_BIAS, PIN_BIAS)
+	var sag = slack * 2.0
 
-		var new_segment = segment_scene.instantiate()
-		add_child(new_segment)
-		new_segment.position.y = i * segment_height + segment_height / 2
-		new_segment.set_data(segment_radius, segment_height)
+	for i in range(segments + 1):
+		var t = float(i) / float(segments)
 
-		add_child(pin)
-		pin.node_a = pin.get_path_to(previous_node)
-		pin.node_b = pin.get_path_to(new_segment)
+		var x = lerp(start.x, end.x, t)
+		var z = lerp(start.z, end.z, t)
 
-		previous_node = new_segment
+		var y = lerp(start.y, end.y, t) - sag * t * (1.0 - t)
 
-	var pin = PinJoint3D.new()
-	pin.set_param(PinJoint3D.PARAM_BIAS, PIN_BIAS)
-	pin.position.y = segment_count * segment_height
+		points.append(Vector3(x, y, z))
 
-	add_child(pin)
-	pin.node_a = pin.get_path_to(previous_node)
-	pin.node_b = pin.get_path_to(rope_end)
-
-
-func check_rope():
-	var total_rope_length = segment_count * segment_height
-	var anchor_distance = rope_start.global_position.distance_to(rope_end.global_position)
-	var slack = total_rope_length - anchor_distance
-
-	return slack
+	return points
