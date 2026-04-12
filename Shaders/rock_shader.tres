@@ -1,0 +1,50 @@
+[gd_resource type="VisualShader" format=3 uid="uid://n0luw123hvv0"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_k6dvc"]
+noise_type = 3
+frequency = 0.0928
+fractal_gain = 0.8
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_dadd7"]
+noise = SubResource("FastNoiseLite_k6dvc")
+seamless = true
+
+[sub_resource type="VisualShaderNodeTexture3D" id="VisualShaderNodeTexture3D_0i2xl"]
+texture = SubResource("NoiseTexture3D_dadd7")
+
+[sub_resource type="VisualShaderNodeVaryingGetter" id="VisualShaderNodeVaryingGetter_1a1ci"]
+varying_name = "Position"
+varying_type = 4
+
+[sub_resource type="Gradient" id="Gradient_8x554"]
+offsets = PackedFloat32Array(0.11170213, 0.63297874, 0.85106385)
+colors = PackedColorArray(0, 0, 0, 1, 0.44659102, 0.36489162, 0.28788245, 1, 0.42352942, 0.38431373, 0.35686275, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ngxyt"]
+gradient = SubResource("Gradient_8x554")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_u04gg"]
+texture = SubResource("GradientTexture1D_ngxyt")
+
+[sub_resource type="VisualShaderNodeVaryingSetter" id="VisualShaderNodeVaryingSetter_qe5qx"]
+varying_name = "Position"
+varying_type = 4
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_8l4gm"]
+input_name = "vertex"
+
+[resource]
+varyings/Position = "0,4"
+nodes/vertex/2/node = SubResource("VisualShaderNodeVaryingSetter_qe5qx")
+nodes/vertex/2/position = Vector2(-300, 140)
+nodes/vertex/3/node = SubResource("VisualShaderNodeInput_8l4gm")
+nodes/vertex/3/position = Vector2(-700, 140)
+nodes/vertex/connections = PackedInt32Array(3, 0, 2, 0)
+nodes/fragment/0/position = Vector2(260, 140)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture3D_0i2xl")
+nodes/fragment/2/position = Vector2(-320, 120)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVaryingGetter_1a1ci")
+nodes/fragment/5/position = Vector2(-580, 220)
+nodes/fragment/6/node = SubResource("VisualShaderNodeTexture_u04gg")
+nodes/fragment/6/position = Vector2(-60, 100)
+nodes/fragment/connections = PackedInt32Array(5, 0, 2, 0, 2, 0, 6, 0, 6, 0, 0, 0)
