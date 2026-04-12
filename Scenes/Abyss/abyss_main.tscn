@@ -40,15 +40,15 @@ mesh = SubResource("PlaneMesh_e11qs")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=72805368]
 shape = SubResource("WorldBoundaryShape3D_5mi52")
 
-[node name="Node3D" parent="." unique_id=1872069197 instance=ExtResource("1_5p8cj")]
+[node name="Player" parent="." unique_id=1872069197 instance=ExtResource("1_5p8cj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1124934, 0)
 
 [node name="Ore" parent="." unique_id=1575974477 instance=ExtResource("2_e11qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9091748, 0.8252671, 0)
 
 [node name="Rope" parent="." unique_id=366522592 node_paths=PackedStringArray("endpoint_a", "endpoint_b") instance=ExtResource("4_sssut")]
-rope_length = 100.0
+rope_length = 10.0
 segments = 50
 rope_radius = 0.02
 endpoint_a = NodePath("../Ore")
-endpoint_b = NodePath("../Node3D")
+endpoint_b = NodePath("../Player")
