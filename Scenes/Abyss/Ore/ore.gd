@@ -35,6 +35,8 @@ func update_data():
 		# Set current health to max health
 		current_health = ore_type.health
 
+	Helper.apply_shader(model, ore_type.shader)
+
 
 func set_collisions():
 	var aabb := Helper.get_aabb(model)

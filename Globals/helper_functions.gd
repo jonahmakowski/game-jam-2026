@@ -36,3 +36,13 @@ static func get_inventory_counts() -> Dictionary[Item, int]:
 			to_return[item] = 1
 
 	return to_return
+
+
+static func apply_shader(node: Node3D, shader: Shader):
+	for child in node.get_children():
+		if child is MeshInstance3D:
+			var material := ShaderMaterial.new()
+			material.shader = shader
+			(child as MeshInstance3D).material_override = material
+		elif child is Node3D:
+			apply_shader(child, shader)
