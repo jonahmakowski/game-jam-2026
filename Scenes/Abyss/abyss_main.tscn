@@ -1,25 +1,27 @@
 [gd_scene format=3 uid="uid://cbleqvptdfd41"]
 
+[ext_resource type="Script" uid="uid://c6v314s2ud6qc" path="res://Scenes/Abyss/abyss_main.gd" id="1_5mi52"]
 [ext_resource type="PackedScene" uid="uid://bpdcf1nfa3e8l" path="res://Scenes/Abyss/Player/player.tscn" id="1_5p8cj"]
 [ext_resource type="PackedScene" uid="uid://c4vb6eds06c0n" path="res://Assets/Abyss/test terrain.blend" id="2_bd6b6"]
 [ext_resource type="PackedScene" uid="uid://dbi216gf0m628" path="res://Scenes/Abyss/Player/Rope/rope.tscn" id="4_sssut"]
 
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_e11qs"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e11qs"]
 
 [sub_resource type="Sky" id="Sky_bd6b6"]
-sky_material = SubResource("PhysicalSkyMaterial_e11qs")
+sky_material = SubResource("ProceduralSkyMaterial_e11qs")
 
 [sub_resource type="Environment" id="Environment_e11qs"]
 background_mode = 2
 sky = SubResource("Sky_bd6b6")
-ambient_light_source = 1
+ambient_light_color = Color(1, 1, 1, 1)
 tonemap_mode = 2
 glow_enabled = true
 
 [node name="AbyssMain" type="Node3D" unique_id=192705289]
+script = ExtResource("1_5mi52")
 
-[node name="DirectionalLight3D - Only Visible in Editor" type="DirectionalLight3D" parent="." unique_id=215530851]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=215530851]
+transform = Transform3D(1, 0, 0, 0, 0.79457355, -0.6071678, 0, 0.6071678, 0.79457355, 0, 0, 0)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1369933654]
@@ -35,6 +37,8 @@ transform = Transform3D(500, 0, 0, 0, 500, 0, 0, 0, 500, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 500, 0)
 
 [node name="Rope" parent="." unique_id=366522592 node_paths=PackedStringArray("endpoint_a", "endpoint_b") instance=ExtResource("4_sssut")]
-rope_length = 750.0
+rope_length = 1000.0
+rope_max_length = 1000.0
+segments = 200
 endpoint_a = NodePath("../Marker3D")
 endpoint_b = NodePath("../Player")

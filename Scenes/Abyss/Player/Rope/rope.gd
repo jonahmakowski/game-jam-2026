@@ -1,6 +1,8 @@
+class_name RopeScene
 extends Node3D
 
 @export var rope_length: float = 3.0
+@export var rope_max_length: float = 5.0
 @export var segments: int = 20
 @export var rope_radius: float = 0.02
 @export var endpoint_a: Node3D
@@ -17,11 +19,20 @@ func _ready():
 	immediate_mesh = ImmediateMesh.new()
 	mesh_instance.mesh = immediate_mesh
 
+	if endpoint_a.has_method("set_rope_scene"):
+		endpoint_a.set_rope_scene(self)
+	if endpoint_b.has_method("set_rope_scene"):
+		endpoint_b.set_rope_scene(self)
+
 
 func _process(_delta):
 	if endpoint_a == null or endpoint_b == null:
 		return
 	draw_rope()
+
+
+func get_span_distance() -> float:
+	return endpoint_a.global_position.distance_to(endpoint_b.global_position)
 
 
 func draw_rope():

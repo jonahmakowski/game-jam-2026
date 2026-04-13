@@ -1,12 +1,15 @@
+class_name PlayerScene
 extends CharacterBody3D
 
 const SPEED = 5.0
+const ROPE_SPEED = 100.0
 const JUMP_VELOCITY = 4.5
 const MOUSE_SENSATIVITY = 0.002
 const CONTROLLER_SENSATIVITY = 0.1
 const PITCH_LIMIT = 85.0
 
 var mining := false
+var rope_scene: RopeScene
 
 @onready var pivot_node: Node3D = %"Pivot Node"
 @onready var hud: HUD = %HUD
@@ -55,6 +58,25 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
+	# Rope Stuff
+	var other_endpoint := rope_scene.endpoint_a if rope_scene.endpoint_a != self else rope_scene.endpoint_b
+
+	var new_position := velocity + global_position
+
+	if other_endpoint.global_position.distance_to(new_position) > rope_scene.rope_max_length:
+		var distance_func := other_endpoint.global_position.distance_to
+		var max_length := rope_scene.rope_max_length
+
+		if distance_func.call(global_position + Vector3(velocity.x, 0, 0)) > max_length:
+			velocity.x = 0
+		if distance_func.call(global_position + Vector3(0, velocity.y, 0)) > max_length:
+			velocity.y = 0
+		if distance_func.call(global_position + Vector3(0, 0, velocity.z)) > max_length:
+			velocity.z = 0
+
+		if distance_func.call(global_position + velocity) > max_length:
+			velocity = -other_endpoint.global_position.direction_to(global_position) * ROPE_SPEED
+
 	move_and_slide()
 
 
@@ -75,6 +97,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			mine()
 	elif event.is_action_released("mine_attack"):
 		mining = false
+
+
+func set_rope_scene(scene: RopeScene):
+	rope_scene = scene
 
 
 func mine():
