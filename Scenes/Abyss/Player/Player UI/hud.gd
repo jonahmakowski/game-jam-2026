@@ -11,9 +11,12 @@ extends Control
 @onready var inventory_box: VBoxContainer = %InventoryBox
 
 
-func _process(_delta: float) -> void:
-	set_inventory(PlayerData.max_inventory_size, len(PlayerData.inventory))
+func _ready():
 	update_inventory_grid()
+
+
+func _process(_delta: float) -> void:
+	pass
 
 
 func _input(event: InputEvent) -> void:
@@ -34,6 +37,8 @@ func set_energy(full: int, current: float):
 
 
 func update_inventory_grid():
+	set_inventory(PlayerData.max_inventory_size, len(PlayerData.inventory))
+
 	var inventory_data = Helper.get_inventory_counts()
 
 	for child in inventory_box.get_children():

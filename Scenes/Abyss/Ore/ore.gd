@@ -45,12 +45,13 @@ func set_collisions():
 	collision_shape.shape = box
 
 
-func mine(damage: int, at_point: Vector3):
+func mine(damage: int):
 	current_health -= damage
 	scale *= 1.1
 	if current_health <= 0:
 		PlayerData.inventory.append(ore_type.to_drop)
+		get_tree().call_group("player", "update_inventory_grid")
 		queue_free()
-	
+
 	await get_tree().create_timer(0.1).timeout
-	scale = Vector3(1,1,1)
+	scale = Vector3(1, 1, 1)

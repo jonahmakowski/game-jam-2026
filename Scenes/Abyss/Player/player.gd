@@ -71,4 +71,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		if ray_cast_3d.is_colliding():
 			var looking_at = ray_cast_3d.get_collider()
 			if looking_at is OreScene:
-				(looking_at as OreScene).mine(1, ray_cast_3d.get_collision_point())
+				(looking_at as OreScene).mine(1)
+
+
+func update_inventory_grid():
+	hud.update_inventory_grid()
