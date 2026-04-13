@@ -6,6 +6,8 @@ const MOUSE_SENSATIVITY = 0.002
 const CONTROLLER_SENSATIVITY = 0.1
 const PITCH_LIMIT = 85.0
 
+var mining := false
+
 @onready var pivot_node: Node3D = %"Pivot Node"
 @onready var hud: HUD = %HUD
 @onready var ray_cast_3d: RayCast3D = %RayCast3D
@@ -68,10 +70,20 @@ func _input(event: InputEvent) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("mine_attack"):
+		mining = true
+		mine()
+	elif event.is_action_released("mine_attack"):
+		mining = false
+
+
+func mine():
+	while mining:
 		if ray_cast_3d.is_colliding():
 			var looking_at = ray_cast_3d.get_collider()
 			if looking_at is OreScene:
 				(looking_at as OreScene).mine(1)
+
+			await get_tree().create_timer(0.5).timeout
 
 
 func update_inventory_grid():
