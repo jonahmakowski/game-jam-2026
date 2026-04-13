@@ -70,8 +70,9 @@ func _input(event: InputEvent) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("mine_attack"):
-		mining = true
-		mine()
+		if ray_cast_3d.is_colliding():
+			mining = true
+			mine()
 	elif event.is_action_released("mine_attack"):
 		mining = false
 

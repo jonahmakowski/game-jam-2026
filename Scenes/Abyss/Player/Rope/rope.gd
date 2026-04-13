@@ -5,6 +5,8 @@ extends Node3D
 @export var rope_radius: float = 0.02
 @export var endpoint_a: Node3D
 @export var endpoint_b: Node3D
+@export var endpoint_a_offset := Vector3(0, 0, 0)
+@export var endpoint_b_offset := Vector3(0, 0, 0)
 
 var immediate_mesh: ImmediateMesh
 
@@ -70,8 +72,8 @@ func draw_rope():
 
 
 func get_catenary_points() -> Array:
-	var start = endpoint_a.global_position
-	var end = endpoint_b.global_position
+	var start = endpoint_a.global_position + endpoint_a_offset
+	var end = endpoint_b.global_position + endpoint_b_offset
 	var points = []
 
 	var slack = max(rope_length - start.distance_to(end), 0.0)
