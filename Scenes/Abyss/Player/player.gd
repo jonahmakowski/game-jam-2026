@@ -14,6 +14,7 @@ var rope_scene: RopeScene
 @onready var pivot_node: Node3D = %"Pivot Node"
 @onready var hud: HUD = %HUD
 @onready var ray_cast_3d: RayCast3D = %RayCast3D
+@onready var grappling_hook: GrapplingHookScene = %GrapplingHook
 
 
 func _ready():
@@ -49,14 +50,15 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 
 	# Movement
-	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+	if not grappling_hook.active: # Only if the grappling hook isn't pulling you right now
+		var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		if direction:
+			velocity.x = direction.x * SPEED
+			velocity.z = direction.z * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	# Rope Stuff
 	var other_endpoint := rope_scene.endpoint_a if rope_scene.endpoint_a != self else rope_scene.endpoint_b
@@ -97,6 +99,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			mine()
 	elif event.is_action_released("mine_attack"):
 		mining = false
+
+	if event.is_action_pressed("pull_me_in"):
+		rope_scene.rope_max_length = 0
 
 
 func set_rope_scene(scene: RopeScene):

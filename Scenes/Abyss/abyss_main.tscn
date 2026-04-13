@@ -20,10 +20,6 @@ glow_enabled = true
 [node name="AbyssMain" type="Node3D" unique_id=192705289]
 script = ExtResource("1_5mi52")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=215530851]
-transform = Transform3D(1, 0, 0, 0, 0.79457355, -0.6071678, 0, 0.6071678, 0.79457355, 0, 0, 0)
-shadow_enabled = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1369933654]
 environment = SubResource("Environment_e11qs")
 

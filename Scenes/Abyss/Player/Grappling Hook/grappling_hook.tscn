@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://us171jn1qsu8"]
+
+[ext_resource type="PackedScene" uid="uid://dbi216gf0m628" path="res://Scenes/Abyss/Player/Rope/rope.tscn" id="1_58u4i"]
+[ext_resource type="Script" uid="uid://cosojnl08q87x" path="res://Scenes/Abyss/Player/Grappling Hook/grappling_hook.gd" id="1_bl26g"]
+
+[node name="GrapplingHook" type="Node3D" unique_id=330750799]
+script = ExtResource("1_bl26g")
+
+[node name="Rope" parent="." unique_id=366522592 instance=ExtResource("1_58u4i")]
+unique_name_in_owner = true
+top_level = true
+visible = false
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1724266476]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -5)
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=904224032]
+unique_name_in_owner = true
+top_level = true

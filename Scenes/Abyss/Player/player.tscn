@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c17tq0ce3cdnu" path="res://Scenes/Abyss/Player/player.gd" id="1_uvnfx"]
 [ext_resource type="PackedScene" uid="uid://cws328fh74g2v" path="res://Scenes/Abyss/Player/Player UI/hud.tscn" id="2_vnmss"]
+[ext_resource type="PackedScene" uid="uid://us171jn1qsu8" path="res://Scenes/Abyss/Player/Grappling Hook/grappling_hook.tscn" id="3_exhu7"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tugb3"]
 
@@ -26,6 +27,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 unique_name_in_owner = true
 target_position = Vector3(0, 0, -5)
 collision_mask = 2
+
+[node name="GrapplingHook" parent="Pivot Node" unique_id=330750799 instance=ExtResource("3_exhu7")]
+unique_name_in_owner = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1178654271]
 

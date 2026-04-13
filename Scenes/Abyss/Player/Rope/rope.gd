@@ -19,9 +19,9 @@ func _ready():
 	immediate_mesh = ImmediateMesh.new()
 	mesh_instance.mesh = immediate_mesh
 
-	if endpoint_a.has_method("set_rope_scene"):
+	if endpoint_a != null and endpoint_a.has_method("set_rope_scene"):
 		endpoint_a.set_rope_scene(self)
-	if endpoint_b.has_method("set_rope_scene"):
+	if endpoint_b != null and endpoint_b.has_method("set_rope_scene"):
 		endpoint_b.set_rope_scene(self)
 
 
