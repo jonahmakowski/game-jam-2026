@@ -6,9 +6,6 @@
 
 [node name="Rope" type="Node3D" unique_id=366522592]
 script = ExtResource("1_8fxrn")
-rope_length = null
-segments = null
-rope_radius = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1719533568]
 mesh = SubResource("ImmediateMesh_klvi4")
