@@ -5,8 +5,6 @@ uniform float direction: hint_range(0.0, 1.0, 1.0) = 1;
 uniform float width: hint_range(0.0, 1.0) = 0.5;
 
 void fragment() {
-	vec2 centered_uv = UV - vec2(0.5);
-	
 	COLOR.rgb = vec3(1);
 	
 	float bottom_fade = 1. - smoothstep(0.5, (1. - width) / 2., UV.y);
