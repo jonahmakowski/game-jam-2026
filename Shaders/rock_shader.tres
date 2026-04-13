@@ -26,6 +26,10 @@ gradient = SubResource("Gradient_8x554")
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_u04gg"]
 texture = SubResource("GradientTexture1D_ngxyt")
 
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_k6dvc"]
+output_port_for_preview = 0
+source = 6
+
 [sub_resource type="VisualShaderNodeVaryingSetter" id="VisualShaderNodeVaryingSetter_qe5qx"]
 varying_name = "Position"
 varying_type = 4
@@ -47,4 +51,6 @@ nodes/fragment/5/node = SubResource("VisualShaderNodeVaryingGetter_1a1ci")
 nodes/fragment/5/position = Vector2(-580, 220)
 nodes/fragment/6/node = SubResource("VisualShaderNodeTexture_u04gg")
 nodes/fragment/6/position = Vector2(-60, 100)
-nodes/fragment/connections = PackedInt32Array(5, 0, 2, 0, 2, 0, 6, 0, 6, 0, 0, 0)
+nodes/fragment/7/node = SubResource("VisualShaderNodeTexture_k6dvc")
+nodes/fragment/7/position = Vector2(-80, 380)
+nodes/fragment/connections = PackedInt32Array(5, 0, 2, 0, 2, 0, 6, 0, 6, 0, 0, 0, 7, 0, 0, 8, 2, 0, 7, 0)
