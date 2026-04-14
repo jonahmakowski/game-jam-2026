@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c6v314s2ud6qc" path="res://Scenes/Abyss/abyss_main.gd" id="1_5mi52"]
 [ext_resource type="PackedScene" uid="uid://bpdcf1nfa3e8l" path="res://Scenes/Abyss/Player/player.tscn" id="1_5p8cj"]
-[ext_resource type="PackedScene" uid="uid://c4vb6eds06c0n" path="res://Assets/Abyss/test terrain.blend" id="2_bd6b6"]
+[ext_resource type="PackedScene" uid="uid://d1wvyhmob7123" path="res://Assets/Abyss/BlockyTerrain.blend" id="4_5mi52"]
 [ext_resource type="PackedScene" uid="uid://dbi216gf0m628" path="res://Scenes/Abyss/Player/Rope/rope.tscn" id="4_sssut"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e11qs"]
@@ -13,6 +13,7 @@ sky_material = SubResource("ProceduralSkyMaterial_e11qs")
 [sub_resource type="Environment" id="Environment_e11qs"]
 background_mode = 2
 sky = SubResource("Sky_bd6b6")
+ambient_light_source = 1
 ambient_light_color = Color(1, 1, 1, 1)
 tonemap_mode = 2
 glow_enabled = true
@@ -24,10 +25,7 @@ script = ExtResource("1_5mi52")
 environment = SubResource("Environment_e11qs")
 
 [node name="Player" parent="." unique_id=1872069197 instance=ExtResource("1_5p8cj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.63801, 1.1124934, -157.14574)
-
-[node name="test terrain" parent="." unique_id=2017062083 instance=ExtResource("2_bd6b6")]
-transform = Transform3D(500, 0, 0, 0, 500, 0, 0, 0, 500, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.871826, 1.1124924, 121.86817)
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=1227030913]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 500, 0)
@@ -38,3 +36,5 @@ rope_max_length = 1000.0
 segments = 200
 endpoint_a = NodePath("../Marker3D")
 endpoint_b = NodePath("../Player")
+
+[node name="BlockyTerrain" parent="." unique_id=478887450 instance=ExtResource("4_5mi52")]
