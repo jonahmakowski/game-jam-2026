@@ -23,6 +23,7 @@ func _physics_process(_delta: float) -> void:
 			player.velocity = Vector3.ZERO
 			active = false
 			rope.visible = false
+			player.jumps_left = player.MAX_JUMPS
 
 
 func activate():
