@@ -2,16 +2,18 @@ class_name PlayerScene
 extends CharacterBody3D
 
 const SPEED = 25.0
-const ROPE_SPEED = 100.0
+const ROPE_SPEED = 1000.0
 const JUMP_VELOCITY = 15.0
 const MAX_JUMPS = 2
 const MOUSE_SENSATIVITY = 0.002
 const CONTROLLER_SENSATIVITY = 0.1
 const PITCH_LIMIT = 85.0
+const GRAVITY_MULTIPLYER = 3
 
 var mining := false
 var jumps_left := MAX_JUMPS
 var rope_scene: RopeScene
+var other_rope_endpoint: Node3D
 
 @onready var pivot_node: Node3D = %"Pivot Node"
 @onready var hud: HUD = %HUD
@@ -45,12 +47,12 @@ func _process(_delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * delta * GRAVITY_MULTIPLYER
 
 	# Jumping
 	if is_on_floor():
 		jumps_left = MAX_JUMPS
-	
+
 	if Input.is_action_just_pressed("jump") and jumps_left > 0:
 		velocity.y = JUMP_VELOCITY
 		jumps_left -= 1
@@ -69,21 +71,18 @@ func _physics_process(delta: float) -> void:
 	# Rope Stuff
 	var other_endpoint := rope_scene.endpoint_a if rope_scene.endpoint_a != self else rope_scene.endpoint_b
 
-	var new_position := velocity + global_position
+	var new_position := (velocity * delta) + global_position
 
 	if other_endpoint.global_position.distance_to(new_position) > rope_scene.rope_max_length:
-		var distance_func := other_endpoint.global_position.distance_to
-		var max_length := rope_scene.rope_max_length
+		var sphere_pos = ((global_position - other_rope_endpoint.global_position).normalized() * rope_scene.rope_max_length) + other_rope_endpoint.global_position
 
-		if distance_func.call(global_position + Vector3(velocity.x, 0, 0)) > max_length:
-			velocity.x = 0
-		if distance_func.call(global_position + Vector3(0, velocity.y, 0)) > max_length:
-			velocity.y = 0
-		if distance_func.call(global_position + Vector3(0, 0, velocity.z)) > max_length:
-			velocity.z = 0
+		global_position = sphere_pos
 
-		if distance_func.call(global_position + velocity) > max_length:
-			velocity = -other_endpoint.global_position.direction_to(global_position) * ROPE_SPEED
+		var movement_vector := -other_endpoint.global_position.direction_to(global_position) * ROPE_SPEED
+		velocity.x = movement_vector.x
+		velocity.z = movement_vector.z
+
+		velocity.y = move_toward(velocity.y, 0, ROPE_SPEED)
 
 	move_and_slide()
 
@@ -110,8 +109,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		rope_scene.rope_max_length = 0
 
 
-func set_rope_scene(scene: RopeScene):
+func set_rope_scene(scene: RopeScene, other_endpoint: Node3D):
 	rope_scene = scene
+	other_rope_endpoint = other_endpoint
 
 
 func mine():

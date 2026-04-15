@@ -1,7 +1,7 @@
 class_name GrapplingHookScene
 extends Node3D
 
-const MAX_LENGTH = 50.0
+const MAX_LENGTH = 500000.0
 const SPEED = 100
 
 var active = false
