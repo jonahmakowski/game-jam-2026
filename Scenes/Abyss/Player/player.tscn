@@ -9,6 +9,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a3d8c"]
 
 [node name="Player" type="CharacterBody3D" unique_id=1872069197 groups=["player"]]
+floor_max_angle = 1.2217305
 script = ExtResource("1_uvnfx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1619420926]
@@ -38,6 +39,7 @@ unique_name_in_owner = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1319382313]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+light_color = Color(0.86756957, 0.791759, 0.7588569, 1)
 shadow_enabled = true
 distance_fade_enabled = true
 omni_range = 50.167

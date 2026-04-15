@@ -1,14 +1,16 @@
 class_name PlayerScene
 extends CharacterBody3D
 
-const SPEED = 5.0
+const SPEED = 25.0
 const ROPE_SPEED = 100.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 15.0
+const MAX_JUMPS = 2
 const MOUSE_SENSATIVITY = 0.002
 const CONTROLLER_SENSATIVITY = 0.1
 const PITCH_LIMIT = 85.0
 
 var mining := false
+var jumps_left := MAX_JUMPS
 var rope_scene: RopeScene
 
 @onready var pivot_node: Node3D = %"Pivot Node"
@@ -46,8 +48,12 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Jumping
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if is_on_floor():
+		jumps_left = MAX_JUMPS
+	
+	if Input.is_action_just_pressed("jump") and jumps_left > 0:
 		velocity.y = JUMP_VELOCITY
+		jumps_left -= 1
 
 	# Movement
 	if not grappling_hook.active: # Only if the grappling hook isn't pulling you right now

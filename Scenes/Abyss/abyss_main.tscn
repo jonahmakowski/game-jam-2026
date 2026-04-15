@@ -14,7 +14,6 @@ sky_material = SubResource("ProceduralSkyMaterial_e11qs")
 background_mode = 2
 sky = SubResource("Sky_bd6b6")
 ambient_light_source = 1
-ambient_light_color = Color(1, 1, 1, 1)
 tonemap_mode = 2
 glow_enabled = true
 
@@ -38,3 +37,9 @@ endpoint_a = NodePath("../Marker3D")
 endpoint_b = NodePath("../Player")
 
 [node name="BlockyTerrain" parent="." unique_id=478887450 instance=ExtResource("4_5mi52")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=365683459]
+light_color = Color(0.92796826, 0.75241417, 0.685216, 1)
+omni_range = 298.13
+omni_attenuation = 1.1
+omni_shadow_mode = 0
