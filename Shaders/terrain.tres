@@ -1,0 +1,88 @@
+[gd_resource type="VisualShader" format=3 uid="uid://cuiqab61s0g56"]
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_2hagu"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, Vector3(0.5, 0.5, 0.5)]
+op_type = 3
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_k6dvc"]
+noise_type = 2
+fractal_gain = 0.8
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_dadd7"]
+noise = SubResource("FastNoiseLite_k6dvc")
+seamless = true
+
+[sub_resource type="VisualShaderNodeTexture3D" id="VisualShaderNodeTexture3D_02w11"]
+texture = SubResource("NoiseTexture3D_dadd7")
+
+[sub_resource type="VisualShaderNodeVaryingGetter" id="VisualShaderNodeVaryingGetter_2hagu"]
+varying_name = "mesh_pos"
+varying_type = 4
+
+[sub_resource type="Gradient" id="Gradient_8x554"]
+offsets = PackedFloat32Array(0.17636363, 0.8545455, 0.93454546)
+colors = PackedColorArray(0, 0, 0, 1, 0.42769036, 0.36986238, 0.32336098, 1, 0.42352942, 0.38431373, 0.35686275, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ngxyt"]
+gradient = SubResource("Gradient_8x554")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_dor0a"]
+texture = SubResource("GradientTexture1D_ngxyt")
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_02w11"]
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_2hagu"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dor0a"]
+frequency = 0.7189
+fractal_gain = 0.8
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_sq7py"]
+noise = SubResource("FastNoiseLite_dor0a")
+seamless = true
+normalize = false
+
+[sub_resource type="VisualShaderNodeTexture3D" id="VisualShaderNodeTexture3D_u6s3a"]
+texture = SubResource("NoiseTexture3D_sq7py")
+
+[sub_resource type="VisualShaderNodeVaryingGetter" id="VisualShaderNodeVaryingGetter_0cama"]
+varying_name = "mesh_pos"
+varying_type = 4
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_8yk7a"]
+texture = SubResource("GradientTexture1D_ngxyt")
+
+[sub_resource type="VisualShaderNodeVaryingSetter" id="VisualShaderNodeVaryingSetter_sq7py"]
+varying_name = "mesh_pos"
+varying_type = 4
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_u6s3a"]
+input_name = "vertex"
+
+[resource]
+varyings/mesh_pos = "0,4"
+nodes/vertex/2/node = SubResource("VisualShaderNodeVaryingSetter_sq7py")
+nodes/vertex/2/position = Vector2(150, 140)
+nodes/vertex/3/node = SubResource("VisualShaderNodeInput_u6s3a")
+nodes/vertex/3/position = Vector2(-250, 140)
+nodes/vertex/connections = PackedInt32Array(3, 0, 2, 0)
+nodes/fragment/0/position = Vector2(430, 150)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture3D_02w11")
+nodes/fragment/2/position = Vector2(-210, 180)
+nodes/fragment/3/node = SubResource("VisualShaderNodeVaryingGetter_2hagu")
+nodes/fragment/3/position = Vector2(-470, 280)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_dor0a")
+nodes/fragment/4/position = Vector2(0, 160)
+nodes/fragment/5/node = SubResource("VisualShaderNodeMix_02w11")
+nodes/fragment/5/position = Vector2(200, 320)
+nodes/fragment/6/node = SubResource("VisualShaderNodeFloatConstant_2hagu")
+nodes/fragment/6/position = Vector2(-30, 420)
+nodes/fragment/7/node = SubResource("VisualShaderNodeTexture3D_u6s3a")
+nodes/fragment/7/position = Vector2(-260, -90)
+nodes/fragment/8/node = SubResource("VisualShaderNodeVaryingGetter_0cama")
+nodes/fragment/8/position = Vector2(-520, 10)
+nodes/fragment/9/node = SubResource("VisualShaderNodeTexture_8yk7a")
+nodes/fragment/9/position = Vector2(-50, -110)
+nodes/fragment/10/node = SubResource("VisualShaderNodeMix_2hagu")
+nodes/fragment/10/position = Vector2(190, 40)
+nodes/fragment/connections = PackedInt32Array(3, 0, 2, 0, 2, 0, 4, 0, 4, 0, 5, 0, 6, 0, 5, 1, 5, 0, 0, 2, 8, 0, 7, 0, 7, 0, 9, 0, 4, 0, 10, 0, 10, 0, 0, 0, 9, 0, 10, 1)

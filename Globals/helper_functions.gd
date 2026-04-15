@@ -44,5 +44,5 @@ static func apply_shader(node: Node3D, shader: Shader):
 			var material := ShaderMaterial.new()
 			material.shader = shader
 			(child as MeshInstance3D).material_override = material
-		elif child is Node3D:
+		else:
 			apply_shader(child, shader)

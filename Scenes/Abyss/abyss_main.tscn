@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c6v314s2ud6qc" path="res://Scenes/Abyss/abyss_main.gd" id="1_5mi52"]
 [ext_resource type="PackedScene" uid="uid://bpdcf1nfa3e8l" path="res://Scenes/Abyss/Player/player.tscn" id="1_5p8cj"]
+[ext_resource type="Shader" uid="uid://cuiqab61s0g56" path="res://Shaders/terrain.tres" id="2_sssut"]
 [ext_resource type="PackedScene" uid="uid://d1wvyhmob7123" path="res://Assets/Abyss/BlockyTerrain.blend" id="4_5mi52"]
 [ext_resource type="PackedScene" uid="uid://dbi216gf0m628" path="res://Scenes/Abyss/Player/Rope/rope.tscn" id="4_sssut"]
 
@@ -19,6 +20,7 @@ glow_enabled = true
 
 [node name="AbyssMain" type="Node3D" unique_id=192705289]
 script = ExtResource("1_5mi52")
+shader = ExtResource("2_sssut")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1369933654]
 environment = SubResource("Environment_e11qs")
@@ -36,10 +38,11 @@ segments = 200
 endpoint_a = NodePath("../Marker3D")
 endpoint_b = NodePath("../Player")
 
-[node name="BlockyTerrain" parent="." unique_id=478887450 instance=ExtResource("4_5mi52")]
+[node name="BlockyTerrain" parent="." unique_id=787261422 instance=ExtResource("4_5mi52")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=365683459]
 light_color = Color(0.92796826, 0.75241417, 0.685216, 1)
-omni_range = 298.13
-omni_attenuation = 1.1
+light_energy = 4.0
+omni_range = 400.0
+omni_attenuation = 0.9
 omni_shadow_mode = 0
