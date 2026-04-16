@@ -5,6 +5,8 @@
 [ext_resource type="Shader" uid="uid://cuiqab61s0g56" path="res://Shaders/terrain.tres" id="2_sssut"]
 [ext_resource type="PackedScene" uid="uid://d1wvyhmob7123" path="res://Assets/Abyss/blocky_terrain.blend" id="4_5mi52"]
 [ext_resource type="PackedScene" uid="uid://dbi216gf0m628" path="res://Scenes/Abyss/Player/Rope/rope.tscn" id="4_sssut"]
+[ext_resource type="PackedScene" uid="uid://bduqu4d41gay2" path="res://Scenes/Abyss/Monster/monster.tscn" id="6_72x5s"]
+[ext_resource type="Resource" uid="uid://b6j4q5yinv5y1" path="res://Resources/Monster/test_monster.tres" id="7_nbspt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e11qs"]
 
@@ -26,7 +28,7 @@ shader = ExtResource("2_sssut")
 environment = SubResource("Environment_e11qs")
 
 [node name="Player" parent="." unique_id=1872069197 instance=ExtResource("1_5p8cj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.871826, 1.1124924, 121.86817)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9308853, 1.1124924, 121.86817)
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=1227030913]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 500, 0)
@@ -46,3 +48,7 @@ light_energy = 4.0
 omni_range = 400.0
 omni_attenuation = 0.9
 omni_shadow_mode = 0
+
+[node name="Monster" parent="." unique_id=1878962030 instance=ExtResource("6_72x5s")]
+transform = Transform3D(1, 0, 0, 0, -0.10419868, -0.9945565, 0, 0.9945565, -0.10419868, 11.135822, 14.486916, 73.56706)
+monster_data = ExtResource("7_nbspt")

@@ -7,3 +7,5 @@ extends Resource
 @export var health: int
 @export var damage: float
 @export var speed: float
+@export var agro_range: float
+@export_enum("flying") var monster_type = "flying"
