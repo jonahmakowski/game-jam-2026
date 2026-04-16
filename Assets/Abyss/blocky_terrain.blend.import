@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c4vb6eds06c0n"
-path="res://.godot/imported/test terrain.blend-9200bfc6e1397203448ecf11949843e0.scn"
+uid="uid://d1wvyhmob7123"
+path="res://.godot/imported/blocky_terrain.blend-401744f37592e62c2c2316f5f926dd12.scn"
 
 [deps]
 
-source_file="res://Assets/Abyss/test terrain.blend"
-dest_files=["res://.godot/imported/test terrain.blend-9200bfc6e1397203448ecf11949843e0.scn"]
+source_file="res://Assets/Abyss/blocky_terrain.blend"
+dest_files=["res://.godot/imported/blocky_terrain.blend-401744f37592e62c2c2316f5f926dd12.scn"]
 
 [params]
 
