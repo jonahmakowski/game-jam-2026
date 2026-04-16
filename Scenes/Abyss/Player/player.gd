@@ -14,6 +14,7 @@ var mining := false
 var jumps_left := MAX_JUMPS
 var rope_scene: RopeScene
 var other_rope_endpoint: Node3D
+var pulling_in := false
 
 @onready var pivot_node: Node3D = %"Pivot Node"
 @onready var hud: HUD = %HUD
@@ -82,9 +83,13 @@ func _physics_process(delta: float) -> void:
 		velocity.x = movement_vector.x
 		velocity.z = movement_vector.z
 
-		velocity.y = move_toward(velocity.y, 0, ROPE_SPEED)
+		velocity.y = move_toward(velocity.y, 0, ROPE_SPEED * delta)
 
 	move_and_slide()
+
+	# Pulling in
+	if pulling_in:
+		rope_scene.rope_max_length = move_toward(rope_scene.rope_max_length, 0, ROPE_SPEED * delta)
 
 
 func _input(event: InputEvent) -> void:
@@ -106,7 +111,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		mining = false
 
 	if event.is_action_pressed("pull_me_in"):
-		rope_scene.rope_max_length = 0
+		pulling_in = true
 
 
 func set_rope_scene(scene: RopeScene, other_endpoint: Node3D):
