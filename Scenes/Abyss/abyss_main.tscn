@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://d1wvyhmob7123" path="res://Assets/Abyss/blocky_terrain.blend" id="4_5mi52"]
 [ext_resource type="PackedScene" uid="uid://dbi216gf0m628" path="res://Scenes/Abyss/Player/Rope/rope.tscn" id="4_sssut"]
 [ext_resource type="PackedScene" uid="uid://bduqu4d41gay2" path="res://Scenes/Abyss/Monster/monster.tscn" id="6_72x5s"]
-[ext_resource type="Resource" uid="uid://b6j4q5yinv5y1" path="res://Resources/Monster/test_monster.tres" id="7_nbspt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e11qs"]
 
@@ -40,7 +39,7 @@ segments = 200
 endpoint_a = NodePath("../Marker3D")
 endpoint_b = NodePath("../Player")
 
-[node name="BlockyTerrain" parent="." unique_id=787261422 instance=ExtResource("4_5mi52")]
+[node name="BlockyTerrain" parent="." unique_id=1762955005 instance=ExtResource("4_5mi52")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=365683459]
 light_color = Color(0.92796826, 0.75241417, 0.685216, 1)
@@ -50,5 +49,4 @@ omni_attenuation = 0.9
 omni_shadow_mode = 0
 
 [node name="Monster" parent="." unique_id=1878962030 instance=ExtResource("6_72x5s")]
-transform = Transform3D(1, 0, 0, 0, -0.10419868, -0.9945565, 0, 0.9945565, -0.10419868, 11.135822, 14.486916, 73.56706)
-monster_data = ExtResource("7_nbspt")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50.848324)
