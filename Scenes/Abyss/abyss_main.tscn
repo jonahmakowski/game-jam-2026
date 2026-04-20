@@ -49,4 +49,4 @@ omni_attenuation = 0.9
 omni_shadow_mode = 0
 
 [node name="Monster" parent="." unique_id=1878962030 instance=ExtResource("6_72x5s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50.848324)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 109.71759)
