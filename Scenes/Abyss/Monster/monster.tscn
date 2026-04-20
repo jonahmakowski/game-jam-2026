@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bduqu4d41gay2"]
+
+[ext_resource type="Script" uid="uid://b3o2f4wn3ophe" path="res://Scenes/Abyss/Monster/monster.gd" id="1_cvh87"]
+[ext_resource type="Resource" uid="uid://b6j4q5yinv5y1" path="res://Resources/Monster/test_monster.tres" id="2_mckwc"]
+
+[node name="Monster" type="CharacterBody3D" unique_id=1878962030 groups=["monster"]]
+script = ExtResource("1_cvh87")
+monster_data = ExtResource("2_mckwc")
+
+[node name="PlayerFinder" type="RayCast3D" parent="." unique_id=1664239964]
+unique_name_in_owner = true
+
+[node name="Model" type="Node3D" parent="." unique_id=1227177616]
+unique_name_in_owner = true
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=582580617]
+unique_name_in_owner = true
+path_desired_distance = 5.0
+debug_enabled = true
