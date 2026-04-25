@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://bo8rf66bpefv5" path="res://Resources/Ore/test_ore.tres" id="2_aq6hm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aq6hm"]
-size = Vector3(1.4816924, 1.5268981, 1.5113955)
+size = Vector3(10.877651, 6.7782497, 9.810534)
 
 [node name="Ore" type="StaticBody3D" unique_id=1575974477]
 collision_layer = 7

@@ -35,7 +35,7 @@ func update_data():
 		# Set current health to max health
 		current_health = ore_type.health
 
-	Helper.apply_shader(model, ore_type.shader)
+	Helper.apply_shader(model, ore_type.rock_shader)
 
 
 func set_collisions():

@@ -5,4 +5,5 @@ extends Resource
 @export var to_drop: Item
 @export var model: PackedScene
 @export var health: int
-@export var shader: Shader
+@export var rock_shader: Shader
+@export var mineral_shader: Shader
