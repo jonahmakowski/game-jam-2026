@@ -2,7 +2,7 @@ class_name PlayerScene
 extends CharacterBody3D
 
 const SPEED = 25.0
-const ROPE_SPEED = 1000.0
+const ROPE_SPEED = 100.0
 const JUMP_VELOCITY = 15.0
 const MAX_JUMPS = 2
 const MOUSE_SENSATIVITY = 0.002
@@ -90,6 +90,9 @@ func _physics_process(delta: float) -> void:
 	# Pulling in
 	if pulling_in:
 		rope_scene.rope_max_length = move_toward(rope_scene.rope_max_length, 0, ROPE_SPEED * delta)
+		rope_scene.rope_length = rope_scene.rope_max_length
+		if rope_scene.rope_max_length == 0:
+			get_parent().end_day()
 
 
 func _input(event: InputEvent) -> void:

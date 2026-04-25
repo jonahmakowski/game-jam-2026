@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Monster" format=3 uid="uid://b6j4q5yinv5y1"]
 
 [ext_resource type="Script" uid="uid://dceb3b0r0qgmv" path="res://Resources/Definitions/monster.gd" id="1_r2adf"]
-[ext_resource type="PackedScene" uid="uid://bxpjk1m6nn36l" path="res://Assets/Abyss/Fox(WIP).blend" id="1_y1xf5"]
+[ext_resource type="PackedScene" uid="uid://jmijll1b4iwy" path="res://Assets/Abyss/Fox(Rigged).blend" id="1_y1xf5"]
 
 [resource]
 script = ExtResource("1_r2adf")
