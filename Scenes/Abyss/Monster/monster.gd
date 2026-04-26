@@ -2,16 +2,29 @@
 class_name MonsterScene
 extends CharacterBody3D
 
+const HEALTH_OFFSET = 1
+
 @export var monster_data: Monster
+
+var current_health
 
 @onready var player_finder: RayCast3D = %PlayerFinder
 @onready var player: PlayerScene = get_tree().get_first_node_in_group("player")
 @onready var model: Node3D = %Model
 @onready var nav_agent: NavigationAgent3D = %NavigationAgent3D
+@onready var health_bar: TextureProgressBar = %HealthBar
+@onready var health_text: Label = %HealthText
+@onready var health_3d_sprite: Sprite3D = %Health3DSprite
 
 
 func _ready() -> void:
 	model.add_child(monster_data.model.instantiate())
+	health_3d_sprite.position.y = Helper.get_aabb(model).size.y + HEALTH_OFFSET
+	current_health = monster_data.health
+
+
+func _process(_delta: float) -> void:
+	update_health_bar()
 
 
 func _physics_process(_delta: float) -> void:
@@ -51,3 +64,10 @@ func can_see_player() -> bool:
 			return true
 
 	return false
+
+
+func update_health_bar() -> void:
+	health_bar.max_value = monster_data.health
+	health_bar.value = current_health
+
+	health_text.text = "%d/%d" % [current_health, monster_data.health]

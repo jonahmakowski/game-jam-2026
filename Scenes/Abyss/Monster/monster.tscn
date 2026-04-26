@@ -3,6 +3,15 @@
 [ext_resource type="Script" uid="uid://b3o2f4wn3ophe" path="res://Scenes/Abyss/Monster/monster.gd" id="1_cvh87"]
 [ext_resource type="Resource" uid="uid://b6j4q5yinv5y1" path="res://Resources/Monster/test_monster.tres" id="2_mckwc"]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_mckwc"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Gradient" id="Gradient_e1tm5"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q7yw2"]
+gradient = SubResource("Gradient_e1tm5")
+
 [node name="Monster" type="CharacterBody3D" unique_id=1878962030 groups=["monster"]]
 script = ExtResource("1_cvh87")
 monster_data = ExtResource("2_mckwc")
@@ -17,3 +26,38 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 path_desired_distance = 5.0
 debug_enabled = true
+
+[node name="Health3DSprite" type="Sprite3D" parent="." unique_id=1914067445]
+unique_name_in_owner = true
+pixel_size = 0.003
+billboard = 1
+texture = SubResource("ViewportTexture_mckwc")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=252946001]
+transparent_bg = true
+size = Vector2i(1024, 1024)
+
+[node name="CenterContainer" type="CenterContainer" parent="SubViewport" unique_id=1997526810]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBar" type="TextureProgressBar" parent="SubViewport/CenterContainer" unique_id=565988282]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(512, 20)
+layout_mode = 2
+value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 20
+stretch_margin_top = 20
+stretch_margin_right = 20
+stretch_margin_bottom = 20
+texture_progress = SubResource("GradientTexture1D_q7yw2")
+
+[node name="HealthText" type="Label" parent="SubViewport/CenterContainer" unique_id=2050941979]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "x/x"
