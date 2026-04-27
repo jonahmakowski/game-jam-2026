@@ -2,7 +2,7 @@
 class_name MonsterScene
 extends CharacterBody3D
 
-const HEALTH_OFFSET = 1
+const HEALTH_OFFSET = 0.5
 
 @export var monster_data: Monster
 
