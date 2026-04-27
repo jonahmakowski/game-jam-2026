@@ -50,7 +50,7 @@ func mine(damage: int):
 	scale *= 1.1
 	if current_health <= 0:
 		PlayerData.inventory.append(ore_type.to_drop)
-		get_tree().call_group("player", "update_inventory_grid")
+		EventBus.update_inventory.emit()
 		queue_free()
 
 	await get_tree().create_timer(0.1).timeout

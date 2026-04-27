@@ -13,6 +13,7 @@ extends Control
 
 func _ready():
 	update_inventory_grid()
+	EventBus.update_inventory.connect(update_inventory_grid)
 
 
 func _process(_delta: float) -> void:

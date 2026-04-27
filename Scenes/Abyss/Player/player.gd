@@ -108,8 +108,12 @@ func _input(event: InputEvent) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("mine_attack"):
 		if ray_cast_3d.is_colliding():
-			mining = true
-			mine()
+			var looking_at = ray_cast_3d.get_collider()
+			if looking_at is OreScene:
+				mining = true
+				mine()
+			elif looking_at is MonsterScene:
+				attack_monster(looking_at)
 	elif event.is_action_released("mine_attack"):
 		mining = false
 
@@ -122,6 +126,10 @@ func set_rope_scene(scene: RopeScene, other_endpoint: Node3D):
 	other_rope_endpoint = other_endpoint
 
 
+func attack_monster(monster: MonsterScene):
+	monster.take_damage(PlayerData.enemy_damage)
+
+
 func mine():
 	while mining:
 		if ray_cast_3d.is_colliding():
@@ -130,7 +138,3 @@ func mine():
 				(looking_at as OreScene).mine(1)
 
 			await get_tree().create_timer(0.5).timeout
-
-
-func update_inventory_grid():
-	hud.update_inventory_grid()
