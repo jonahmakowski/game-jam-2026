@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bp6i03vvkg2ul"
-path="res://.godot/imported/Ore1.blend-7385bc5b90599c4cb176d63ab9c9e542.scn"
+path="res://.godot/imported/Ore.blend-41dbb247f63685189f88318d181f18c8.scn"
 
 [deps]
 
-source_file="res://Assets/Abyss/Ore1.blend"
-dest_files=["res://.godot/imported/Ore1.blend-7385bc5b90599c4cb176d63ab9c9e542.scn"]
+source_file="res://Assets/Abyss/Ore/Ore.blend"
+dest_files=["res://.godot/imported/Ore.blend-41dbb247f63685189f88318d181f18c8.scn"]
 
 [params]
 
@@ -37,7 +37,28 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"meshes": {
+"Ore_Icosphere": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Abyss/Ore/rock.tres",
+"save_to_file/path": "uid://b6nwe8h5u08ow"
+},
+"Ore_Icosphere_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Abyss/Ore/ore.tres",
+"save_to_file/path": "uid://b8t22qk1doyd2"
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

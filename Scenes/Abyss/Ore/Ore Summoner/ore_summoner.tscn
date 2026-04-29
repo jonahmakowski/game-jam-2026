@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://by1ssldc3md2j"]
+
+[ext_resource type="Script" uid="uid://cj88flk5n45w7" path="res://Scenes/Abyss/Ore/Ore Summoner/ore_summoner.gd" id="1_7kj50"]
+[ext_resource type="PackedScene" uid="uid://b6ydojbgko7ok" path="res://Scenes/Abyss/Ore/ore.tscn" id="2_oetmt"]
+
+[node name="OreSummoner" type="Marker3D" unique_id=691576553]
+script = ExtResource("1_7kj50")
+ore_scene = ExtResource("2_oetmt")

@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://r22344j6hpqw" path="res://Scenes/Abyss/Ore/ore.gd" id="1_aq6hm"]
 [ext_resource type="Resource" uid="uid://bo8rf66bpefv5" path="res://Resources/Ore/test_ore.tres" id="2_aq6hm"]
+[ext_resource type="ArrayMesh" uid="uid://r51cmvmlkavt" path="res://Assets/Abyss/Ore/ore.tres" id="3_ih5we"]
+[ext_resource type="ArrayMesh" uid="uid://bpqw81p586xvs" path="res://Assets/Abyss/Ore/rock.tres" id="4_2lsbe"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_aq6hm"]
-size = Vector3(10.877651, 6.7782497, 9.810534)
+[sub_resource type="BoxShape3D" id="BoxShape3D_a07hb"]
+size = Vector3(1.704747, 1.500017, 1.6065595)
 
 [node name="Ore" type="StaticBody3D" unique_id=1575974477]
 collision_layer = 7
@@ -14,6 +16,14 @@ ore_type = ExtResource("2_aq6hm")
 [node name="Model" type="Node3D" parent="." unique_id=1323842623]
 unique_name_in_owner = true
 
+[node name="OreModel" type="MeshInstance3D" parent="Model" unique_id=2059226081]
+unique_name_in_owner = true
+mesh = ExtResource("3_ih5we")
+
+[node name="RockModel" type="MeshInstance3D" parent="Model" unique_id=161567288]
+unique_name_in_owner = true
+mesh = ExtResource("4_2lsbe")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=159637619]
 unique_name_in_owner = true
-shape = SubResource("BoxShape3D_aq6hm")
+shape = SubResource("BoxShape3D_a07hb")

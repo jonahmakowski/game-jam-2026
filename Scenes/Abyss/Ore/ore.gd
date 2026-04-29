@@ -12,6 +12,8 @@ var current_health: int
 
 @onready var model: Node3D = %Model
 @onready var collision_shape: CollisionShape3D = %CollisionShape3D
+@onready var ore_model: MeshInstance3D = %OreModel
+@onready var rock_model: MeshInstance3D = %RockModel
 
 
 func _ready() -> void:
@@ -22,12 +24,9 @@ func update_data():
 	if not is_node_ready():
 		return
 
-	# Set model to the one from the ore_type var
-	for child in model.get_children():
-		child.queue_free()
-
 	if ore_type != null:
-		model.add_child(ore_type.model.instantiate())
+		ore_model.mesh = ore_type.ore_part
+		rock_model.mesh = ore_type.rock_part
 
 		# Update collisions to the new model
 		set_collisions()
@@ -35,7 +34,14 @@ func update_data():
 		# Set current health to max health
 		current_health = ore_type.health
 
-	Helper.apply_shader(model, ore_type.rock_shader)
+	var ore_material = ShaderMaterial.new()
+	ore_material.shader = ore_type.mineral_shader
+
+	var rock_material = ShaderMaterial.new()
+	rock_material.shader = ore_type.rock_shader
+
+	rock_model.set_surface_override_material(0, rock_material)
+	ore_model.set_surface_override_material(0, ore_material)
 
 
 func set_collisions():
