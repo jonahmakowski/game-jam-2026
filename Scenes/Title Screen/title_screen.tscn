@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://vybwff4m1dx1" path="res://Scenes/Title Screen/title_screen.gd" id="1_2mq87"]
 [ext_resource type="PackedScene" uid="uid://cbleqvptdfd41" path="res://Scenes/Abyss/abyss_main.tscn" id="2_5dsjl"]
+[ext_resource type="PackedScene" uid="uid://uukcuud6ijyp" path="res://Scenes/Title Screen/Settings/settings.tscn" id="3_wwswu"]
 
 [node name="TitleScreen" type="Control" unique_id=1666129906]
 layout_mode = 3
@@ -65,4 +66,10 @@ text = "Credits"
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="Settings" parent="." unique_id=1129240059 instance=ExtResource("3_wwswu")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

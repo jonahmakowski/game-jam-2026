@@ -20,10 +20,12 @@ var pulling_in := false
 @onready var hud: HUD = %HUD
 @onready var ray_cast_3d: RayCast3D = %RayCast3D
 @onready var grappling_hook: GrapplingHookScene = %GrapplingHook
+@onready var camera: Camera3D = %Camera3D
 
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	camera.fov = PlayerData.loaded_settings.fov
 
 
 func _process(_delta: float) -> void:

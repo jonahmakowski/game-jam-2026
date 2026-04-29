@@ -46,3 +46,14 @@ static func apply_shader(node: Node3D, shader: Shader):
 			(child as MeshInstance3D).material_override = material
 		else:
 			apply_shader(child, shader)
+
+
+static func save_settings(settings: Settings) -> void:
+	ResourceSaver.save(settings, Constants.SETTINGS_SAVE_PATH)
+
+
+static func load_settings() -> Settings:
+	if ResourceLoader.exists(Constants.SETTINGS_SAVE_PATH):
+		return ResourceLoader.load(Constants.SETTINGS_SAVE_PATH)
+	else:
+		return Settings.new()

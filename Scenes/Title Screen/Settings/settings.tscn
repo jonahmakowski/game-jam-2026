@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://uukcuud6ijyp"]
+
+[ext_resource type="Script" uid="uid://d06egcl1fiajb" path="res://Scenes/Title Screen/Settings/settings.gd" id="1_q8qdb"]
+
+[node name="Settings" type="Control" unique_id=1129240059]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q8qdb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=510694828]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer" unique_id=4551663]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 1
+tab_1/title = "Game Settings"
+
+[node name="Video" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=2017718206]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/Video" unique_id=1231977488]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/Video/MarginContainer" unique_id=1257886268]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Video/MarginContainer/GridContainer" unique_id=1754791527]
+layout_mode = 2
+text = "FOV"
+
+[node name="FOVSetting" type="SpinBox" parent="VBoxContainer/TabContainer/Video/MarginContainer/GridContainer" unique_id=1213376005]
+unique_name_in_owner = true
+layout_mode = 2
+value = 75.0
+rounded = true
+alignment = 1
+custom_arrow_step = 1.0
+custom_arrow_round = true
+
+[node name="GameSettings" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=128707626]
+layout_mode = 2
+metadata/_tab_index = 1
+metadata/_tab_name = "Game Settings"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/GameSettings" unique_id=1946764908]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/GameSettings/MarginContainer" unique_id=1055085704]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/GameSettings/MarginContainer/GridContainer" unique_id=818332526]
+layout_mode = 2
+text = "Enemy Health Bar Visibility"
+
+[node name="ShowEnemyHealthModeSetting" type="OptionButton" parent="VBoxContainer/TabContainer/GameSettings/MarginContainer/GridContainer" unique_id=1997054521]
+unique_name_in_owner = true
+layout_mode = 2
+allow_reselect = true
+item_count = 3
+popup/item_0/text = "On Agro"
+popup/item_0/id = 0
+popup/item_1/text = "Always"
+popup/item_1/id = 1
+popup/item_2/text = "Never"
+popup/item_2/id = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1890088538]
+layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1547180137]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cancel"
+
+[node name="Spacer" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=348407484]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ApplyButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1805958696]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Apply"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ApplyButton" to="." method="_on_apply_button_pressed"]

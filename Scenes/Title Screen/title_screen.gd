@@ -8,6 +8,7 @@ var current_tween: Tween
 @onready var settings_button: Button = %SettingsButton
 @onready var credits_button: Button = %CreditsButton
 @onready var buttons: Array[Button] = [%StartButton, %SettingsButton, %CreditsButton]
+@onready var settings: Control = %Settings
 
 
 func _ready():
@@ -37,3 +38,7 @@ func reset_button(button: Button):
 
 func _on_start_button_pressed() -> void:
 	get_tree().change_scene_to_packed(start_scene)
+
+
+func _on_settings_button_pressed() -> void:
+	settings.show()

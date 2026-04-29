@@ -10,6 +10,7 @@ script = ExtResource("1_bl26g")
 unique_name_in_owner = true
 top_level = true
 visible = false
+rope_slack = 0.0
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=1724266476]
 unique_name_in_owner = true

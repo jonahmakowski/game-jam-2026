@@ -1,7 +1,7 @@
 class_name RopeScene
 extends Node3D
 
-@export var rope_length: float = 3.0
+@export var rope_slack: float = 250.0
 @export var rope_max_length: float = 5.0
 @export var segments: int = 20
 @export var rope_radius: float = 0.02
@@ -10,6 +10,7 @@ extends Node3D
 @export var endpoint_a_offset := Vector3(0, 0, 0)
 @export var endpoint_b_offset := Vector3(0, 0, 0)
 
+var rope_length: float
 var immediate_mesh: ImmediateMesh
 
 @onready var mesh_instance: MeshInstance3D = $MeshInstance3D
@@ -28,6 +29,7 @@ func _ready():
 func _process(_delta):
 	if endpoint_a == null or endpoint_b == null:
 		return
+	rope_length = min(endpoint_a.global_position.distance_to(endpoint_b.global_position) + rope_slack, rope_max_length)
 	draw_rope()
 
 

@@ -23,6 +23,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Pivot Node" unique_id=78418270]
+unique_name_in_owner = true
 
 [node name="RayCast3D" type="RayCast3D" parent="Pivot Node" unique_id=1600897517]
 unique_name_in_owner = true
