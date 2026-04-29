@@ -9,7 +9,7 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	rope.visible = PlayerData.loaded_settings.show_rope
+	rope.visible = Globals.loaded_settings.show_rope
 
 	Helper.apply_shader($BlockyTerrain, shader)
 	($BlockyTerrain.get_children().filter(func(node): return node is NavigationRegion3D)[0] as NavigationRegion3D).navigation_mesh.agent_max_slope = 90

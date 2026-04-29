@@ -1,6 +1,6 @@
 extends Control
 
-var settings := PlayerData.loaded_settings
+var settings := Globals.loaded_settings
 
 @onready var fov_setting: SpinBox = %FOVSetting
 @onready var show_enemy_health_mode_setting: OptionButton = %ShowEnemyHealthModeSetting
@@ -24,7 +24,7 @@ func save_settings():
 	new_settings.show_rope = show_rope_setting.get_selected_id()
 
 	Helper.save_settings(new_settings)
-	PlayerData.loaded_settings = new_settings
+	Globals.loaded_settings = new_settings
 	settings = new_settings
 
 

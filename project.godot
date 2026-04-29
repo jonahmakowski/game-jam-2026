@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-PlayerData="*uid://ccnojoofy1yun"
+Globals="*uid://ccnojoofy1yun"
 EventBus="*uid://cr5i7mk2fg1ec"
 
 [display]

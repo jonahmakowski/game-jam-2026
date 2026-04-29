@@ -25,7 +25,7 @@ var pulling_in := false
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	camera.fov = PlayerData.loaded_settings.fov
+	camera.fov = Globals.loaded_settings.fov
 
 
 func _process(_delta: float) -> void:
@@ -129,7 +129,7 @@ func set_rope_scene(scene: RopeScene, other_endpoint: Node3D):
 
 
 func attack_monster(monster: MonsterScene):
-	monster.take_damage(PlayerData.enemy_damage)
+	monster.take_damage(Globals.player_data.enemy_damage)
 
 
 func mine():

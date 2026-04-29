@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d1wvyhmob7123" path="res://Assets/Abyss/blocky_terrain.blend" id="4_5mi52"]
 [ext_resource type="PackedScene" uid="uid://dbi216gf0m628" path="res://Scenes/Abyss/Player/Rope/rope.tscn" id="4_sssut"]
 [ext_resource type="PackedScene" uid="uid://bduqu4d41gay2" path="res://Scenes/Abyss/Monster/monster.tscn" id="6_72x5s"]
+[ext_resource type="Script" uid="uid://cfeyboy7c4egq" path="res://Scenes/Abyss/abyss_main_light.gd" id="7_i425a"]
 [ext_resource type="PackedScene" uid="uid://bd3fg2erte5w7" path="res://Assets/Abyss/Platform.blend" id="8_t15io"]
 [ext_resource type="PackedScene" uid="uid://by1ssldc3md2j" path="res://Scenes/Abyss/Ore/Ore Summoner/ore_summoner.tscn" id="9_wue10"]
 [ext_resource type="Script" uid="uid://cncnbd3umy0c7" path="res://Resources/Definitions/ore.gd" id="10_i425a"]
@@ -22,7 +23,6 @@ background_mode = 2
 sky = SubResource("Sky_bd6b6")
 ambient_light_source = 1
 tonemap_mode = 2
-glow_enabled = true
 
 [node name="AbyssMain" type="Node3D" unique_id=192705289]
 script = ExtResource("1_5mi52")
@@ -47,13 +47,16 @@ endpoint_b = NodePath("../Player")
 
 [node name="BlockyTerrain" parent="." unique_id=1762955005 instance=ExtResource("4_5mi52")]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=365683459]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.380482, 0)
+[node name="MainLight" type="OmniLight3D" parent="." unique_id=365683459]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 light_color = Color(0.92796826, 0.75241417, 0.685216, 1)
 light_energy = 4.0
 omni_range = 400.0
 omni_attenuation = 0.9
 omni_shadow_mode = 0
+script = ExtResource("7_i425a")
+light_offset = 5
 
 [node name="Monster" parent="." unique_id=1878962030 instance=ExtResource("6_72x5s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 109.71759)

@@ -29,7 +29,7 @@ static func get_aabb(node: Node3D) -> AABB:
 static func get_inventory_counts() -> Dictionary[Item, int]:
 	var to_return: Dictionary[Item, int]
 
-	for item in PlayerData.inventory:
+	for item in Globals.player_data.inventory:
 		if item in to_return.keys():
 			to_return[item] += 1
 		else:

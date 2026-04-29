@@ -25,7 +25,7 @@ func _ready() -> void:
 
 	animation_player.animation_finished.connect(_on_animation_finished)
 
-	match PlayerData.loaded_settings.show_enemy_health_mode:
+	match Globals.loaded_settings.show_enemy_health_mode:
 		"Always":
 			health_3d_sprite.show()
 		"Never":
@@ -35,7 +35,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if not Engine.is_editor_hint():
 		update_health_bar()
-		if PlayerData.loaded_settings.show_enemy_health_mode == "On Agro":
+		if Globals.loaded_settings.show_enemy_health_mode == "On Agro":
 			if is_agroed:
 				health_3d_sprite.show()
 			else:
@@ -114,7 +114,7 @@ func take_damage(damage: int) -> void:
 	current_health -= damage
 
 	if current_health <= 0:
-		PlayerData.inventory.append(monster_data.to_drop)
+		Globals.player_data.inventory.append(monster_data.to_drop)
 		EventBus.update_inventory.emit()
 		animation_player.play("Death")
 		update_health_bar()

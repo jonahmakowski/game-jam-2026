@@ -38,7 +38,7 @@ func set_energy(full: int, current: float):
 
 
 func update_inventory_grid():
-	set_inventory(PlayerData.max_inventory_size, len(PlayerData.inventory))
+	set_inventory(Globals.player_data.max_inventory_size, len(Globals.player_data.inventory))
 
 	var inventory_data = Helper.get_inventory_counts()
 

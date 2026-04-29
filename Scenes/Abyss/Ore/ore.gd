@@ -55,7 +55,7 @@ func mine(damage: int):
 	current_health -= damage
 	scale *= 1.1
 	if current_health <= 0:
-		PlayerData.inventory.append(ore_type.to_drop)
+		Globals.player_data.inventory.append(ore_type.to_drop)
 		EventBus.update_inventory.emit()
 		queue_free()
 
