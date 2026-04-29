@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://jmijll1b4iwy"
-path="res://.godot/imported/Fox(Rigged).blend-7a9f1c2e367ee244f31e3233ef117fc1.scn"
+path="res://.godot/imported/fox.blend-d2bee61908dcc7ab5bc5ab05e134862f.scn"
 
 [deps]
 
-source_file="res://Assets/Abyss/Fox(Rigged).blend"
-dest_files=["res://.godot/imported/Fox(Rigged).blend-7a9f1c2e367ee244f31e3233ef117fc1.scn"]
+source_file="res://Assets/Abyss/fox.blend"
+dest_files=["res://.godot/imported/fox.blend-d2bee61908dcc7ab5bc5ab05e134862f.scn"]
 
 [params]
 

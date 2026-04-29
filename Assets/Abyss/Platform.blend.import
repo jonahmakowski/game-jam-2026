@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bd3fg2erte5w7"
-path="res://.godot/imported/Platform.blend-e144e97d9312692a4566bd1b49973fb7.scn"
+path="res://.godot/imported/platform.blend-fb159767d1cbb0c066c918eda90b1f98.scn"
 
 [deps]
 
-source_file="res://Assets/Abyss/Platform.blend"
-dest_files=["res://.godot/imported/Platform.blend-e144e97d9312692a4566bd1b49973fb7.scn"]
+source_file="res://Assets/Abyss/platform.blend"
+dest_files=["res://.godot/imported/platform.blend-fb159767d1cbb0c066c918eda90b1f98.scn"]
 
 [params]
 
