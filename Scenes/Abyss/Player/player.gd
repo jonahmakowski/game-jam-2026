@@ -15,6 +15,7 @@ var jumps_left := MAX_JUMPS
 var rope_scene: RopeScene
 var other_rope_endpoint: Node3D
 var pulling_in := false
+var current_energy = Globals.player_data.max_energy
 
 @onready var pivot_node: Node3D = %"Pivot Node"
 @onready var hud: HUD = %HUD

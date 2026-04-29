@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c17tq0ce3cdnu" path="res://Scenes/Abyss/Player/player.gd" id="1_uvnfx"]
 [ext_resource type="PackedScene" uid="uid://cws328fh74g2v" path="res://Scenes/Abyss/Player/Player UI/hud.tscn" id="2_vnmss"]
 [ext_resource type="PackedScene" uid="uid://us171jn1qsu8" path="res://Scenes/Abyss/Player/Grappling Hook/grappling_hook.tscn" id="3_exhu7"]
+[ext_resource type="Script" uid="uid://d0ph0y642y3pk" path="res://Scenes/Abyss/Player/energy_timer.gd" id="4_q66vt"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tugb3"]
 
@@ -44,3 +45,8 @@ light_color = Color(0.86756957, 0.791759, 0.7588569, 1)
 shadow_enabled = true
 distance_fade_enabled = true
 omni_range = 50.167
+
+[node name="EnergyTimer" type="Timer" parent="." unique_id=442912627]
+script = ExtResource("4_q66vt")
+
+[connection signal="timeout" from="EnergyTimer" to="EnergyTimer" method="_on_timeout"]
