@@ -1,7 +1,8 @@
+@tool
 class_name RopeScene
 extends Node3D
 
-@export var rope_slack: float = 250.0
+@export var rope_slack: float = 1.53
 @export var rope_max_length: float = 5.0
 @export var segments: int = 20
 @export var rope_radius: float = 0.02
@@ -13,24 +14,26 @@ extends Node3D
 var rope_length: float
 var immediate_mesh: ImmediateMesh
 
-@onready var mesh_instance: MeshInstance3D = $MeshInstance3D
+@onready var mesh_instance: MeshInstance3D = %MeshInstance3D
 
 
 func _ready():
 	immediate_mesh = ImmediateMesh.new()
 	mesh_instance.mesh = immediate_mesh
 
-	if endpoint_a != null and endpoint_a.has_method("set_rope_scene"):
-		endpoint_a.set_rope_scene(self, endpoint_b)
-	if endpoint_b != null and endpoint_b.has_method("set_rope_scene"):
-		endpoint_b.set_rope_scene(self, endpoint_a)
+	if not Engine.is_editor_hint():
+		if endpoint_a != null and endpoint_a.has_method("set_rope_scene"):
+			endpoint_a.set_rope_scene(self, endpoint_b)
+		if endpoint_b != null and endpoint_b.has_method("set_rope_scene"):
+			endpoint_b.set_rope_scene(self, endpoint_a)
 
 
 func _process(_delta):
 	if endpoint_a == null or endpoint_b == null:
 		return
-	rope_length = min(endpoint_a.global_position.distance_to(endpoint_b.global_position) + rope_slack, rope_max_length)
+	rope_length = min(endpoint_a.global_position.distance_to(endpoint_b.global_position) * rope_slack, rope_max_length)
 	draw_rope()
+	mesh_instance.material_override.set_shader_parameter("player_pos", get_tree().get_first_node_in_group("player").global_position)
 
 
 func get_span_distance() -> float:

@@ -1,6 +1,6 @@
 extends Control
 
-var settings := Globals.loaded_settings
+var settings: Settings = Globals.loaded_settings
 
 @onready var fov_setting: SpinBox = %FOVSetting
 @onready var show_enemy_health_mode_setting: OptionButton = %ShowEnemyHealthModeSetting

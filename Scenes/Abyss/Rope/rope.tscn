@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dbi216gf0m628"]
+
+[ext_resource type="Script" uid="uid://b14tiw3rknmfc" path="res://Scenes/Abyss/Rope/rope.gd" id="1_8fxrn"]
+[ext_resource type="Shader" uid="uid://1bgw6kmxphf2" path="res://Shaders/rope.gdshader" id="2_8fxrn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0dcet"]
+render_priority = 0
+shader = ExtResource("2_8fxrn")
+shader_parameter/player_pos = Vector3(0, 500, 0)
+shader_parameter/hidden_radius = 1.0
+shader_parameter/feather = 0.5
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_klvi4"]
+
+[node name="Rope" type="Node3D" unique_id=366522592]
+script = ExtResource("1_8fxrn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1719533568]
+unique_name_in_owner = true
+material_override = SubResource("ShaderMaterial_0dcet")
+mesh = SubResource("ImmediateMesh_klvi4")
