@@ -9,3 +9,5 @@ extends Resource
 @export var speed: float
 @export var agro_range: float
 @export_enum("flying", "walking") var monster_type = "flying"
+## Higher rarity == less common
+@export var rarity: int = 1

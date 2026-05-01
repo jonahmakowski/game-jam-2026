@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://j7mx53rdut7j"]
+
+[ext_resource type="Script" uid="uid://dw6lu5j11cgkq" path="res://Scenes/Abyss/Monster/Monster Summoner/monster_summoner.gd" id="1_piq4p"]
+[ext_resource type="Script" uid="uid://dceb3b0r0qgmv" path="res://Resources/Definitions/monster.gd" id="2_3ypuh"]
+[ext_resource type="Resource" uid="uid://b6j4q5yinv5y1" path="res://Resources/Monster/test_monster.tres" id="3_vquv2"]
+[ext_resource type="PackedScene" uid="uid://bduqu4d41gay2" path="res://Scenes/Abyss/Monster/monster.tscn" id="4_xmrmw"]
+
+[node name="MonsterSummoner" type="Marker3D" unique_id=2115380874]
+script = ExtResource("1_piq4p")
+possible_monsters = Array[ExtResource("2_3ypuh")]([ExtResource("3_vquv2")])
+monster_scene = ExtResource("4_xmrmw")
