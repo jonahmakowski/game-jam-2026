@@ -1,17 +1,8 @@
 class_name PlayerScene
 extends CharacterBody3D
 
-const SPEED = 25.0
-const ROPE_SPEED = 100.0
-const JUMP_VELOCITY = 15.0
-const MAX_JUMPS = 2
-const MOUSE_SENSATIVITY = 0.002
-const CONTROLLER_SENSATIVITY = 0.1
-const PITCH_LIMIT = 85.0
-const GRAVITY_MULTIPLYER = 3
-
 var mining := false
-var jumps_left := MAX_JUMPS
+var jumps_left := Constants.PLAYER_MAX_JUMPS
 var rope_scene: RopeScene
 var other_rope_endpoint: Node3D
 var pulling_in := false
@@ -32,11 +23,11 @@ func _ready():
 func _process(_delta: float) -> void:
 	# Looking via controller
 	var look_direction := Input.get_vector("look_right", "look_left", "look_up", "look_down")
-	rotate_y(look_direction.x * CONTROLLER_SENSATIVITY)
-	pivot_node.rotate_x(-look_direction.y * CONTROLLER_SENSATIVITY)
+	rotate_y(look_direction.x * Constants.PLAYER_CONTROLLER_SENSATIVITY)
+	pivot_node.rotate_x(-look_direction.y * Constants.PLAYER_CONTROLLER_SENSATIVITY)
 	var current_pitch: float = pivot_node.rotation.x
-	var min_pitch: float = deg_to_rad(-PITCH_LIMIT)
-	var max_pitch: float = deg_to_rad(PITCH_LIMIT)
+	var min_pitch: float = deg_to_rad(-Constants.PLAYER_PITCH_LIMIT)
+	var max_pitch: float = deg_to_rad(Constants.PLAYER_PITCH_LIMIT)
 	pivot_node.rotation.x = clamp(current_pitch, min_pitch, max_pitch)
 
 	# Allow mouse to be uncaptured
@@ -51,14 +42,14 @@ func _process(_delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
-		velocity += get_gravity() * delta * GRAVITY_MULTIPLYER
+		velocity += get_gravity() * delta * Constants.PLAYER_GRAVITY_MULTIPLYER
 
 	# Jumping
 	if is_on_floor():
-		jumps_left = MAX_JUMPS
+		jumps_left = Constants.PLAYER_MAX_JUMPS
 
 	if Input.is_action_just_pressed("jump") and jumps_left > 0:
-		velocity.y = JUMP_VELOCITY
+		velocity.y = Constants.PLAYER_JUMP_VELOCITY
 		jumps_left -= 1
 
 	# Movement
@@ -66,11 +57,11 @@ func _physics_process(delta: float) -> void:
 		var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		if direction:
-			velocity.x = direction.x * SPEED
-			velocity.z = direction.z * SPEED
+			velocity.x = direction.x * Constants.PLAYER_SPEED
+			velocity.z = direction.z * Constants.PLAYER_SPEED
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-			velocity.z = move_toward(velocity.z, 0, SPEED)
+			velocity.x = move_toward(velocity.x, 0, Constants.PLAYER_SPEED)
+			velocity.z = move_toward(velocity.z, 0, Constants.PLAYER_SPEED)
 
 	# Rope Stuff
 	var other_endpoint := rope_scene.endpoint_a if rope_scene.endpoint_a != self else rope_scene.endpoint_b
@@ -82,17 +73,17 @@ func _physics_process(delta: float) -> void:
 
 		global_position = sphere_pos
 
-		var movement_vector := -other_endpoint.global_position.direction_to(global_position) * ROPE_SPEED
+		var movement_vector := -other_endpoint.global_position.direction_to(global_position) * Constants.PLAYER_ROPE_SPEED
 		velocity.x = movement_vector.x
 		velocity.z = movement_vector.z
 
-		velocity.y = move_toward(velocity.y, 0, ROPE_SPEED * delta)
+		velocity.y = move_toward(velocity.y, 0, Constants.PLAYER_ROPE_SPEED * delta)
 
 	move_and_slide()
 
 	# Pulling in
 	if pulling_in:
-		rope_scene.rope_max_length = move_toward(rope_scene.rope_max_length, 0, ROPE_SPEED * delta)
+		rope_scene.rope_max_length = move_toward(rope_scene.rope_max_length, 0, Constants.PLAYER_ROPE_SPEED * delta)
 		rope_scene.rope_length = rope_scene.rope_max_length
 		if rope_scene.rope_max_length == 0:
 			get_parent().end_day()
@@ -100,11 +91,11 @@ func _physics_process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		rotate_y(-event.relative.x * MOUSE_SENSATIVITY)
-		pivot_node.rotate_x(-event.relative.y * MOUSE_SENSATIVITY)
+		rotate_y(-event.relative.x * Constants.PLAYER_MOUSE_SENSATIVITY)
+		pivot_node.rotate_x(-event.relative.y * Constants.PLAYER_MOUSE_SENSATIVITY)
 		var current_pitch: float = pivot_node.rotation.x
-		var min_pitch: float = deg_to_rad(-PITCH_LIMIT)
-		var max_pitch: float = deg_to_rad(PITCH_LIMIT)
+		var min_pitch: float = deg_to_rad(-Constants.PLAYER_PITCH_LIMIT)
+		var max_pitch: float = deg_to_rad(Constants.PLAYER_PITCH_LIMIT)
 		pivot_node.rotation.x = clamp(current_pitch, min_pitch, max_pitch)
 
 

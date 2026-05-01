@@ -34,6 +34,10 @@ collision_mask = 2
 [node name="GrapplingHook" parent="Pivot Node" unique_id=330750799 instance=ExtResource("3_exhu7")]
 unique_name_in_owner = true
 
+[node name="DebugRaycast" type="RayCast3D" parent="Pivot Node" unique_id=388035054]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1178654271]
 
 [node name="HUD" parent="CanvasLayer" unique_id=1035626391 instance=ExtResource("2_vnmss")]
