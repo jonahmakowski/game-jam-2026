@@ -33,7 +33,6 @@ func _process(_delta):
 		return
 	rope_length = min(endpoint_a.global_position.distance_to(endpoint_b.global_position) * rope_slack, rope_max_length)
 	draw_rope()
-	mesh_instance.material_override.set_shader_parameter("player_pos", get_tree().get_first_node_in_group("player").global_position)
 
 
 func get_span_distance() -> float:
