@@ -1,3 +1,4 @@
+@tool
 class_name OreSummonerScene
 extends Marker3D
 
@@ -6,6 +7,10 @@ extends Marker3D
 
 
 func _ready() -> void:
+	EventBus.run_summoners.connect(run)
+
+
+func run():
 	var weighted_array: Array[Ore]
 
 	for ore in possible_ores:
@@ -24,4 +29,3 @@ func _ready() -> void:
 
 func replace_with_ore(to_replace_with: OreScene):
 	replace_by(to_replace_with)
-	queue_free()

@@ -37,6 +37,7 @@ unique_name_in_owner = true
 [node name="DebugRaycast" type="RayCast3D" parent="Pivot Node" unique_id=388035054]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+target_position = Vector3(0, 0, -5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1178654271]
 

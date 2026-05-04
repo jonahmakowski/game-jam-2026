@@ -11,6 +11,9 @@ extends Node3D
 func _ready() -> void:
 	rope.visible = Globals.loaded_settings.show_rope
 
+	if not Engine.is_editor_hint():
+		EventBus.run_summoners.emit()
+
 	Helper.apply_shader($BlockyTerrain, shader)
 	($BlockyTerrain.get_children().filter(func(node): return node is NavigationRegion3D)[0] as NavigationRegion3D).navigation_mesh.agent_max_slope = 90
 	($BlockyTerrain.get_children().filter(func(node): return node is NavigationRegion3D)[0] as NavigationRegion3D).navigation_mesh.agent_max_climb = INF

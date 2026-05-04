@@ -1,3 +1,4 @@
+@tool
 class_name MonsterSummonerScene
 extends Marker3D
 
@@ -6,6 +7,13 @@ extends Marker3D
 
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+
+	EventBus.run_summoners.connect(run)
+
+
+func run():
 	var weighted_array: Array[Monster]
 
 	for monster in possible_monsters:

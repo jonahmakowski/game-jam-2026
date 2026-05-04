@@ -1,6 +1,10 @@
 class_name PlayerScene
 extends CharacterBody3D
 
+const SAVE_DEBUG_DATA = true
+
+## Saved positions from the debug raycast of where it intersects during clicks
+var debug_positions: Array[Vector3]
 var mining := false
 var jumps_left := Constants.PLAYER_MAX_JUMPS
 var rope_scene: RopeScene
@@ -12,6 +16,7 @@ var current_energy = Globals.player_data.max_energy
 @onready var hud: HUD = %HUD
 @onready var ray_cast_3d: RayCast3D = %RayCast3D
 @onready var grappling_hook: GrapplingHookScene = %GrapplingHook
+@onready var debug_raycast: RayCast3D = %DebugRaycast
 @onready var camera: Camera3D = %Camera3D
 
 
@@ -37,6 +42,12 @@ func _process(_delta: float) -> void:
 	# Allow mouse to be recaptured
 	if Input.is_action_just_pressed("capture_mouse") and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+	# Debug Saving
+	if SAVE_DEBUG_DATA and Input.is_action_just_pressed("debug_save") and debug_raycast.is_colliding():
+		debug_positions.append(debug_raycast.get_collision_point())
+		print("Saved point")
+		print(debug_positions)
 
 
 func _physics_process(delta: float) -> void:
