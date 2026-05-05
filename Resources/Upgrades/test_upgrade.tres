@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://bcw5e3jneg1h2"]
+
+[ext_resource type="Script" uid="uid://bxuhbe0j65rac" path="res://Resources/Definitions/upgrade.gd" id="1_4y84k"]
+[ext_resource type="Texture2D" uid="uid://bs5ptslwcyfsi" path="res://icon.svg" id="1_141ge"]
+
+[resource]
+script = ExtResource("1_4y84k")
+name = "Test Upgrade"
+description = "Test Description"
+icon = ExtResource("1_141ge")
+metadata/_custom_type_script = "uid://bxuhbe0j65rac"
