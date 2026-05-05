@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://b3wg51e6mg2v3"]
+
+[ext_resource type="Script" uid="uid://sntiseuvbiwu" path="res://Resources/Definitions/building.gd" id="1_q6mqs"]
+[ext_resource type="Texture2D" uid="uid://bs5ptslwcyfsi" path="res://icon.svg" id="2_e7laf"]
+[ext_resource type="Script" uid="uid://bxuhbe0j65rac" path="res://Resources/Definitions/upgrade.gd" id="2_pgvgh"]
+
+[resource]
+script = ExtResource("1_q6mqs")
+sprite = ExtResource("2_e7laf")
+name = "Test Building"
+metadata/_custom_type_script = "uid://sntiseuvbiwu"
