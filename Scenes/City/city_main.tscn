@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://cyyce8t63fh2u"]
 
 [ext_resource type="Texture2D" uid="uid://bs5ptslwcyfsi" path="res://icon.svg" id="1_hlii5"]
+[ext_resource type="PackedScene" uid="uid://bgivs5hgl3arw" path="res://Scenes/City/Building/building.tscn" id="2_dl85s"]
 
 [node name="CityMain" type="Node2D" unique_id=150180100]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=894755570]
 scale = Vector2(20, 10)
 texture = ExtResource("1_hlii5")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=761322133]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Building" parent="." unique_id=1908622106 instance=ExtResource("2_dl85s")]

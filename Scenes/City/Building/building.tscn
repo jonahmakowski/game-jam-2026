@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://b3wg51e6mg2v3" path="res://Resources/Buildings/test_building.tres" id="2_iu3v6"]
 [ext_resource type="Texture2D" uid="uid://bs5ptslwcyfsi" path="res://icon.svg" id="2_o5dnq"]
 [ext_resource type="PackedScene" uid="uid://c5i3rlxjr8ltc" path="res://Scenes/City/Building/UpgradeUI/upgrade_ui.tscn" id="3_41cir"]
+[ext_resource type="Texture2D" uid="uid://dv7o4btltd4fo" path="res://Assets/UI/x.png" id="5_6eo2c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iu3v6"]
 size = Vector2(128, 128)
@@ -66,7 +67,7 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
-texture_normal = ExtResource("2_o5dnq")
+texture_normal = ExtResource("5_6eo2c")
 ignore_texture_size = true
 stretch_mode = 4
 

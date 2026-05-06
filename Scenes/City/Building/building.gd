@@ -1,3 +1,4 @@
+@tool
 class_name BuildingScene
 extends Node2D
 
@@ -19,14 +20,16 @@ func _ready() -> void:
 	title_label.text = building_type.name
 	ui_layer.hide()
 	EventBus.hide_building_ui.connect(ui_layer.hide)
+	setup_upgrades()
 
 
 func _process(delta: float) -> void:
 	pass
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact_building") and mouse_in_area:
+		EventBus.hide_building_ui.emit()
 		ui_layer.show()
 		get_viewport().set_input_as_handled()
 

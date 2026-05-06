@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://chu1iljm3op7k"]
 
 [ext_resource type="Script" uid="uid://vybwff4m1dx1" path="res://Scenes/Title Screen/title_screen.gd" id="1_2mq87"]
-[ext_resource type="PackedScene" uid="uid://cbleqvptdfd41" path="res://Scenes/Abyss/abyss_main.tscn" id="2_5dsjl"]
+[ext_resource type="PackedScene" uid="uid://cyyce8t63fh2u" path="res://Scenes/City/city_main.tscn" id="2_wwswu"]
 [ext_resource type="PackedScene" uid="uid://uukcuud6ijyp" path="res://Scenes/Title Screen/Settings/settings.tscn" id="3_wwswu"]
 
 [node name="TitleScreen" type="Control" unique_id=1666129906]
@@ -12,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2mq87")
-start_scene = ExtResource("2_5dsjl")
+start_scene = ExtResource("2_wwswu")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1005796854]
 layout_mode = 1
