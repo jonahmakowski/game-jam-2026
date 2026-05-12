@@ -5,6 +5,7 @@ var settings: Settings = Globals.loaded_settings
 @onready var fov_setting: SpinBox = %FOVSetting
 @onready var show_enemy_health_mode_setting: OptionButton = %ShowEnemyHealthModeSetting
 @onready var show_rope_setting: OptionButton = %ShowRopeSetting
+@onready var sensitivity_setting: SpinBox = %SensitivitySetting
 
 
 func _ready() -> void:
@@ -13,6 +14,7 @@ func _ready() -> void:
 
 func arrange_settings():
 	fov_setting.value = settings.fov
+	sensitivity_setting.value = settings.sensitivity_mult
 	show_enemy_health_mode_setting.select({ "On Agro": 0, "Always": 1, "Never": 2 }[settings.show_enemy_health_mode])
 	show_rope_setting.select(settings.show_rope)
 
@@ -20,6 +22,7 @@ func arrange_settings():
 func save_settings():
 	var new_settings = Settings.new()
 	new_settings.fov = fov_setting.value
+	new_settings.sensitivity_mult = sensitivity_setting.value
 	new_settings.show_enemy_health_mode = ["On Agro", "Always", "Never"][show_enemy_health_mode_setting.get_selected_id()]
 	new_settings.show_rope = show_rope_setting.get_selected_id()
 

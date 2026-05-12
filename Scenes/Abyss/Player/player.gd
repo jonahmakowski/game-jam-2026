@@ -28,8 +28,8 @@ func _ready():
 func _process(_delta: float) -> void:
 	# Looking via controller
 	var look_direction := Input.get_vector("look_right", "look_left", "look_up", "look_down")
-	rotate_y(look_direction.x * Constants.PLAYER_CONTROLLER_SENSATIVITY)
-	pivot_node.rotate_x(-look_direction.y * Constants.PLAYER_CONTROLLER_SENSATIVITY)
+	rotate_y(look_direction.x * (Constants.PLAYER_CONTROLLER_SENSATIVITY * Globals.loaded_settings.sensitivity_mult))
+	pivot_node.rotate_x(-look_direction.y * (Constants.PLAYER_CONTROLLER_SENSATIVITY * Globals.loaded_settings.sensitivity_mult))
 	var current_pitch: float = pivot_node.rotation.x
 	var min_pitch: float = deg_to_rad(-Constants.PLAYER_PITCH_LIMIT)
 	var max_pitch: float = deg_to_rad(Constants.PLAYER_PITCH_LIMIT)
@@ -102,8 +102,8 @@ func _physics_process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		rotate_y(-event.relative.x * Constants.PLAYER_MOUSE_SENSATIVITY)
-		pivot_node.rotate_x(-event.relative.y * Constants.PLAYER_MOUSE_SENSATIVITY)
+		rotate_y(-event.relative.x * (Constants.PLAYER_MOUSE_SENSATIVITY * Globals.loaded_settings.sensitivity_mult))
+		pivot_node.rotate_x(-event.relative.y * (Constants.PLAYER_MOUSE_SENSATIVITY * Globals.loaded_settings.sensitivity_mult))
 		var current_pitch: float = pivot_node.rotation.x
 		var min_pitch: float = deg_to_rad(-Constants.PLAYER_PITCH_LIMIT)
 		var max_pitch: float = deg_to_rad(Constants.PLAYER_PITCH_LIMIT)

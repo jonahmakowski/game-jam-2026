@@ -1,7 +1,7 @@
 class_name Constants
 
 const SETTINGS_SAVE_PATH = "user://settings.tres"
-## How long it takes to use one energy
+## How long it takes to use one energy in seconds
 const ENERGY_USE_SPEED = 1.0
 const PLAYER_SPEED = 25.0
 const PLAYER_ROPE_SPEED = 100.0

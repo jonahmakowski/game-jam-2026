@@ -4,10 +4,14 @@
 [ext_resource type="Resource" uid="uid://b3wg51e6mg2v3" path="res://Resources/Buildings/test_building.tres" id="2_iu3v6"]
 [ext_resource type="Texture2D" uid="uid://bs5ptslwcyfsi" path="res://icon.svg" id="2_o5dnq"]
 [ext_resource type="PackedScene" uid="uid://c5i3rlxjr8ltc" path="res://Scenes/City/Building/UpgradeUI/upgrade_ui.tscn" id="3_41cir"]
-[ext_resource type="Texture2D" uid="uid://dv7o4btltd4fo" path="res://Assets/UI/x.png" id="5_6eo2c"]
+[ext_resource type="Texture2D" uid="uid://cpxk7ntvk8qvs" path="res://Assets/UI/gamejam_icons.png" id="5_6eo2c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iu3v6"]
 size = Vector2(128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5v873"]
+atlas = ExtResource("5_6eo2c")
+region = Rect2(4, 4, 56, 56)
 
 [node name="Building" type="Node2D" unique_id=1908622106]
 script = ExtResource("1_a73p4")
@@ -38,6 +42,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
+mouse_filter = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="UILayer/HBoxContainer" unique_id=1237555005]
 layout_mode = 2
@@ -60,14 +65,14 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "This is the name of the building"
+text = "Test Building"
 horizontal_alignment = 1
 
 [node name="CloseButton" type="TextureButton" parent="UILayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=479631137]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
-texture_normal = ExtResource("5_6eo2c")
+texture_normal = SubResource("AtlasTexture_5v873")
 ignore_texture_size = true
 stretch_mode = 4
 

@@ -22,11 +22,10 @@ grow_vertical = 2
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer" unique_id=4551663]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 1
+current_tab = 0
 tab_1/title = "Game Settings"
 
 [node name="Video" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=2017718206]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -56,7 +55,23 @@ alignment = 1
 custom_arrow_step = 1.0
 custom_arrow_round = true
 
+[node name="Label2" type="Label" parent="VBoxContainer/TabContainer/Video/MarginContainer/GridContainer" unique_id=108176299]
+layout_mode = 2
+text = "Sensitivity"
+
+[node name="SensitivitySetting" type="SpinBox" parent="VBoxContainer/TabContainer/Video/MarginContainer/GridContainer" unique_id=197654143]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 0.1
+max_value = 3.0
+step = 0.1
+value = 1.0
+alignment = 1
+custom_arrow_step = 1.0
+custom_arrow_round = true
+
 [node name="GameSettings" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=128707626]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 metadata/_tab_name = "Game Settings"
