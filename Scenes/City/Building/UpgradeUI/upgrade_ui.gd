@@ -10,6 +10,7 @@ extends HBoxContainer
 @onready var icon: TextureRect = %Icon
 @onready var title: Label = %Title
 @onready var description: Label = %Description
+@onready var purchase_button: Button = %PurchaseButton
 
 
 func _ready() -> void:
@@ -20,3 +21,5 @@ func update():
 	icon.texture = upgrade.icon
 	title.text = upgrade.name
 	description.text = upgrade.description
+
+	purchase_button.disabled = not upgrade.can_purchase()

@@ -8,6 +8,8 @@ extends Resource
 @export var max_inventory_size: int = 5
 @export var max_energy: int = 10
 @export var enemy_damage: int = 2
-@export var speed = 25.0
-@export var jump_velocity = 15.0
-@export var max_jumps = 2
+@export var speed: float = 25.0
+@export var jump_velocity: float = 15.0
+@export var max_jumps: int = 2
+@export_group("Player Upgrades")
+@export var applied_upgrades: Array[Upgrade]

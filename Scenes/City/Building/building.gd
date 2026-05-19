@@ -39,6 +39,9 @@ func setup_upgrades():
 		child.queue_free()
 
 	for upgrade in building_type.upgrades:
+		if not upgrade.has_prereq():
+			continue
+
 		var instance = upgrade_ui_scene.instantiate()
 		instance.upgrade = upgrade
 		upgrade_parent.add_child(instance)

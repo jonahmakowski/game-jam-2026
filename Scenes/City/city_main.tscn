@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cyyce8t63fh2u"]
 
 [ext_resource type="Texture2D" uid="uid://bs5ptslwcyfsi" path="res://icon.svg" id="1_hlii5"]
+[ext_resource type="Script" uid="uid://qa03nt5ndrin" path="res://Scenes/City/city_main.gd" id="1_osyyr"]
 [ext_resource type="PackedScene" uid="uid://bgivs5hgl3arw" path="res://Scenes/City/Building/building.tscn" id="2_dl85s"]
 
 [node name="CityMain" type="Node2D" unique_id=150180100]
+script = ExtResource("1_osyyr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=894755570]
 scale = Vector2(20, 10)
@@ -15,6 +17,7 @@ zoom = Vector2(0.5, 0.5)
 [node name="Building" parent="." unique_id=1908622106 instance=ExtResource("2_dl85s")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1088448354]
+visible = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=772647275]
 anchors_preset = 15
