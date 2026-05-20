@@ -19,7 +19,8 @@ func _ready() -> void:
 	sprite.texture = building_type.sprite
 	title_label.text = building_type.name
 	ui_layer.hide()
-	EventBus.hide_building_ui.connect(ui_layer.hide)
+	if not Engine.is_editor_hint():
+		EventBus.hide_building_ui.connect(ui_layer.hide)
 	setup_upgrades()
 
 

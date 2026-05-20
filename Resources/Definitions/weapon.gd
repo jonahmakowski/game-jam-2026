@@ -1,10 +1,14 @@
 class_name Weapon
-extends Building
+extends Resource
 
 @export var damage: float
 ## In seconds between firing
 @export var firerate: float
 @export var weapon_range: float
+## Expects a "fire" animation
+@export var sprite: SpriteFrames
+@export var name: String
+@export var upgrades: Array[WeaponUpgrade]
 @export_group("Projectile Settings")
 @export_enum("Laser", "Projectile") var projectile_type: int
 @export_subgroup("Laser", "laser")
@@ -16,3 +20,14 @@ extends Building
 @export_subgroup("Projectile", "projectile")
 @export var projectile_asset: Texture2D
 @export var projectile_speed: int
+
+var weapon_scene: WeaponScene:
+	set(val):
+		weapon_scene = val
+		_give_weapon_scene()
+
+
+func _give_weapon_scene():
+	for upgrade in upgrades:
+		upgrade.weapon_scene = weapon_scene
+		upgrade.weapon = self

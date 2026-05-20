@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ej5h7xbolar1"]
+
+[ext_resource type="Script" uid="uid://c5rpbeuirvwvc" path="res://Scenes/City/Weapon/weapon.gd" id="1_g23is"]
+[ext_resource type="Shader" uid="uid://cp2gdfep1qlm2" path="res://Shaders/range_circle.gdshader" id="2_jja05"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kh6l4"]
+shader = ExtResource("2_jja05")
+shader_parameter/circle_thickness = 0.9750000463125
+
+[sub_resource type="Gradient" id="Gradient_5pyac"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_akcwn"]
+gradient = SubResource("Gradient_5pyac")
+width = 1
+height = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jja05"]
+
+[node name="Weapon" type="Node2D" unique_id=1676257248]
+script = ExtResource("1_g23is")
+
+[node name="RangeCircle" type="Sprite2D" parent="." unique_id=901809668]
+unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_kh6l4")
+texture = SubResource("GradientTexture2D_akcwn")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=692560300]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_jja05")
+
+[node name="FireTimer" type="Timer" parent="." unique_id=1299305555]
+unique_name_in_owner = true
+one_shot = true

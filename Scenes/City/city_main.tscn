@@ -2,7 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://bs5ptslwcyfsi" path="res://icon.svg" id="1_hlii5"]
 [ext_resource type="Script" uid="uid://qa03nt5ndrin" path="res://Scenes/City/city_main.gd" id="1_osyyr"]
+[ext_resource type="PackedScene" uid="uid://ej5h7xbolar1" path="res://Scenes/City/Weapon/weapon.tscn" id="2_chhlk"]
 [ext_resource type="PackedScene" uid="uid://bgivs5hgl3arw" path="res://Scenes/City/Building/building.tscn" id="2_dl85s"]
+[ext_resource type="Resource" uid="uid://dk27ffqewpp7y" path="res://Resources/Weapon/plasma_rifle.tres" id="3_wddgr"]
 [ext_resource type="PackedScene" uid="uid://wsmafjcchcng" path="res://Scenes/City/Monster/monster.tscn" id="4_gxlp6"]
 
 [sub_resource type="Curve2D" id="Curve2D_7q2q6"]
@@ -22,6 +24,9 @@ texture = ExtResource("1_hlii5")
 zoom = Vector2(0.5, 0.5)
 
 [node name="Building" parent="." unique_id=1908622106 instance=ExtResource("2_dl85s")]
+
+[node name="Weapon" parent="." unique_id=1676257248 instance=ExtResource("2_chhlk")]
+weapon = ExtResource("3_wddgr")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1088448354]
 visible = false

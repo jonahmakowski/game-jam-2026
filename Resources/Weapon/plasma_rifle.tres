@@ -3,13 +3,40 @@
 [ext_resource type="Shader" uid="uid://dqlu5rs2x8f8s" path="res://Shaders/laser_projectile.gdshader" id="1_7e2b3"]
 [ext_resource type="Script" uid="uid://fqyi0vgq6hcj" path="res://Resources/Definitions/weapon.gd" id="2_4b26i"]
 [ext_resource type="Texture2D" uid="uid://bupqos4iqk4d7" path="res://Assets/City/Weapons/plasmarifle.png" id="3_ru3xb"]
-[ext_resource type="Script" uid="uid://bxuhbe0j65rac" path="res://Resources/Definitions/upgrade.gd" id="4_ku5ml"]
+[ext_resource type="Script" uid="uid://bp8vg70846drr" path="res://Resources/Definitions/Upgrades/weapon_upgrade.gd" id="4_7e2b3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e2b3"]
+atlas = ExtResource("3_ru3xb")
+region = Rect2(0, 0, 176, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b26i"]
+atlas = ExtResource("3_ru3xb")
+region = Rect2(0, 128, 176, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aps16"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e2b3")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_4b26i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e2b3")
+}],
+"loop": false,
+"name": &"fire",
+"speed": 5.0
+}]
 
 [resource]
 script = ExtResource("2_4b26i")
+damage = 5.0
 firerate = 2.0
-laser_color = Color(1, 1, 1, 1)
-laser_speed = 3.0
-sprite = ExtResource("3_ru3xb")
+weapon_range = 500.0
+sprite = SubResource("SpriteFrames_aps16")
 name = "Plasma Rifle"
+laser_color = Color(0.38431373, 1, 0.9764706, 1)
+laser_speed = 3.0
 metadata/_custom_type_script = "uid://fqyi0vgq6hcj"
