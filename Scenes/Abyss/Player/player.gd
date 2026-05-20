@@ -117,7 +117,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			if looking_at is OreScene:
 				mining = true
 				mine()
-			elif looking_at is MonsterScene:
+			elif looking_at is MonsterScene3D:
 				attack_monster(looking_at)
 	elif event.is_action_released("mine_attack"):
 		mining = false
@@ -131,7 +131,7 @@ func set_rope_scene(scene: RopeScene, other_endpoint: Node3D):
 	other_rope_endpoint = other_endpoint
 
 
-func attack_monster(monster: MonsterScene):
+func attack_monster(monster: MonsterScene3D):
 	monster.take_damage(Globals.player_data.enemy_damage)
 
 
