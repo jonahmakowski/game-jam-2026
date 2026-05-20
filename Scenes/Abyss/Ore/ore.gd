@@ -17,6 +17,7 @@ var current_health: int
 
 
 func _ready() -> void:
+	scale = Vector3(Constants.ORE_SCALE, Constants.ORE_SCALE, Constants.ORE_SCALE)
 	update_data()
 
 
