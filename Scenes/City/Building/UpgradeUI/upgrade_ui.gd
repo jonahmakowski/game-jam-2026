@@ -9,6 +9,7 @@ extends HBoxContainer
 
 @onready var icon: TextureRect = %Icon
 @onready var title: Label = %Title
+@onready var cost: Label = %Cost
 @onready var description: Label = %Description
 @onready var purchase_button: Button = %PurchaseButton
 
