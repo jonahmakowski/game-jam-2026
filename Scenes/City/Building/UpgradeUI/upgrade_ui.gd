@@ -23,3 +23,7 @@ func update():
 	description.text = upgrade.description
 
 	purchase_button.disabled = not upgrade.can_purchase()
+
+
+func _on_purchase_button_pressed() -> void:
+	pass # Replace with function body.

@@ -29,3 +29,11 @@ func has_prereq() -> bool:
 	if len(prereq_upgrade) > 0 and prereq_upgrade not in Globals.player_data.applied_upgrades:
 		return false
 	return true
+
+
+func purchase():
+	assert(not can_purchase(), "Can't purchase this upgrade")
+
+	for item in price.keys():
+		for count in range(price[item]):
+			Globals.player_data.city_inventory.remove_at(Globals.player_data.city_inventory.find(item))

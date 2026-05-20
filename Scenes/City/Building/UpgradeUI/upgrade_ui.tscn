@@ -33,7 +33,12 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "This is the description of the upgrade"
 
-[node name="PurchaseButton" type="Button" parent="VBoxContainer" unique_id=649318427]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1749654953]
+layout_mode = 2
+
+[node name="PurchaseButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=649318427]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Purchase Upgrade"
+text = "Purchase"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/PurchaseButton" to="." method="_on_purchase_button_pressed"]
