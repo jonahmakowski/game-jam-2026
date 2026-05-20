@@ -3,14 +3,54 @@
 [ext_resource type="Script" uid="uid://dceb3b0r0qgmv" path="res://Resources/Definitions/monster.gd" id="1_r2adf"]
 [ext_resource type="PackedScene" uid="uid://jmijll1b4iwy" path="res://Assets/Abyss/fox.blend" id="1_y1xf5"]
 [ext_resource type="Resource" uid="uid://cjxg765yiadj4" path="res://Resources/Item/test_item.tres" id="3_3dhph"]
+[ext_resource type="Texture2D" uid="uid://d0xtu3waxua8g" path="res://Assets/City/Enemies/spooder.png" id="3_3qh3m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyh3r"]
+atlas = ExtResource("3_3qh3m")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkxiu"]
+atlas = ExtResource("3_3qh3m")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2i08"]
+atlas = ExtResource("3_3qh3m")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh2cj"]
+atlas = ExtResource("3_3qh3m")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3dhph"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyh3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkxiu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2i08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jh2cj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [resource]
 script = ExtResource("1_r2adf")
 to_drop = ExtResource("3_3dhph")
 model = ExtResource("1_y1xf5")
+sprite = SubResource("SpriteFrames_3dhph")
+sprite_size = Vector2i(192, 192)
 health = 10
 damage = 10.0
-speed = 10.0
+speed_3d = 10.0
+speed_2d = 30.0
 agro_range = 100.0
 monster_type = "walking"
 metadata/_custom_type_script = "uid://dceb3b0r0qgmv"

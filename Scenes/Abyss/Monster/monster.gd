@@ -1,5 +1,5 @@
 @tool
-class_name MonsterScene
+class_name MonsterScene3D
 extends CharacterBody3D
 
 const HEALTH_OFFSET = 0.5
@@ -50,7 +50,7 @@ func _physics_process(_delta: float) -> void:
 
 				if can_see_player():
 					model.look_at(position + global_position.direction_to(player.global_position))
-					velocity = global_position.direction_to(player.global_position) * monster_data.speed
+					velocity = global_position.direction_to(player.global_position) * monster_data.speed_3d
 					is_agroed = true
 				else:
 					is_agroed = false
@@ -64,7 +64,7 @@ func _physics_process(_delta: float) -> void:
 					if can_see_player():
 						if global_position != next_position:
 							model.look_at(position + global_position.direction_to(next_position))
-						velocity = global_position.direction_to(next_position) * monster_data.speed
+						velocity = global_position.direction_to(next_position) * monster_data.speed_3d
 						is_agroed = true
 					else:
 						is_agroed = false

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0xtu3waxua8g"
-path="res://.godot/imported/gamejam_spooder.png-5cba608bea47d824b931049ab05cff75.ctex"
+uid="uid://hdku3rksngt8"
+path="res://.godot/imported/minigun.png-10b244f854a070e9c77514449074fb72.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/City/gamejam_spooder.png"
-dest_files=["res://.godot/imported/gamejam_spooder.png-5cba608bea47d824b931049ab05cff75.ctex"]
+source_file="res://Assets/City/Weapons/minigun.png"
+dest_files=["res://.godot/imported/minigun.png-10b244f854a070e9c77514449074fb72.ctex"]
 
 [params]
 

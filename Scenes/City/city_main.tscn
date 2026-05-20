@@ -3,6 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://bs5ptslwcyfsi" path="res://icon.svg" id="1_hlii5"]
 [ext_resource type="Script" uid="uid://qa03nt5ndrin" path="res://Scenes/City/city_main.gd" id="1_osyyr"]
 [ext_resource type="PackedScene" uid="uid://bgivs5hgl3arw" path="res://Scenes/City/Building/building.tscn" id="2_dl85s"]
+[ext_resource type="PackedScene" uid="uid://wsmafjcchcng" path="res://Scenes/City/Monster/monster.tscn" id="4_gxlp6"]
+
+[sub_resource type="Curve2D" id="Curve2D_7q2q6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 1000)
+}
+point_count = 2
 
 [node name="CityMain" type="Node2D" unique_id=150180100]
 script = ExtResource("1_osyyr")
@@ -80,3 +87,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 mouse_filter = 1
+
+[node name="Path2D" type="Path2D" parent="." unique_id=2145362334]
+position = Vector2(-1000, -1000)
+curve = SubResource("Curve2D_7q2q6")
+
+[node name="Monster" parent="Path2D" unique_id=972345731 instance=ExtResource("4_gxlp6")]
+rotation = 0.7853982

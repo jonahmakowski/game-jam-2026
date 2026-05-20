@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://dk27ffqewpp7y"]
+
+[ext_resource type="Shader" uid="uid://dqlu5rs2x8f8s" path="res://Shaders/laser_projectile.gdshader" id="1_7e2b3"]
+[ext_resource type="Script" uid="uid://fqyi0vgq6hcj" path="res://Resources/Definitions/weapon.gd" id="2_4b26i"]
+[ext_resource type="Texture2D" uid="uid://bupqos4iqk4d7" path="res://Assets/City/Weapons/plasmarifle.png" id="3_ru3xb"]
+[ext_resource type="Script" uid="uid://bxuhbe0j65rac" path="res://Resources/Definitions/upgrade.gd" id="4_ku5ml"]
+
+[resource]
+script = ExtResource("2_4b26i")
+firerate = 2.0
+laser_color = Color(1, 1, 1, 1)
+laser_speed = 3.0
+sprite = ExtResource("3_ru3xb")
+name = "Plasma Rifle"
+metadata/_custom_type_script = "uid://fqyi0vgq6hcj"

@@ -4,6 +4,7 @@ extends Building
 @export var damage: float
 ## In seconds between firing
 @export var firerate: float
+@export var weapon_range: float
 @export_group("Projectile Settings")
 @export_enum("Laser", "Projectile") var projectile_type: int
 @export_subgroup("Laser", "laser")

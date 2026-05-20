@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://wsmafjcchcng"]
+
+[ext_resource type="Script" uid="uid://x4xc783ltmle" path="res://Scenes/City/Monster/monster.gd" id="1_m863k"]
+[ext_resource type="Resource" uid="uid://b6j4q5yinv5y1" path="res://Resources/Monster/test_monster.tres" id="2_f30ra"]
+[ext_resource type="Texture2D" uid="uid://d0xtu3waxua8g" path="res://Assets/City/Enemies/spooder.png" id="3_row6x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyh3r"]
+atlas = ExtResource("3_row6x")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkxiu"]
+atlas = ExtResource("3_row6x")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2i08"]
+atlas = ExtResource("3_row6x")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh2cj"]
+atlas = ExtResource("3_row6x")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3dhph"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyh3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkxiu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2i08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jh2cj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_row6x"]
+size = Vector2(192, 192)
+
+[node name="Monster" type="PathFollow2D" unique_id=972345731 groups=["monster"]]
+script = ExtResource("1_m863k")
+monster = ExtResource("2_f30ra")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=761384794]
+rotation = 1.5707964
+
+[node name="Sprite" type="AnimatedSprite2D" parent="AnimatableBody2D" unique_id=1198574477]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_3dhph")
+animation = &"walk"
+
+[node name="CollisionShape" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1775098115]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_row6x")
