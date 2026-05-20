@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://cncnbd3umy0c7" path="res://Resources/Definitions/ore.gd" id="1_kb161"]
 [ext_resource type="Shader" uid="uid://dyci6la46vdla" path="res://Shaders/light_ore.tres" id="1_xn3o3"]
-[ext_resource type="ArrayMesh" uid="uid://r51cmvmlkavt" path="res://Assets/Abyss/Ore/ore.tres" id="2_elcct"]
-[ext_resource type="ArrayMesh" uid="uid://bpqw81p586xvs" path="res://Assets/Abyss/Ore/rock.tres" id="3_2g2bx"]
+[ext_resource type="ArrayMesh" uid="uid://b8t22qk1doyd2" path="res://Assets/Abyss/Ore/ore.tres" id="2_elcct"]
+[ext_resource type="ArrayMesh" uid="uid://b6nwe8h5u08ow" path="res://Assets/Abyss/Ore/rock.tres" id="3_2g2bx"]
 [ext_resource type="Shader" uid="uid://n0luw123hvv0" path="res://Shaders/rock_shader.tres" id="3_e054v"]
-[ext_resource type="Resource" uid="uid://cjxg765yiadj4" path="res://Resources/Item/test_item.tres" id="3_nfk8e"]
+[ext_resource type="Resource" uid="uid://q81cnghelmi5" path="res://Resources/Item/lumonite.tres" id="6_elcct"]
 
 [resource]
 script = ExtResource("1_kb161")
-name = "Test Ore"
-to_drop = ExtResource("3_nfk8e")
+name = "Lumonite"
+to_drop = ExtResource("6_elcct")
 rock_part = ExtResource("3_2g2bx")
 ore_part = ExtResource("2_elcct")
 health = 10

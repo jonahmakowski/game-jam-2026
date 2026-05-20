@@ -38,5 +38,5 @@ weapon_range = 500.0
 sprite = SubResource("SpriteFrames_aps16")
 name = "Plasma Rifle"
 laser_color = Color(0.38431373, 1, 0.9764706, 1)
-laser_speed = 3.0
+laser_speed = 0.5
 metadata/_custom_type_script = "uid://fqyi0vgq6hcj"

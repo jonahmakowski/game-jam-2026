@@ -2,10 +2,12 @@ class_name WeaponScene
 extends Node2D
 
 @export var weapon: Weapon
+@export var laser_scene: PackedScene
 
 @onready var range_circle: Sprite2D = %RangeCircle
 @onready var sprite: AnimatedSprite2D = %Sprite
 @onready var fire_timer: Timer = %FireTimer
+@onready var projectile_folder: CanvasGroup = %ProjectileFolder
 
 
 # Called when the node enters the scene tree for the first time.
@@ -29,7 +31,12 @@ func _process(delta: float) -> void:
 
 	sprite.play("fire")
 
-	confirmed.take_damage(weapon.damage)
+	if weapon.projectile_type == Weapon.ProjectileType.LASER:
+		var laser_instance = laser_scene.instantiate()
+		laser_instance.origin = global_position
+		laser_instance.target = confirmed
+		laser_instance.weapon = weapon
+		projectile_folder.add_child(laser_instance)
 
 	fire_timer.start(weapon.firerate)
 

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://184hxoiyfkjm"]
+
+[ext_resource type="Shader" uid="uid://dqlu5rs2x8f8s" path="res://Shaders/laser_projectile.gdshader" id="1_2hh7l"]
+[ext_resource type="Script" uid="uid://drgajihq0hl33" path="res://Scenes/City/Weapon/laser.gd" id="2_drjh4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_72tw7"]
+shader = ExtResource("1_2hh7l")
+
+[sub_resource type="Gradient" id="Gradient_m2cwx"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g7mn7"]
+gradient = SubResource("Gradient_m2cwx")
+
+[node name="Laser" type="Sprite2D" unique_id=1720158748]
+material = SubResource("ShaderMaterial_72tw7")
+instance_shader_parameters/direction = 0.0
+texture = SubResource("GradientTexture2D_g7mn7")
+script = ExtResource("2_drjh4")

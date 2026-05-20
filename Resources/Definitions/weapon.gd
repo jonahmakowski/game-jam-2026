@@ -1,6 +1,8 @@
 class_name Weapon
 extends Resource
 
+enum ProjectileType { LASER, PROJECTILE }
+
 @export var damage: float
 ## In seconds between firing
 @export var firerate: float
@@ -10,7 +12,7 @@ extends Resource
 @export var name: String
 @export var upgrades: Array[WeaponUpgrade]
 @export_group("Projectile Settings")
-@export_enum("Laser", "Projectile") var projectile_type: int
+@export var projectile_type: ProjectileType
 @export_subgroup("Laser", "laser")
 @export var laser_shader: Shader = preload("uid://dqlu5rs2x8f8s")
 @export var laser_color: Color
