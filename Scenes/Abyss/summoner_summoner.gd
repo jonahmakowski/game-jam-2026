@@ -27,6 +27,25 @@ const POSITIONS = [
 	Vector3(-107.2518, 165.039, 25.29314),
 	Vector3(-110.9628, 166.1472, 17.07467),
 	Vector3(-108.8403, 164.4815, 3.737135),
+	Vector3(-110.5615, -12.80045, 67.64799),
+	Vector3(-123.2064, -0.680496, -8.451603),
+	Vector3(-39.0041, 56.45502, -115.796),
+	Vector3(-6.441544, 53.65374, -116.8556),
+	Vector3(93.48227, 55.39699, -75.85368),
+	Vector3(110.9726, 55.09351, -44.42659),
+	Vector3(113.0988, 54.11467, 34.99991),
+	Vector3(84.78486, 80.3544, 82.06402),
+	Vector3(-8.479722, 25.23934, 117.3637),
+	Vector3(46.02481, -1.945028, 112.7828),
+	Vector3(91.94789, 0.771635, 87.61864),
+	Vector3(120.3208, -1.300672, 24.65687),
+	Vector3(115.6967, -160.8824, 87.9515),
+	Vector3(107.8674, -161.5531, 95.22549),
+	Vector3(-15.72284, -160.0639, 145.9185),
+	Vector3(-57.52267, -173.3096, 140.6816),
+	Vector3(-102.1266, -175.8757, 101.0326),
+	Vector3(-106.6718, -106.8672, 90.33102),
+	Vector3(-109.3124, -14.23706, 68.77043),
 ]
 
 var scene: PackedScene = preload("uid://by1ssldc3md2j")
@@ -37,6 +56,9 @@ var possible_monster: Array[Monster] = [preload("uid://b6j4q5yinv5y1")]
 func add_children():
 	var selection = EditorInterface.get_selection()
 	var child_of = selection.get_selected_nodes()[0]
+
+	for child in child_of.get_children():
+		child.queue_free()
 
 	for position in POSITIONS:
 		var instance = (scene.instantiate() as Node3D)
