@@ -8,14 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://dbi216gf0m628" path="res://Scenes/Abyss/Rope/rope.tscn" id="4_sssut"]
 [ext_resource type="PackedScene" uid="uid://bduqu4d41gay2" path="res://Scenes/Abyss/Monster/monster.tscn" id="6_72x5s"]
 [ext_resource type="Script" uid="uid://cfeyboy7c4egq" path="res://Scenes/Abyss/abyss_main_light.gd" id="7_i425a"]
-[ext_resource type="PackedScene" uid="uid://bd3fg2erte5w7" path="res://Assets/Abyss/platform.blend" id="8_t15io"]
+[ext_resource type="PackedScene" uid="uid://bd3fg2erte5w7" path="res://Assets/Abyss/Platform.blend" id="8_t15io"]
 [ext_resource type="PackedScene" uid="uid://by1ssldc3md2j" path="res://Scenes/Abyss/Ore/Ore Summoner/ore_summoner.tscn" id="10_i425a"]
-[ext_resource type="Script" uid="uid://cj88flk5n45w7" path="res://Scenes/Abyss/Ore/Ore Summoner/ore_summoner.gd" id="11_xneq6"]
-[ext_resource type="PackedScene" uid="uid://b6ydojbgko7ok" path="res://Scenes/Abyss/Ore/ore.tscn" id="12_imyk7"]
 [ext_resource type="Script" uid="uid://cncnbd3umy0c7" path="res://Resources/Definitions/ore.gd" id="12_oub1k"]
 [ext_resource type="Resource" uid="uid://bo8rf66bpefv5" path="res://Resources/Ore/test_ore.tres" id="13_cjobh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e11qs"]
+ground_bottom_color = Color(0.1529063, 0.12342162, 0.09895388, 1)
+ground_energy_multiplier = 0.1
 
 [sub_resource type="Sky" id="Sky_bd6b6"]
 sky_material = SubResource("ProceduralSkyMaterial_e11qs")
@@ -42,7 +42,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 500, 0)
 
 [node name="Rope" parent="." unique_id=366522592 node_paths=PackedStringArray("endpoint_a", "endpoint_b") instance=ExtResource("4_sssut")]
 unique_name_in_owner = true
-rope_max_length = 1000.0
+rope_max_length = 690.0
 segments = 200
 endpoint_a = NodePath("../RopeEndpoint")
 endpoint_b = NodePath("../Player")
@@ -67,410 +67,274 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 109.71759)
 
 [node name="OreSummonerFolder" type="Node3D" parent="." unique_id=158070518]
 
-[node name="OreSummoner" type="Marker3D" parent="OreSummonerFolder" unique_id=691576553 instance=ExtResource("10_i425a")]
+[node name="OreSummoner" parent="OreSummonerFolder" unique_id=691576553 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.5487, -81.12161, -93.60976)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88643" type="Marker3D" parent="OreSummonerFolder" unique_id=1673811186 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88643" parent="OreSummonerFolder" unique_id=1673811186 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.5417, -82.20398, -81.17628)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88644" type="Marker3D" parent="OreSummonerFolder" unique_id=1850001956 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88644" parent="OreSummonerFolder" unique_id=1850001956 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -138.4653, -84.87961, -0.272778)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88645" type="Marker3D" parent="OreSummonerFolder" unique_id=1823980178 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88645" parent="OreSummonerFolder" unique_id=1823980178 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.65639, -77.69891, 126.501)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88646" type="Marker3D" parent="OreSummonerFolder" unique_id=4960756 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88646" parent="OreSummonerFolder" unique_id=4960756 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.8774, -50.71696, 59.35038)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88647" type="Marker3D" parent="OreSummonerFolder" unique_id=122377926 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88647" parent="OreSummonerFolder" unique_id=122377926 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.5161, -81.28527, -68.0723)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88648" type="Marker3D" parent="OreSummonerFolder" unique_id=2143403474 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88648" parent="OreSummonerFolder" unique_id=2143403474 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.62313, -106.9167, -120.886)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88649" type="Marker3D" parent="OreSummonerFolder" unique_id=353330518 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88649" parent="OreSummonerFolder" unique_id=353330518 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.6744, -107.0785, -124.2105)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88650" type="Marker3D" parent="OreSummonerFolder" unique_id=2080190456 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88650" parent="OreSummonerFolder" unique_id=2080190456 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.83508, -104.7114, -137.6332)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88651" type="Marker3D" parent="OreSummonerFolder" unique_id=753285856 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88651" parent="OreSummonerFolder" unique_id=753285856 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -134.4955, -107.2808, -32.61962)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88652" type="Marker3D" parent="OreSummonerFolder" unique_id=1763801394 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88652" parent="OreSummonerFolder" unique_id=1763801394 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.84459, 71.08082, 113.9685)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88653" type="Marker3D" parent="OreSummonerFolder" unique_id=915102461 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88653" parent="OreSummonerFolder" unique_id=915102461 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.74528, 56.82775, 73.72391)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88654" type="Marker3D" parent="OreSummonerFolder" unique_id=11627690 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88654" parent="OreSummonerFolder" unique_id=11627690 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.91122, 109.3922, -94.11208)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88655" type="Marker3D" parent="OreSummonerFolder" unique_id=43054394 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88655" parent="OreSummonerFolder" unique_id=43054394 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.68027, 112.4207, -88.36126)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88656" type="Marker3D" parent="OreSummonerFolder" unique_id=1752858238 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88656" parent="OreSummonerFolder" unique_id=1752858238 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.520038, 108.9568, 110.692)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88657" type="Marker3D" parent="OreSummonerFolder" unique_id=1055622377 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88657" parent="OreSummonerFolder" unique_id=1055622377 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.24268, 109.2611, 107.9869)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88658" type="Marker3D" parent="OreSummonerFolder" unique_id=1439029140 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88658" parent="OreSummonerFolder" unique_id=1439029140 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.99883, 113.2926, -116.1734)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88659" type="Marker3D" parent="OreSummonerFolder" unique_id=1809433546 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88659" parent="OreSummonerFolder" unique_id=1809433546 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.028, 113.2789, -115.6277)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88660" type="Marker3D" parent="OreSummonerFolder" unique_id=721990590 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88660" parent="OreSummonerFolder" unique_id=721990590 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.08152, 112.9765, -88.3756)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88661" type="Marker3D" parent="OreSummonerFolder" unique_id=53976361 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88661" parent="OreSummonerFolder" unique_id=53976361 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.50534, 164.203, 81.48689)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88662" type="Marker3D" parent="OreSummonerFolder" unique_id=366614795 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88662" parent="OreSummonerFolder" unique_id=366614795 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.33904, 164.5744, 61.12108)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88663" type="Marker3D" parent="OreSummonerFolder" unique_id=1267985815 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88663" parent="OreSummonerFolder" unique_id=1267985815 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.96871, 164.295, 62.35635)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88664" type="Marker3D" parent="OreSummonerFolder" unique_id=1189048000 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88664" parent="OreSummonerFolder" unique_id=1189048000 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -107.2518, 165.039, 25.29314)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88665" type="Marker3D" parent="OreSummonerFolder" unique_id=325475548 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88665" parent="OreSummonerFolder" unique_id=325475548 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.9628, 166.1472, 17.07467)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88666" type="Marker3D" parent="OreSummonerFolder" unique_id=843231359 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88666" parent="OreSummonerFolder" unique_id=843231359 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.8403, 164.4815, 3.737135)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88667" type="Marker3D" parent="OreSummonerFolder" unique_id=1242001559 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88667" parent="OreSummonerFolder" unique_id=1242001559 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.5615, -12.80045, 67.64799)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88668" type="Marker3D" parent="OreSummonerFolder" unique_id=1134952928 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88668" parent="OreSummonerFolder" unique_id=1134952928 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -123.2064, -0.680496, -8.451603)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88669" type="Marker3D" parent="OreSummonerFolder" unique_id=362145358 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88669" parent="OreSummonerFolder" unique_id=362145358 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.0041, 56.45502, -115.796)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88670" type="Marker3D" parent="OreSummonerFolder" unique_id=305802946 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88670" parent="OreSummonerFolder" unique_id=305802946 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.441544, 53.65374, -116.8556)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88671" type="Marker3D" parent="OreSummonerFolder" unique_id=645051985 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88671" parent="OreSummonerFolder" unique_id=645051985 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.48227, 55.39699, -75.85368)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88672" type="Marker3D" parent="OreSummonerFolder" unique_id=1876676966 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88672" parent="OreSummonerFolder" unique_id=1876676966 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.9726, 55.09351, -44.42659)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88673" type="Marker3D" parent="OreSummonerFolder" unique_id=1188281936 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88673" parent="OreSummonerFolder" unique_id=1188281936 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.0988, 54.11467, 34.99991)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88674" type="Marker3D" parent="OreSummonerFolder" unique_id=1774723894 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88674" parent="OreSummonerFolder" unique_id=1774723894 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.78486, 80.3544, 82.06402)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88675" type="Marker3D" parent="OreSummonerFolder" unique_id=502100523 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88675" parent="OreSummonerFolder" unique_id=502100523 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.479722, 25.23934, 117.3637)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88676" type="Marker3D" parent="OreSummonerFolder" unique_id=499150809 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88676" parent="OreSummonerFolder" unique_id=499150809 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.02481, -1.945028, 112.7828)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88677" type="Marker3D" parent="OreSummonerFolder" unique_id=1265886425 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88677" parent="OreSummonerFolder" unique_id=1265886425 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.94789, 0.771635, 87.61864)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88678" type="Marker3D" parent="OreSummonerFolder" unique_id=49948668 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88678" parent="OreSummonerFolder" unique_id=49948668 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.3208, -1.300672, 24.65687)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88679" type="Marker3D" parent="OreSummonerFolder" unique_id=378720685 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88679" parent="OreSummonerFolder" unique_id=378720685 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.6967, -160.8824, 87.9515)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88680" type="Marker3D" parent="OreSummonerFolder" unique_id=341774846 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88680" parent="OreSummonerFolder" unique_id=341774846 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.8674, -161.5531, 95.22549)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88681" type="Marker3D" parent="OreSummonerFolder" unique_id=859915600 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88681" parent="OreSummonerFolder" unique_id=859915600 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.72284, -160.0639, 145.9185)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88682" type="Marker3D" parent="OreSummonerFolder" unique_id=1970893651 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88682" parent="OreSummonerFolder" unique_id=1970893651 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.52267, -173.3096, 140.6816)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88683" type="Marker3D" parent="OreSummonerFolder" unique_id=1168827399 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88683" parent="OreSummonerFolder" unique_id=1168827399 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.1266, -175.8757, 101.0326)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88684" type="Marker3D" parent="OreSummonerFolder" unique_id=1327510018 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88684" parent="OreSummonerFolder" unique_id=1327510018 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.6718, -106.8672, 90.33102)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88685" type="Marker3D" parent="OreSummonerFolder" unique_id=416372398 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88685" parent="OreSummonerFolder" unique_id=416372398 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.3124, -14.23706, 68.77043)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88686" type="Marker3D" parent="OreSummonerFolder" unique_id=985585087 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88686" parent="OreSummonerFolder" unique_id=985585087 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.82359, 53.48285, -90.50397)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88687" type="Marker3D" parent="OreSummonerFolder" unique_id=970345412 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88687" parent="OreSummonerFolder" unique_id=970345412 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -111.103, 54.00402, -38.55448)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88688" type="Marker3D" parent="OreSummonerFolder" unique_id=990412990 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88688" parent="OreSummonerFolder" unique_id=990412990 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.0649, 53.84306, 41.5664)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88689" type="Marker3D" parent="OreSummonerFolder" unique_id=1379662134 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88689" parent="OreSummonerFolder" unique_id=1379662134 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.85202, 55.05006, 92.29412)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88690" type="Marker3D" parent="OreSummonerFolder" unique_id=1735072619 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88690" parent="OreSummonerFolder" unique_id=1735072619 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.26854, 81.32361, 109.1138)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88691" type="Marker3D" parent="OreSummonerFolder" unique_id=759471186 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88691" parent="OreSummonerFolder" unique_id=759471186 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.4328, -0.035974, -22.7705)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88692" type="Marker3D" parent="OreSummonerFolder" unique_id=1978979114 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88692" parent="OreSummonerFolder" unique_id=1978979114 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.6906, -1.41902, -57.30328)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88693" type="Marker3D" parent="OreSummonerFolder" unique_id=1386067330 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88693" parent="OreSummonerFolder" unique_id=1386067330 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.59621, -0.730271, -103.3252)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88694" type="Marker3D" parent="OreSummonerFolder" unique_id=1092300511 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88694" parent="OreSummonerFolder" unique_id=1092300511 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.42788, -53.08687, -113.5628)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88695" type="Marker3D" parent="OreSummonerFolder" unique_id=924350271 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88695" parent="OreSummonerFolder" unique_id=924350271 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.2893, -55.90866, 33.60305)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88696" type="Marker3D" parent="OreSummonerFolder" unique_id=205682539 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88696" parent="OreSummonerFolder" unique_id=205682539 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.9761, -54.91888, 76.30701)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88697" type="Marker3D" parent="OreSummonerFolder" unique_id=856557190 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88697" parent="OreSummonerFolder" unique_id=856557190 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.61916, -23.05463, 111.7374)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88698" type="Marker3D" parent="OreSummonerFolder" unique_id=1374395868 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88698" parent="OreSummonerFolder" unique_id=1374395868 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.82359, 53.48285, -90.50397)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88699" type="Marker3D" parent="OreSummonerFolder" unique_id=1052999004 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88699" parent="OreSummonerFolder" unique_id=1052999004 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -111.103, 54.00402, -38.55448)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88700" type="Marker3D" parent="OreSummonerFolder" unique_id=649710498 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88700" parent="OreSummonerFolder" unique_id=649710498 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.0649, 53.84306, 41.5664)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88701" type="Marker3D" parent="OreSummonerFolder" unique_id=832657193 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88701" parent="OreSummonerFolder" unique_id=832657193 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.85202, 55.05006, 92.29412)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88702" type="Marker3D" parent="OreSummonerFolder" unique_id=846011961 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88702" parent="OreSummonerFolder" unique_id=846011961 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.26854, 81.32361, 109.1138)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88703" type="Marker3D" parent="OreSummonerFolder" unique_id=1911750149 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88703" parent="OreSummonerFolder" unique_id=1911750149 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.4328, -0.035974, -22.7705)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88704" type="Marker3D" parent="OreSummonerFolder" unique_id=2099999340 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88704" parent="OreSummonerFolder" unique_id=2099999340 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.6906, -1.41902, -57.30328)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88705" type="Marker3D" parent="OreSummonerFolder" unique_id=1247606868 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88705" parent="OreSummonerFolder" unique_id=1247606868 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.59621, -0.730271, -103.3252)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88706" type="Marker3D" parent="OreSummonerFolder" unique_id=338872212 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88706" parent="OreSummonerFolder" unique_id=338872212 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.42788, -53.08687, -113.5628)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88707" type="Marker3D" parent="OreSummonerFolder" unique_id=433405150 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88707" parent="OreSummonerFolder" unique_id=433405150 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.2893, -55.90866, 33.60305)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88708" type="Marker3D" parent="OreSummonerFolder" unique_id=270036833 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88708" parent="OreSummonerFolder" unique_id=270036833 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.9761, -54.91888, 76.30701)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
 
-[node name="@Marker3D@88709" type="Marker3D" parent="OreSummonerFolder" unique_id=493952902 instance=ExtResource("10_i425a")]
+[node name="@Marker3D@88709" parent="OreSummonerFolder" unique_id=493952902 instance=ExtResource("10_i425a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.61916, -23.05463, 111.7374)
-script = ExtResource("11_xneq6")
 possible_ores = Array[ExtResource("12_oub1k")]([ExtResource("13_cjobh")])
-ore_scene = ExtResource("12_imyk7")
