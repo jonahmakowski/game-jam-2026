@@ -61,4 +61,4 @@ func mine(damage: int):
 		queue_free()
 
 	await get_tree().create_timer(0.1).timeout
-	scale = Vector3(1, 1, 1)
+	scale = Vector3(Constants.ORE_SCALE, Constants.ORE_SCALE, Constants.ORE_SCALE)
