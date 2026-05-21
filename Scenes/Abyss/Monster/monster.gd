@@ -23,13 +23,14 @@ var animation_player: AnimationPlayer
 func _ready() -> void:
 	update_model()
 
-	animation_player.animation_finished.connect(_on_animation_finished)
+	if not Engine.is_editor_hint():
+		animation_player.animation_finished.connect(_on_animation_finished)
 
-	match Globals.loaded_settings.show_enemy_health_mode:
-		"Always":
-			health_3d_sprite.show()
-		"Never":
-			health_3d_sprite.hide()
+		match Globals.loaded_settings.show_enemy_health_mode:
+			"Always":
+				health_3d_sprite.show()
+			"Never":
+				health_3d_sprite.hide()
 
 
 func _process(_delta: float) -> void:

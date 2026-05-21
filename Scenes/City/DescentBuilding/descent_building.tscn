@@ -1,3 +1,64 @@
 [gd_scene format=3 uid="uid://becbrrpmtduaq"]
 
+[ext_resource type="Texture2D" uid="uid://yqwxhlv264rv" path="res://Assets/City/Buildings/descent.png" id="1_a887d"]
+[ext_resource type="Script" uid="uid://beksgs1k0vua0" path="res://Scenes/City/DescentBuilding/descent_building.gd" id="1_f14p5"]
+[ext_resource type="PackedScene" uid="uid://cbleqvptdfd41" path="res://Scenes/Abyss/abyss_main.tscn" id="2_wgg3x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a887d"]
+size = Vector2(1166, 1398)
+
 [node name="DescentBuilding" type="Node2D" unique_id=559037139]
+script = ExtResource("1_f14p5")
+abyss_scene = ExtResource("2_wgg3x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=874651497]
+texture = ExtResource("1_a887d")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=120457807]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=539069628]
+shape = SubResource("RectangleShape2D_a887d")
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=1507365442]
+visible = false
+
+[node name="CenterContainer" type="CenterContainer" parent="UILayer" unique_id=679506821]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="UILayer/CenterContainer" unique_id=231996280]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UILayer/CenterContainer/PanelContainer" unique_id=1291755950]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/CenterContainer/PanelContainer/MarginContainer" unique_id=511073437]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UILayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=398259708]
+layout_mode = 2
+text = "Go to the Abyss?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UILayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=6145892]
+layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="UILayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1682315571]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Cancel"
+
+[node name="ConfirmButton" type="Button" parent="UILayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1438423841]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Confirm"
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="pressed" from="UILayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="UILayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]

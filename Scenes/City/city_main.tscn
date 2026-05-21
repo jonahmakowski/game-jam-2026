@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bgivs5hgl3arw" path="res://Scenes/City/Building/building.tscn" id="2_dl85s"]
 [ext_resource type="Resource" uid="uid://dk27ffqewpp7y" path="res://Resources/Weapon/plasma_rifle.tres" id="3_wddgr"]
 [ext_resource type="PackedScene" uid="uid://wsmafjcchcng" path="res://Scenes/City/Monster/monster.tscn" id="4_gxlp6"]
+[ext_resource type="PackedScene" uid="uid://becbrrpmtduaq" path="res://Scenes/City/DescentBuilding/descent_building.tscn" id="7_wddgr"]
 
 [sub_resource type="Curve2D" id="Curve2D_7q2q6"]
 _data = {
@@ -99,3 +100,7 @@ curve = SubResource("Curve2D_7q2q6")
 
 [node name="Monster" parent="Path2D" unique_id=972345731 instance=ExtResource("4_gxlp6")]
 rotation = 0.7853982
+
+[node name="DescentBuilding" parent="." unique_id=559037139 instance=ExtResource("7_wddgr")]
+position = Vector2(500, 0)
+scale = Vector2(0.25, 0.25)
