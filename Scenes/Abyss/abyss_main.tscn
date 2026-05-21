@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dbi216gf0m628" path="res://Scenes/Abyss/Rope/rope.tscn" id="4_sssut"]
 [ext_resource type="PackedScene" uid="uid://bduqu4d41gay2" path="res://Scenes/Abyss/Monster/monster.tscn" id="6_72x5s"]
 [ext_resource type="Script" uid="uid://cfeyboy7c4egq" path="res://Scenes/Abyss/abyss_main_light.gd" id="7_i425a"]
-[ext_resource type="PackedScene" uid="uid://bd3fg2erte5w7" path="res://Assets/Abyss/platform.blend" id="8_t15io"]
+[ext_resource type="PackedScene" uid="uid://d2f7oxycc2352" path="res://Assets/Abyss/platform.blend" id="8_t15io"]
 [ext_resource type="PackedScene" uid="uid://by1ssldc3md2j" path="res://Scenes/Abyss/Ore/Ore Summoner/ore_summoner.tscn" id="10_i425a"]
 [ext_resource type="Script" uid="uid://cncnbd3umy0c7" path="res://Resources/Definitions/ore.gd" id="12_oub1k"]
 [ext_resource type="Resource" uid="uid://bo8rf66bpefv5" path="res://Resources/Ore/lumonite.tres" id="13_cjobh"]
@@ -33,7 +33,7 @@ shader = ExtResource("2_sssut")
 environment = SubResource("Environment_e11qs")
 
 [node name="Player" parent="." unique_id=1872069197 instance=ExtResource("1_5p8cj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 500, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 300, 0)
 
 [node name="RopeEndpoint" type="Marker3D" parent="." unique_id=1227030913]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 500, 0)
