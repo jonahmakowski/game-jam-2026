@@ -29,6 +29,16 @@ window/stretch/aspect="expand"
 
 enabled=PackedStringArray("res://addons/GDQuest_GDScript_formatter/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://Assets/": "red",
+"res://Globals/": "orange",
+"res://Resources/": "yellow",
+"res://Scenes/": "teal",
+"res://Shaders/": "blue"
+}
+
 [global_group]
 
 player=""

@@ -26,7 +26,7 @@ func can_purchase() -> bool:
 
 
 func has_prereq() -> bool:
-	if len(prereq_upgrade) > 0 and prereq_upgrade not in Globals.player_data.applied_upgrades:
+	if prereq_upgrade != null and prereq_upgrade not in Globals.player_data.applied_upgrades:
 		return false
 	return true
 
