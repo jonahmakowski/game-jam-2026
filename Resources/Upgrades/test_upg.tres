@@ -4,13 +4,17 @@
 [ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="1_w7w2g"]
 [ext_resource type="Script" uid="uid://bxuhbe0j65rac" path="res://Resources/Definitions/upgrade.gd" id="2_b63hd"]
 [ext_resource type="Resource" uid="uid://cjxg765yiadj4" path="res://Resources/Item/test_item.tres" id="3_oddis"]
-[ext_resource type="Resource" path="res://Resources/Item/lumonite.tres" id="4_oddis"]
+[ext_resource type="Resource" uid="uid://q81cnghelmi5" path="res://Resources/Item/lumonite.tres" id="4_oddis"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oddis"]
+atlas = ExtResource("1_hqdoq")
+region = Rect2(12, 68, 40, 56)
 
 [resource]
 script = ExtResource("2_b63hd")
 name = "Test"
 description = "I hate godot with a passion"
-icon = ExtResource("1_hqdoq")
+icon = SubResource("AtlasTexture_oddis")
 price = Dictionary[ExtResource("1_w7w2g"), int]({
 ExtResource("3_oddis"): 1,
 ExtResource("4_oddis"): 5

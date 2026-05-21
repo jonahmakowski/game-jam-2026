@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c5i3rlxjr8ltc"]
 
 [ext_resource type="Script" uid="uid://dulcn0630bssm" path="res://Scenes/City/Building/UpgradeUI/upgrade_ui.gd" id="1_nt137"]
+[ext_resource type="PackedScene" uid="uid://dn76q8xyfcgdy" path="res://Scenes/City/Building/UpgradeUI/cost_marker.tscn" id="2_j0o0a"]
 [ext_resource type="Texture2D" uid="uid://bs5ptslwcyfsi" path="res://icon.svg" id="2_o2xm5"]
 
 [node name="UpgradeUI" type="HBoxContainer" unique_id=142845591]
@@ -11,6 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 script = ExtResource("1_nt137")
+cost_marker_scene = ExtResource("2_j0o0a")
 
 [node name="Icon" type="TextureRect" parent="." unique_id=1274808392]
 unique_name_in_owner = true
@@ -28,10 +30,6 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "This is the title of the upgrade"
 
-[node name="CostContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1928008343]
-unique_name_in_owner = true
-layout_mode = 2
-
 [node name="Description" type="Label" parent="VBoxContainer" unique_id=877982672]
 unique_name_in_owner = true
 layout_mode = 2
@@ -44,5 +42,9 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 text = "Purchase"
+
+[node name="CostContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=463930110]
+unique_name_in_owner = true
+layout_mode = 2
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/PurchaseButton" to="." method="_on_purchase_button_pressed"]
