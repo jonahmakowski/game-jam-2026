@@ -2,14 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://yqwxhlv264rv" path="res://Assets/City/Buildings/descent.png" id="1_a887d"]
 [ext_resource type="Script" uid="uid://beksgs1k0vua0" path="res://Scenes/City/DescentBuilding/descent_building.gd" id="1_f14p5"]
-[ext_resource type="PackedScene" uid="uid://cbleqvptdfd41" path="res://Scenes/Abyss/abyss_main.tscn" id="2_wgg3x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a887d"]
 size = Vector2(1166, 1398)
 
 [node name="DescentBuilding" type="Node2D" unique_id=559037139]
 script = ExtResource("1_f14p5")
-abyss_scene = ExtResource("2_wgg3x")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=874651497]
 texture = ExtResource("1_a887d")

@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var abyss_scene: PackedScene
+var abyss_scene: PackedScene = preload("res://Scenes/Abyss/abyss_main.tscn")
 
 @onready var ui_layer: CanvasLayer = $UILayer
 

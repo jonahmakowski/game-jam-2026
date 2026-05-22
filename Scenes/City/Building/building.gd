@@ -21,7 +21,7 @@ func _ready() -> void:
 	ui_layer.hide()
 	if not Engine.is_editor_hint():
 		EventBus.hide_building_ui.connect(ui_layer.hide)
-	setup_upgrades()
+		setup_upgrades()
 
 
 func _process(_delta: float) -> void:

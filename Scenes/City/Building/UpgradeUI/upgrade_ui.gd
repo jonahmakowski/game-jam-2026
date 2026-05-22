@@ -1,11 +1,6 @@
 extends HBoxContainer
 
-@export var upgrade: Upgrade:
-	set(new):
-		upgrade = new
-
-		if new != null and is_node_ready():
-			update()
+@export var upgrade: Upgrade
 @export var cost_marker_scene: PackedScene
 
 @onready var icon: TextureRect = %Icon
@@ -16,7 +11,7 @@ extends HBoxContainer
 
 
 func _ready() -> void:
-	update()
+	EventBus.update_inventory.connect(update)
 
 
 func update():

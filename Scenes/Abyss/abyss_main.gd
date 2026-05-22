@@ -2,7 +2,8 @@
 extends Node3D
 
 @export var shader: Shader
-@export var city_scene: PackedScene = load("res://Scenes/City/city_main.tscn")
+
+var city_scene: PackedScene = load("res://Scenes/City/city_main.tscn")
 
 @onready var rope: RopeScene = %Rope
 

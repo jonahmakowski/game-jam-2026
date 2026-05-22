@@ -7,15 +7,15 @@
 [ext_resource type="Shader" uid="uid://dyci6la46vdla" path="res://Shaders/light_ore.tres" id="4_a07hb"]
 [ext_resource type="Shader" uid="uid://n0luw123hvv0" path="res://Shaders/rock_shader.tres" id="6_1x5dp"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_io2yb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a07hb"]
 render_priority = 0
 shader = ExtResource("4_a07hb")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ldro7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1x5dp"]
 render_priority = 0
 shader = ExtResource("6_1x5dp")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yp1ci"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_io2yb"]
 size = Vector3(1.704747, 1.500017, 1.6065595)
 
 [node name="Ore" type="StaticBody3D" unique_id=1575974477]
@@ -30,13 +30,13 @@ unique_name_in_owner = true
 [node name="OreModel" type="MeshInstance3D" parent="Model" unique_id=2059226081]
 unique_name_in_owner = true
 mesh = ExtResource("3_ih5we")
-surface_material_override/0 = SubResource("ShaderMaterial_io2yb")
+surface_material_override/0 = SubResource("ShaderMaterial_a07hb")
 
 [node name="RockModel" type="MeshInstance3D" parent="Model" unique_id=161567288]
 unique_name_in_owner = true
 mesh = ExtResource("4_2lsbe")
-surface_material_override/0 = SubResource("ShaderMaterial_ldro7")
+surface_material_override/0 = SubResource("ShaderMaterial_1x5dp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=159637619]
 unique_name_in_owner = true
-shape = SubResource("BoxShape3D_yp1ci")
+shape = SubResource("BoxShape3D_io2yb")

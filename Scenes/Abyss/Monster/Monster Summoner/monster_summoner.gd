@@ -22,7 +22,7 @@ func run():
 
 	var selected_monster = weighted_array[randi_range(0, len(weighted_array) - 1)]
 
-	var monster_scene_instance: MonsterScene = monster_scene.instantiate()
+	var monster_scene_instance: MonsterScene3D = monster_scene.instantiate()
 
 	monster_scene_instance.ore_type = selected_monster
 	monster_scene_instance.transform = transform
@@ -30,6 +30,6 @@ func run():
 	call_deferred("replace_with_ore", monster_scene_instance)
 
 
-func replace_with_ore(to_replace_with: MonsterScene):
+func replace_with_ore(to_replace_with: MonsterScene3D):
 	replace_by(to_replace_with)
 	queue_free()

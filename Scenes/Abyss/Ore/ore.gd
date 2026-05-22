@@ -59,6 +59,6 @@ func mine(damage: int):
 		Globals.player_data.inventory.append(ore_type.to_drop)
 		EventBus.update_inventory.emit()
 		queue_free()
-
-	await get_tree().create_timer(0.1).timeout
-	scale = Vector3(Constants.ORE_SCALE, Constants.ORE_SCALE, Constants.ORE_SCALE)
+	else:
+		await get_tree().create_timer(0.1).timeout
+		scale = Vector3(Constants.ORE_SCALE, Constants.ORE_SCALE, Constants.ORE_SCALE)
