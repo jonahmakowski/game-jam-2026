@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bmgqsw1vwvkk4"
+path="res://.godot/imported/Tissue box.mp3-b228ab409070b3480ee1e2b6648fe399.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Tissue box.mp3"
+dest_files=["res://.godot/imported/Tissue box.mp3-b228ab409070b3480ee1e2b6648fe399.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
