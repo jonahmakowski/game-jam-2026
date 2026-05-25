@@ -145,7 +145,7 @@ func mine():
 				mining = false
 				break
 
-			await get_tree().create_timer(0.5).timeout
+			await get_tree().create_timer(Globals.player_data.mine_speed).timeout
 		else:
 			mining = false
 			break

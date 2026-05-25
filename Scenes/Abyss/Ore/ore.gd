@@ -9,11 +9,13 @@ extends StaticBody3D
 			update_data()
 
 var current_health: int
+var currently_mining = false
 
 @onready var model: Node3D = %Model
 @onready var collision_shape: CollisionShape3D = %CollisionShape3D
 @onready var ore_model: MeshInstance3D = %OreModel
 @onready var rock_model: MeshInstance3D = %RockModel
+@onready var timer: Timer = %Timer
 
 
 func _ready() -> void:
@@ -53,12 +55,24 @@ func set_collisions():
 
 
 func mine(damage: int):
+	if currently_mining:
+		return
+
 	current_health -= damage
-	scale *= 1.1
+
+	var animation_size = Constants.ORE_SCALE * 1.1
+	scale = Vector3(animation_size, animation_size, animation_size)
+
 	if current_health <= 0:
 		Globals.player_data.inventory.append(ore_type.to_drop)
 		EventBus.update_inventory.emit()
 		queue_free()
 	else:
-		await get_tree().create_timer(0.1).timeout
+		currently_mining = true
+		timer.start(Globals.player_data.mine_speed)
+		await get_tree().create_timer(Constants.ORE_MINING_ANIMATION_SPEED).timeout
 		scale = Vector3(Constants.ORE_SCALE, Constants.ORE_SCALE, Constants.ORE_SCALE)
+
+
+func _on_timer_timeout() -> void:
+	currently_mining = false

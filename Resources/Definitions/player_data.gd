@@ -11,5 +11,6 @@ extends Resource
 @export var speed: float = 25.0
 @export var jump_velocity: float = 15.0
 @export var max_jumps: int = 2
+@export var mine_speed: float = 0.5
 @export_group("Player Upgrades")
 @export var applied_upgrades: Array[Upgrade]
