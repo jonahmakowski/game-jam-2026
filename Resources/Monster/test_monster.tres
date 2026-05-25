@@ -49,6 +49,7 @@ sprite = SubResource("SpriteFrames_3dhph")
 sprite_size = Vector2i(192, 192)
 health = 10
 damage = 10.0
+damage_cooldown = 2.0
 speed_3d = 10.0
 speed_2d = 30.0
 agro_range = 100.0

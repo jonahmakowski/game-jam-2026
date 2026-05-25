@@ -8,6 +8,7 @@ extends Resource
 @export var sprite_size: Vector2i
 @export var health: int
 @export var damage: float
+@export var damage_cooldown: float
 @export var speed_3d: float
 @export var speed_2d: float
 @export var agro_range: float

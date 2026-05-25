@@ -9,6 +9,7 @@ const HEALTH_OFFSET = 0.5
 var current_health: int
 var is_agroed: bool
 var animation_player: AnimationPlayer
+var attacking: bool = false
 
 @onready var player_finder: RayCast3D = %PlayerFinder
 @onready var player: PlayerScene = get_tree().get_first_node_in_group("player")
@@ -18,6 +19,7 @@ var animation_player: AnimationPlayer
 @onready var health_text: Label = %HealthText
 @onready var health_3d_sprite: Sprite3D = %Health3DSprite
 @onready var collision_shape: CollisionShape3D = %CollisionShape3D
+@onready var attack_cooldown: Timer = %AttackCooldown
 
 
 func _ready() -> void:
@@ -41,6 +43,12 @@ func _process(_delta: float) -> void:
 				health_3d_sprite.show()
 			else:
 				health_3d_sprite.hide()
+
+		if not attacking and player.global_position.distance_to(global_position) <= Constants.ENEMY_ATTACK_RANGE:
+			player.current_energy -= monster_data.damage
+			player.hud.set_energy(Globals.player_data.max_energy, player.current_energy)
+			attacking = true
+			attack_cooldown.start(monster_data.damage_cooldown)
 
 
 func _physics_process(_delta: float) -> void:
@@ -125,3 +133,7 @@ func take_damage(damage: int) -> void:
 func _on_animation_finished(anim_name: StringName):
 	if anim_name == "Death":
 		queue_free()
+
+
+func _on_attack_cooldown_timeout() -> void:
+	attacking = false
