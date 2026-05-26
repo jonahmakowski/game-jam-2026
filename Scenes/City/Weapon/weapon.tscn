@@ -1,32 +1,23 @@
 [gd_scene format=3 uid="uid://ej5h7xbolar1"]
 
 [ext_resource type="Script" uid="uid://c5rpbeuirvwvc" path="res://Scenes/City/Weapon/weapon.gd" id="1_g23is"]
-[ext_resource type="Shader" uid="uid://cp2gdfep1qlm2" path="res://Shaders/range_circle.gdshader" id="2_jja05"]
 [ext_resource type="PackedScene" uid="uid://184hxoiyfkjm" path="res://Scenes/City/Weapon/laser.tscn" id="2_kh6l4"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kh6l4"]
-shader = ExtResource("2_jja05")
-shader_parameter/circle_thickness = 0.9750000463125
-
-[sub_resource type="Gradient" id="Gradient_5pyac"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_akcwn"]
-gradient = SubResource("Gradient_5pyac")
-width = 1
-height = 1
+[ext_resource type="PackedScene" uid="uid://c5i3rlxjr8ltc" path="res://Scenes/City/Building/UpgradeUI/upgrade_ui.tscn" id="3_5pyac"]
+[ext_resource type="Texture2D" uid="uid://cpxk7ntvk8qvs" path="res://Assets/UI/gamejam_icons.png" id="3_kh6l4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jja05"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kh6l4"]
+size = Vector2(128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pyac"]
+atlas = ExtResource("3_kh6l4")
+region = Rect2(4, 4, 56, 56)
 
 [node name="Weapon" type="Node2D" unique_id=1676257248]
 script = ExtResource("1_g23is")
 laser_scene = ExtResource("2_kh6l4")
-
-[node name="RangeCircle" type="Sprite2D" parent="." unique_id=901809668]
-unique_name_in_owner = true
-visible = false
-material = SubResource("ShaderMaterial_kh6l4")
-texture = SubResource("GradientTexture2D_akcwn")
+upgrade_ui_scene = ExtResource("3_5pyac")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=692560300]
 unique_name_in_owner = true
@@ -38,3 +29,73 @@ one_shot = true
 
 [node name="ProjectileFolder" type="CanvasGroup" parent="." unique_id=950268563]
 unique_name_in_owner = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1886308179]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=458736649]
+shape = SubResource("RectangleShape2D_kh6l4")
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=257851472]
+unique_name_in_owner = true
+layer = 2
+visible = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UILayer" unique_id=1448477316]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer" type="Control" parent="UILayer/HBoxContainer" unique_id=198708361]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+mouse_filter = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="UILayer/HBoxContainer" unique_id=1490545377]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="UILayer/HBoxContainer/PanelContainer" unique_id=970501563]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/HBoxContainer/PanelContainer/MarginContainer" unique_id=1277744720]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UILayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=420790438]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="UILayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1118192419]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Test Building"
+horizontal_alignment = 1
+
+[node name="CloseButton" type="TextureButton" parent="UILayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1674878865]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_5pyac")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UILayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2059580404]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="UpgradeParent" type="VBoxContainer" parent="UILayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1883103370]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="UILayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

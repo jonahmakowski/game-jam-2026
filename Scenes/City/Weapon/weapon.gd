@@ -3,19 +3,28 @@ extends Node2D
 
 @export var weapon: Weapon
 @export var laser_scene: PackedScene
+@export var upgrade_ui_scene: PackedScene
 
-@onready var range_circle: Sprite2D = %RangeCircle
+var mouse_in_area = false
+
 @onready var sprite: AnimatedSprite2D = %Sprite
 @onready var fire_timer: Timer = %FireTimer
 @onready var projectile_folder: CanvasGroup = %ProjectileFolder
+@onready var area_2d: Area2D = %Area2D
+@onready var ui_layer: CanvasLayer = %UILayer
+@onready var upgrade_parent: VBoxContainer = %UpgradeParent
+@onready var title_label: Label = %TitleLabel
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	setup()
+	ui_layer.hide()
+	if not Engine.is_editor_hint():
+		EventBus.hide_building_ui.connect(ui_layer.hide)
+		EventBus.update_upgrades.connect(setup_upgrades)
+		setup()
+		setup_upgrades()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if not fire_timer.is_stopped():
 		return
@@ -41,6 +50,13 @@ func _process(_delta: float) -> void:
 	fire_timer.start(weapon.firerate)
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact_building") and mouse_in_area:
+		EventBus.hide_building_ui.emit()
+		ui_layer.show()
+		get_viewport().set_input_as_handled()
+
+
 func find_best_target():
 	var monsters = get_tree().get_nodes_in_group("monster")
 
@@ -64,7 +80,32 @@ func find_best_target():
 
 
 func setup():
+	title_label.text = weapon.name
 	weapon = weapon.duplicate()
 	weapon.weapon_scene = self
-	range_circle.scale = Vector2(weapon.weapon_range, weapon.weapon_range)
 	sprite.sprite_frames = weapon.sprite
+
+
+func setup_upgrades():
+	for child in upgrade_parent.get_children():
+		child.queue_free()
+
+	for upgrade in weapon.upgrades:
+		if not upgrade.has_prereq():
+			continue
+
+		var instance = upgrade_ui_scene.instantiate()
+		instance.upgrade = upgrade
+		upgrade_parent.add_child(instance)
+
+
+func _on_area_2d_mouse_entered() -> void:
+	mouse_in_area = true
+
+
+func _on_area_2d_mouse_exited() -> void:
+	mouse_in_area = false
+
+
+func _on_close_button_pressed() -> void:
+	ui_layer.hide()
