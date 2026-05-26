@@ -3,14 +3,23 @@ extends CharacterBody3D
 
 const SAVE_DEBUG_DATA = true
 
+@export var death_scene: PackedScene
+
 ## Saved positions from the debug raycast of where it intersects during clicks
 var debug_positions: Array[Vector3]
 var mining := false
-var jumps_left := Constants.PLAYER_MAX_JUMPS
+var jumps_left := Globals.player_data.max_jumps
 var rope_scene: RopeScene
 var other_rope_endpoint: Node3D
 var pulling_in := false
-var current_energy = Globals.player_data.max_energy
+var current_energy = Globals.player_data.max_energy:
+	set(val):
+		current_energy = val
+
+		if is_node_ready():
+			hud.set_energy(Globals.player_data.max_energy, val)
+			if val == 0:
+				get_tree().change_scene_to_packed(death_scene)
 
 @onready var pivot_node: Node3D = %"Pivot Node"
 @onready var hud: HUD = %HUD
@@ -57,7 +66,7 @@ func _physics_process(delta: float) -> void:
 
 	# Jumping
 	if is_on_floor():
-		jumps_left = Constants.PLAYER_MAX_JUMPS
+		jumps_left = Globals.player_data.max_jumps
 
 	if Input.is_action_just_pressed("jump") and jumps_left > 0:
 		velocity.y = Constants.PLAYER_JUMP_VELOCITY
@@ -68,11 +77,11 @@ func _physics_process(delta: float) -> void:
 		var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		if direction:
-			velocity.x = direction.x * Constants.PLAYER_SPEED
-			velocity.z = direction.z * Constants.PLAYER_SPEED
+			velocity.x = direction.x * Globals.player_data.speed
+			velocity.z = direction.z * Globals.player_data.speed
 		else:
-			velocity.x = move_toward(velocity.x, 0, Constants.PLAYER_SPEED)
-			velocity.z = move_toward(velocity.z, 0, Constants.PLAYER_SPEED)
+			velocity.x = move_toward(velocity.x, 0, Globals.player_data.speed)
+			velocity.z = move_toward(velocity.z, 0, Globals.player_data.speed)
 
 	# Rope Stuff
 	var other_endpoint := rope_scene.endpoint_a if rope_scene.endpoint_a != self else rope_scene.endpoint_b

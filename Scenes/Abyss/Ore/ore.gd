@@ -64,7 +64,7 @@ func mine(damage: int):
 	scale = Vector3(animation_size, animation_size, animation_size)
 
 	if current_health <= 0:
-		Globals.player_data.inventory.append(ore_type.to_drop)
+		Globals.player_data.add_to_inventory_if_possible(ore_type.to_drop)
 		EventBus.update_inventory.emit()
 		queue_free()
 	else:

@@ -12,4 +12,3 @@ func _ready() -> void:
 
 func _on_timeout():
 	player.current_energy -= 1
-	hud.set_energy(Globals.player_data.max_energy, player.current_energy)

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c17tq0ce3cdnu" path="res://Scenes/Abyss/Player/player.gd" id="1_uvnfx"]
 [ext_resource type="PackedScene" uid="uid://cws328fh74g2v" path="res://Scenes/Abyss/Player/Player UI/hud.tscn" id="2_vnmss"]
+[ext_resource type="PackedScene" uid="uid://1jy505l0hy63" path="res://Scenes/Abyss/PlayerDeath/player_death.tscn" id="2_xl4t6"]
 [ext_resource type="PackedScene" uid="uid://us171jn1qsu8" path="res://Scenes/Abyss/Player/Grappling Hook/grappling_hook.tscn" id="3_exhu7"]
 [ext_resource type="Script" uid="uid://d0ph0y642y3pk" path="res://Scenes/Abyss/Player/energy_timer.gd" id="4_q66vt"]
 
@@ -12,6 +13,7 @@
 [node name="Player" type="CharacterBody3D" unique_id=1872069197 groups=["player"]]
 floor_max_angle = 1.2217305
 script = ExtResource("1_uvnfx")
+death_scene = ExtResource("2_xl4t6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1619420926]
 mesh = SubResource("CapsuleMesh_tugb3")

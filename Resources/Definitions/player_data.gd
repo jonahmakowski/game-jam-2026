@@ -14,3 +14,8 @@ extends Resource
 @export var mine_speed: float = 0.5
 @export_group("Player Upgrades")
 @export var applied_upgrades: Array[Upgrade]
+
+
+func add_to_inventory_if_possible(item: Item):
+	if len(inventory) < max_inventory_size:
+		inventory.append(item)

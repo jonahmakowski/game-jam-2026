@@ -46,7 +46,6 @@ func _process(_delta: float) -> void:
 
 		if not attacking and player.global_position.distance_to(global_position) <= Constants.ENEMY_ATTACK_RANGE:
 			player.current_energy -= monster_data.damage
-			player.hud.set_energy(Globals.player_data.max_energy, player.current_energy)
 			attacking = true
 			attack_cooldown.start(monster_data.damage_cooldown)
 
@@ -123,7 +122,7 @@ func take_damage(damage: int) -> void:
 	current_health -= damage
 
 	if current_health <= 0:
-		Globals.player_data.inventory.append(monster_data.to_drop)
+		Globals.player_data.add_to_inventory_if_possible(monster_data.to_drop)
 		EventBus.update_inventory.emit()
 		animation_player.play("Death")
 		update_health_bar()
