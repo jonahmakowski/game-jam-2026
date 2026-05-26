@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://1jy505l0hy63"]
+
+[ext_resource type="Script" uid="uid://b33jeqf826x5c" path="res://Scenes/Abyss/PlayerDeath/player_death.gd" id="1_at7ja"]
+
+[node name="PlayerDeath" type="Control" unique_id=1531371207]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_at7ja")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=397063068]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1132667869]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer" type="Control" parent="VBoxContainer" unique_id=2034073644]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=368749661]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "You Died!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=457800546]
+layout_mode = 2
+text = "You ran out of energy..."
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=1869195926]
+layout_mode = 2
+text = "Fortunately we managed to save you... But all your goods were lost."
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1797880571]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Go to City"
+
+[node name="Spacer2" type="Control" parent="VBoxContainer" unique_id=1030990282]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

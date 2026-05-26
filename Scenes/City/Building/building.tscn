@@ -30,6 +30,7 @@ shape = SubResource("RectangleShape2D_iu3v6")
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1913671967]
 unique_name_in_owner = true
+layer = 2
 visible = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UILayer" unique_id=373269346]

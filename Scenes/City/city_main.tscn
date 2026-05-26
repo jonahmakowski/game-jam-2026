@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bgivs5hgl3arw" path="res://Scenes/City/Building/building.tscn" id="2_dl85s"]
 [ext_resource type="Resource" uid="uid://dk27ffqewpp7y" path="res://Resources/Weapon/plasma_rifle.tres" id="3_wddgr"]
 [ext_resource type="PackedScene" uid="uid://wsmafjcchcng" path="res://Scenes/City/Monster/monster.tscn" id="4_gxlp6"]
+[ext_resource type="Script" uid="uid://btnuwlpaahn4w" path="res://Scenes/City/city_main_ui.gd" id="6_bq6bt"]
+[ext_resource type="PackedScene" uid="uid://1w8k1gkawc67" path="res://Scenes/Abyss/Player/Player UI/inventory_item.tscn" id="7_u6g28"]
 [ext_resource type="PackedScene" uid="uid://becbrrpmtduaq" path="res://Scenes/City/DescentBuilding/descent_building.tscn" id="7_wddgr"]
 
 [sub_resource type="Curve2D" id="Curve2D_7q2q6"]
@@ -30,7 +32,8 @@ zoom = Vector2(0.5, 0.5)
 weapon = ExtResource("3_wddgr")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1088448354]
-visible = false
+script = ExtResource("6_bq6bt")
+inventory_scene = ExtResource("7_u6g28")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=772647275]
 anchors_preset = 15
@@ -42,6 +45,7 @@ grow_vertical = 2
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HBoxContainer" unique_id=2067747775]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/PanelContainer" unique_id=991893464]
 layout_mode = 2

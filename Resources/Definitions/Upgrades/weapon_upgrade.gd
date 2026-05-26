@@ -10,6 +10,7 @@ var weapon: Weapon
 
 
 func apply():
+	super.apply()
 	weapon.damage *= 1 + damage_percentage_increase
 	weapon.damage += damage_constant_increase
 	weapon.firerate = weapon.firerate / (1 + firerate_percentage_increase)

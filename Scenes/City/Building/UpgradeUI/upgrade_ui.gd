@@ -18,6 +18,9 @@ func update():
 	icon.texture = upgrade.icon
 	title.text = upgrade.name
 
+	for child in cost_container.get_children():
+		child.queue_free()
+
 	for type in upgrade.price:
 		var cost = cost_marker_scene.instantiate()
 		cost_container.add_child(cost)
@@ -31,4 +34,4 @@ func update():
 
 
 func _on_purchase_button_pressed() -> void:
-	pass # Replace with function body.
+	upgrade.apply()

@@ -26,10 +26,10 @@ static func get_aabb(node: Node3D) -> AABB:
 	return aabb
 
 
-static func get_inventory_counts() -> Dictionary[Item, int]:
+static func get_inventory_counts(abyss_inventory = true) -> Dictionary[Item, int]:
 	var to_return: Dictionary[Item, int]
 
-	for item in Globals.player_data.inventory:
+	for item in (Globals.player_data.inventory if abyss_inventory else Globals.player_data.city_inventory):
 		if item in to_return.keys():
 			to_return[item] += 1
 		else:

@@ -7,10 +7,24 @@ extends Resource
 @export var prereq_upgrade: Upgrade
 @export var price: Dictionary[Item, int]
 
+var building: Building
+
 
 func apply():
-	print("Item %s doesn't have an overwritten apply function" % [name])
-	assert(false, "This function should be overwritten")
+	## Remove cost
+	for item in price:
+		for i in range(price[item]):
+			if item not in Globals.player_data.city_inventory:
+				push_error("Player doesn't have items to buy this upgrade")
+
+			var index = Globals.player_data.city_inventory.find(item)
+			Globals.player_data.city_inventory.remove_at(index)
+
+	## Remove building from the building's upgrades
+	building.upgrades.remove_at(building.upgrades.find(self))
+
+	EventBus.update_inventory.emit()
+	EventBus.update_upgrades.emit()
 
 
 func can_purchase() -> bool:
