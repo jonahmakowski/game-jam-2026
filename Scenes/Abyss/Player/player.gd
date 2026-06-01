@@ -149,7 +149,7 @@ func mine():
 		if ray_cast_3d.is_colliding():
 			var looking_at = ray_cast_3d.get_collider()
 			if looking_at is OreScene and is_instance_valid(looking_at):
-				(looking_at as OreScene).mine(1)
+				(looking_at as OreScene).mine(Globals.player_data.mine_damage)
 			else:
 				mining = false
 				break

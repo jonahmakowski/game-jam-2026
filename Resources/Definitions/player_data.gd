@@ -14,6 +14,7 @@ extends Resource
 @export var jump_velocity: float = 15.0
 @export var max_jumps: int = 2
 @export var mine_speed: float = 0.5
+@export var mine_damage: int = 1
 
 
 func add_to_inventory_if_possible(item: Item):
