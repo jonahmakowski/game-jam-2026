@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="EnergyUpgrade" format=3 uid="uid://byrg4nrar1l47"]
 
 [ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="1_osgyb"]
+[ext_resource type="Resource" uid="uid://eixyamdq5vhm" path="res://Resources/Upgrades/Energy/energy_tier_1.tres" id="1_plvxy"]
 [ext_resource type="Resource" uid="uid://q81cnghelmi5" path="res://Resources/Item/lumonite.tres" id="2_qur7d"]
 [ext_resource type="Script" uid="uid://bdyxdgv0k8gnn" path="res://Resources/Definitions/Upgrades/energy_upgrade.gd" id="3_plvxy"]
 [ext_resource type="Resource" uid="uid://c4he4vn8jlrkg" path="res://Resources/Item/solarized_cobalt.tres" id="3_qur7d"]
@@ -14,12 +15,13 @@ region = Rect2(0, 64, 64, 64)
 
 [resource]
 script = ExtResource("3_plvxy")
-constant_upgrade = 15
-name = "Energy Tier 2"
-description = "Increase energy by 15."
+constant_upgrade = 20
+name = "Energy Tier 3"
+description = "Increase energy by 20."
 icon = SubResource("AtlasTexture_bu1ca")
+prereq_upgrade = ExtResource("1_plvxy")
 price = Dictionary[ExtResource("1_osgyb"), int]({
 ExtResource("2_qur7d"): 5,
-ExtResource("3_qur7d"): 1
+ExtResource("3_qur7d"): 4
 })
 metadata/_custom_type_script = "uid://bdyxdgv0k8gnn"

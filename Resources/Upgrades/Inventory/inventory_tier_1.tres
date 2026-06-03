@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="InventorySizeUpgrade" format=3 uid="uid://k0aqfemfnx40"]
+
+[ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="1_bq0ji"]
+[ext_resource type="Resource" uid="uid://q81cnghelmi5" path="res://Resources/Item/lumonite.tres" id="2_prjc2"]
+[ext_resource type="Script" uid="uid://ie65sqpxb08c" path="res://Resources/Definitions/Upgrades/inventory_size_upgrade.gd" id="2_y6c3l"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bq0ji"]
+load_path = "res://.godot/imported/icons.png-b5b22720f5bf5210826fcf257ac02d0d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6c3l"]
+atlas = SubResource("CompressedTexture2D_bq0ji")
+region = Rect2(64, 64, 64, 64)
+
+[resource]
+script = ExtResource("2_y6c3l")
+constant_upgrade = 2
+name = "Inventory Increase Tier 1"
+description = "Increase Inventory size by 2"
+icon = SubResource("AtlasTexture_y6c3l")
+price = Dictionary[ExtResource("1_bq0ji"), int]({
+ExtResource("2_prjc2"): 5
+})
+metadata/_custom_type_script = "uid://ie65sqpxb08c"

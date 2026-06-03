@@ -16,7 +16,7 @@ region = Rect2(0, 64, 64, 64)
 [resource]
 script = ExtResource("4_wly55")
 constant_upgrade = 15
-name = "Energy Tier 2"
+name = "Energy Tier 3"
 description = "Increase energy by 15."
 icon = SubResource("AtlasTexture_bu1ca")
 prereq_upgrade = ExtResource("1_vn6hr")

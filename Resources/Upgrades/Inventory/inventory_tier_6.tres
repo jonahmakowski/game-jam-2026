@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="InventorySizeUpgrade" format=3 uid="uid://c7vmusiye62jf"]
+
+[ext_resource type="Resource" uid="uid://c43j5iyq1pg8m" path="res://Resources/Upgrades/Inventory/inventory_tier_4.tres" id="1_qxkti"]
+[ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="2_ykusd"]
+[ext_resource type="Resource" uid="uid://q81cnghelmi5" path="res://Resources/Item/lumonite.tres" id="3_jor1j"]
+[ext_resource type="Resource" uid="uid://c4he4vn8jlrkg" path="res://Resources/Item/solarized_cobalt.tres" id="4_2lsr1"]
+[ext_resource type="Resource" uid="uid://cjxg765yiadj4" path="res://Resources/Item/monster_parts.tres" id="5_gqlsv"]
+[ext_resource type="Script" uid="uid://ie65sqpxb08c" path="res://Resources/Definitions/Upgrades/inventory_size_upgrade.gd" id="6_p51kx"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bq0ji"]
+load_path = "res://.godot/imported/icons.png-b5b22720f5bf5210826fcf257ac02d0d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6c3l"]
+atlas = SubResource("CompressedTexture2D_bq0ji")
+region = Rect2(64, 64, 64, 64)
+
+[resource]
+script = ExtResource("6_p51kx")
+constant_upgrade = 10
+name = "Inventory Increase Tier 5"
+description = "Increase Inventory size by 10"
+icon = SubResource("AtlasTexture_y6c3l")
+prereq_upgrade = ExtResource("1_qxkti")
+price = Dictionary[ExtResource("2_ykusd"), int]({
+ExtResource("3_jor1j"): 8,
+ExtResource("4_2lsr1"): 4,
+ExtResource("5_gqlsv"): 5
+})
+metadata/_custom_type_script = "uid://ie65sqpxb08c"
