@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="MineSpeedUpgrade" format=3 uid="uid://b5syt3mvm5un3"]
+
+[ext_resource type="Resource" uid="uid://cnt8yopn2sd2g" path="res://Resources/Upgrades/Mining/Speed/mining_speed_tier_1.tres" id="1_6ru4o"]
+[ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="1_34kcb"]
+[ext_resource type="Script" uid="uid://b5xbc5y6p6gwh" path="res://Resources/Definitions/Upgrades/mine_speed_upgrade.gd" id="3_4xq28"]
+[ext_resource type="Resource" uid="uid://c4he4vn8jlrkg" path="res://Resources/Item/solarized_cobalt.tres" id="3_uas53"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kfop8"]
+load_path = "res://.godot/imported/icons.png-b5b22720f5bf5210826fcf257ac02d0d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn86t"]
+atlas = SubResource("CompressedTexture2D_kfop8")
+region = Rect2(64, 128, 64, 64)
+
+[resource]
+script = ExtResource("3_4xq28")
+upgrade_val = 10.0
+name = "Mining Speed Upgrade Tier 1"
+description = "Increasing mining speed by 10%"
+icon = SubResource("AtlasTexture_wn86t")
+prereq_upgrade = ExtResource("1_6ru4o")
+price = Dictionary[ExtResource("1_34kcb"), int]({
+ExtResource("3_uas53"): 3
+})
+metadata/_custom_type_script = "uid://b5xbc5y6p6gwh"

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="MineDamageUpgrade" format=3 uid="uid://y784vslwaevy"]
+
+[ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="1_ky2hi"]
+[ext_resource type="Resource" uid="uid://b142ldlpcrgtk" path="res://Resources/Upgrades/Mining/Damage/mining_damage_tier_1.tres" id="1_uip6j"]
+[ext_resource type="Resource" uid="uid://q81cnghelmi5" path="res://Resources/Item/lumonite.tres" id="2_uip6j"]
+[ext_resource type="Script" uid="uid://b67w3n5okjuc1" path="res://Resources/Definitions/Upgrades/mine_damage_upgrade.gd" id="3_wkx2g"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_36w84"]
+load_path = "res://.godot/imported/icons.png-b5b22720f5bf5210826fcf257ac02d0d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddnnn"]
+atlas = SubResource("CompressedTexture2D_36w84")
+region = Rect2(128, 64, 64, 64)
+
+[resource]
+script = ExtResource("3_wkx2g")
+constant_upgrade = 1
+name = "Mining Damage Tier 2"
+description = "Increase your mining damage by 1"
+icon = SubResource("AtlasTexture_ddnnn")
+prereq_upgrade = ExtResource("1_uip6j")
+price = Dictionary[ExtResource("1_ky2hi"), int]({
+ExtResource("2_uip6j"): 3
+})
+metadata/_custom_type_script = "uid://b67w3n5okjuc1"
