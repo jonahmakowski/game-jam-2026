@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CityHealthUpgrade" format=3 uid="uid://rxgwc8wn7pw2"]
+
+[ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="1_csorq"]
+[ext_resource type="Resource" uid="uid://q81cnghelmi5" path="res://Resources/Item/lumonite.tres" id="2_sn5ci"]
+[ext_resource type="Script" uid="uid://5k2ig2ayhnyi" path="res://Resources/Definitions/Upgrades/city_health_upgrade.gd" id="3_8605a"]
+[ext_resource type="Resource" uid="uid://cjxg765yiadj4" path="res://Resources/Item/monster_parts.tres" id="3_n3sdb"]
+[ext_resource type="Resource" uid="uid://c4he4vn8jlrkg" path="res://Resources/Item/solarized_cobalt.tres" id="4_lasyw"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pqfry"]
+load_path = "res://.godot/imported/icons.png-b5b22720f5bf5210826fcf257ac02d0d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv2if"]
+atlas = SubResource("CompressedTexture2D_pqfry")
+region = Rect2(128, 0, 64, 64)
+
+[resource]
+script = ExtResource("3_8605a")
+constant_upgrade = 15
+name = "Improved Defences"
+description = "Gain 15 city health!"
+icon = SubResource("AtlasTexture_yv2if")
+price = Dictionary[ExtResource("1_csorq"), int]({
+ExtResource("2_sn5ci"): 10,
+ExtResource("3_n3sdb"): 2,
+ExtResource("4_lasyw"): 3
+})
+metadata/_custom_type_script = "uid://5k2ig2ayhnyi"

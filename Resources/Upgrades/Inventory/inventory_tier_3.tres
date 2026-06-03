@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="InventorySizeUpgrade" format=3 uid="uid://c4din611u2823"]
 
 [ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="1_fcjxn"]
+[ext_resource type="Resource" uid="uid://dxjc5wim7coti" path="res://Resources/Upgrades/Inventory/inventory_tier_2.tres" id="1_knvcc"]
 [ext_resource type="Resource" uid="uid://q81cnghelmi5" path="res://Resources/Item/lumonite.tres" id="2_knvcc"]
 [ext_resource type="Resource" uid="uid://c4he4vn8jlrkg" path="res://Resources/Item/solarized_cobalt.tres" id="3_q1vyt"]
 [ext_resource type="Script" uid="uid://ie65sqpxb08c" path="res://Resources/Definitions/Upgrades/inventory_size_upgrade.gd" id="4_rwgn4"]
@@ -15,9 +16,10 @@ region = Rect2(64, 64, 64, 64)
 [resource]
 script = ExtResource("4_rwgn4")
 constant_upgrade = 5
-name = "Inventory Increase Tier 2"
+name = "Inventory Increase Tier 3"
 description = "Increase Inventory size by 5"
 icon = SubResource("AtlasTexture_y6c3l")
+prereq_upgrade = ExtResource("1_knvcc")
 price = Dictionary[ExtResource("1_fcjxn"), int]({
 ExtResource("2_knvcc"): 8,
 ExtResource("3_q1vyt"): 3

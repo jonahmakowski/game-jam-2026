@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="SpeedUpgrade" format=3 uid="uid://bb7vefaea3kwb"]
 
 [ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="1_2icmp"]
+[ext_resource type="Resource" uid="uid://da3ufewddlb0f" path="res://Resources/Upgrades/Speed/speed_tier_3.tres" id="1_fep3c"]
 [ext_resource type="Resource" uid="uid://q81cnghelmi5" path="res://Resources/Item/lumonite.tres" id="2_hsipj"]
 [ext_resource type="Resource" uid="uid://c4he4vn8jlrkg" path="res://Resources/Item/solarized_cobalt.tres" id="3_fep3c"]
 [ext_resource type="Script" uid="uid://v3q6hvsggn5m" path="res://Resources/Definitions/Upgrades/speed_upgrade.gd" id="4_euf36"]
+[ext_resource type="Resource" uid="uid://cjxg765yiadj4" path="res://Resources/Item/monster_parts.tres" id="5_euf36"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uptmh"]
 load_path = "res://.godot/imported/icons.png-b5b22720f5bf5210826fcf257ac02d0d.ctex"
@@ -18,8 +20,10 @@ percentage_upgrade = 10.0
 name = "Speed Tier 2"
 description = "Increase speed by 10%"
 icon = SubResource("AtlasTexture_h4svf")
+prereq_upgrade = ExtResource("1_fep3c")
 price = Dictionary[ExtResource("1_2icmp"), int]({
-ExtResource("2_hsipj"): 5,
-ExtResource("3_fep3c"): 3
+ExtResource("2_hsipj"): 8,
+ExtResource("3_fep3c"): 10,
+ExtResource("5_euf36"): 2
 })
 metadata/_custom_type_script = "uid://v3q6hvsggn5m"
