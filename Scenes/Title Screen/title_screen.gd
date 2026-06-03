@@ -6,8 +6,7 @@ var current_tween: Tween
 
 @onready var start_button: Button = %StartButton
 @onready var settings_button: Button = %SettingsButton
-@onready var credits_button: Button = %CreditsButton
-@onready var buttons: Array[Button] = [%StartButton, %SettingsButton, %CreditsButton]
+@onready var buttons: Array[Button] = [%StartButton, %SettingsButton]
 @onready var settings: Control = %Settings
 
 

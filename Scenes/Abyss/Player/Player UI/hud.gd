@@ -24,13 +24,13 @@ func _input(event: InputEvent) -> void:
 func set_inventory(full: int, current: int):
 	inventory_bar.value = current
 	inventory_bar.max_value = full
-	inventory_label.text = "%s / %d" % [current, full]
+	inventory_label.text = "%s / %d Items" % [current, full]
 
 
 func set_energy(full: int, current: float):
 	energy_bar.value = current
 	energy_bar.max_value = full
-	energy_label.text = "%s / %d" % [Helper.format_float(current), full]
+	energy_label.text = "%s / %d Energy" % [Helper.format_float(current), full]
 
 
 func update_inventory_grid():

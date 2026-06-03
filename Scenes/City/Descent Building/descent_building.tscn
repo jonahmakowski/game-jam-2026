@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://yqwxhlv264rv" path="res://Assets/City/Buildings/descent.png" id="1_a887d"]
 [ext_resource type="Script" uid="uid://beksgs1k0vua0" path="res://Scenes/City/Descent Building/descent_building.gd" id="1_f14p5"]
-[ext_resource type="StyleBox" uid="uid://bxg1wq1enpxyu" path="res://Resources/UI/cancel_button.tres" id="3_ud1u7"]
-[ext_resource type="StyleBox" uid="uid://c3t3qxe2pqwin" path="res://Resources/UI/confirm_button.tres" id="4_ttmsj"]
+[ext_resource type="StyleBox" uid="uid://bxg1wq1enpxyu" path="res://Resources/UI/red_button.tres" id="3_ud1u7"]
+[ext_resource type="StyleBox" uid="uid://c3t3qxe2pqwin" path="res://Resources/UI/green_button.tres" id="4_ttmsj"]
 [ext_resource type="Script" uid="uid://cnvfyx4bd7dts" path="res://Scenes/City/Descent Building/popup.gd" id="5_joytw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a887d"]

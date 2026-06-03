@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://vybwff4m1dx1" path="res://Scenes/Title Screen/title_screen.gd" id="1_2mq87"]
 [ext_resource type="PackedScene" uid="uid://cyyce8t63fh2u" path="res://Scenes/City/city_main.tscn" id="2_wwswu"]
+[ext_resource type="Texture2D" uid="uid://ckhlyhlkuk1iu" path="res://Assets/logo.png" id="3_78t28"]
+[ext_resource type="StyleBox" uid="uid://c3t3qxe2pqwin" path="res://Resources/UI/green_button.tres" id="3_qvf3b"]
 [ext_resource type="PackedScene" uid="uid://uukcuud6ijyp" path="res://Scenes/Title Screen/Settings/settings.tscn" id="3_wwswu"]
+[ext_resource type="StyleBox" uid="uid://bwwmwd5tc1y2a" path="res://Resources/UI/orange_button.tres" id="4_2i4no"]
 
 [node name="TitleScreen" type="Control" unique_id=1666129906]
 layout_mode = 3
@@ -29,14 +32,11 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=227927581]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=1555692322]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 32
-text = "Abyss Diver"
-fit_content = true
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("3_78t28")
+expand_mode = 5
+stretch_mode = 4
 
 [node name="Spacer2" type="Control" parent="VBoxContainer" unique_id=943967216]
 layout_mode = 2
@@ -50,17 +50,18 @@ size_flags_horizontal = 4
 [node name="StartButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1130811521]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_styles/normal = ExtResource("3_qvf3b")
+theme_override_styles/pressed = ExtResource("3_qvf3b")
+theme_override_styles/hover = ExtResource("3_qvf3b")
 text = "Start Game"
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1473173265]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_styles/normal = ExtResource("4_2i4no")
+theme_override_styles/pressed = ExtResource("4_2i4no")
+theme_override_styles/hover = ExtResource("4_2i4no")
 text = "Settings"
-
-[node name="CreditsButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=2041484652]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Credits"
 
 [node name="Spacer3" type="Control" parent="VBoxContainer" unique_id=1825481034]
 layout_mode = 2

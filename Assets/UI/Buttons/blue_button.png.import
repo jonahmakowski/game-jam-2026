@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cin0b7vv3c512"
-path="res://.godot/imported/confirm_button.png-671ffdebc28a274e4f887ff5d717e2d6.ctex"
+uid="uid://c0d2tgf433va"
+path="res://.godot/imported/blue_button.png-e370dcfe0e81fead8116edf5da7950eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Buttons/confirm_button.png"
-dest_files=["res://.godot/imported/confirm_button.png-671ffdebc28a274e4f887ff5d717e2d6.ctex"]
+source_file="res://Assets/UI/Buttons/blue_button.png"
+dest_files=["res://.godot/imported/blue_button.png-e370dcfe0e81fead8116edf5da7950eb.ctex"]
 
 [params]
 
