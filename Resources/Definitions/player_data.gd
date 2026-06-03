@@ -4,6 +4,8 @@ extends Resource
 @export_group("Inventory")
 @export var inventory: Array[Item] = []
 @export var city_inventory: Array[Item] = []
+@export_group("misc")
+@export var applied_upgrades: Array[Upgrade]
 @export_group("City Data")
 @export var city_health: int = 20
 @export_group("Player Stats")

@@ -23,6 +23,8 @@ func apply():
 	## Remove building from the building's upgrades
 	building.upgrades.remove_at(building.upgrades.find(self))
 
+	Globals.player_data.applied_upgrades.append(self)
+
 	EventBus.update_inventory.emit()
 	EventBus.update_upgrades.emit()
 

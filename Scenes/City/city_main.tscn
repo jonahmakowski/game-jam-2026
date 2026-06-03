@@ -8,9 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://wsmafjcchcng" path="res://Scenes/City/Monster/monster.tscn" id="4_gxlp6"]
 [ext_resource type="Script" uid="uid://btnuwlpaahn4w" path="res://Scenes/City/city_main_ui.gd" id="6_bq6bt"]
 [ext_resource type="Script" uid="uid://bcvi17qra6la2" path="res://Scenes/City/enemies.gd" id="7_c3skn"]
+[ext_resource type="Resource" uid="uid://d1n0t77xswfs4" path="res://Resources/Buildings/health_shop.tres" id="7_lv62w"]
 [ext_resource type="PackedScene" uid="uid://1w8k1gkawc67" path="res://Scenes/Abyss/Player/Player UI/inventory_item.tscn" id="7_u6g28"]
 [ext_resource type="PackedScene" uid="uid://becbrrpmtduaq" path="res://Scenes/City/Descent Building/descent_building.tscn" id="7_wddgr"]
 [ext_resource type="Texture2D" uid="uid://cpxk7ntvk8qvs" path="res://Assets/UI/icons.png" id="8_cyef1"]
+[ext_resource type="Resource" uid="uid://cp6y36pb824bi" path="res://Resources/Buildings/movement_shop.tres" id="8_r5yii"]
+[ext_resource type="Resource" uid="uid://w85poa1bvwm0" path="res://Resources/Buildings/weapon_shop.tres" id="9_3yfwy"]
 [ext_resource type="Resource" uid="uid://b6j4q5yinv5y1" path="res://Resources/Monster/test_monster.tres" id="9_g5uiw"]
 [ext_resource type="Texture2D" uid="uid://33vo7eslkcm6" path="res://Assets/City/Buildings/dome.png" id="11_f4hhb"]
 [ext_resource type="Script" uid="uid://dp0j42td3lq6c" path="res://Scenes/City/health.gd" id="13_emm5o"]
@@ -52,23 +55,47 @@ gradient = SubResource("Gradient_qyhws")
 [node name="CityMain" type="Node2D" unique_id=150180100]
 script = ExtResource("1_osyyr")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=761322133]
+unique_name_in_owner = true
+zoom = Vector2(0.5, 0.5)
+
 [node name="Background" type="Sprite2D" parent="." unique_id=894755570]
 texture_filter = 1
-scale = Vector2(7, 7)
+scale = Vector2(3, 3)
 texture = ExtResource("2_g5uiw")
 
-[node name="Dome" type="Sprite2D" parent="." unique_id=1051706451]
+[node name="Dome" type="Node2D" parent="." unique_id=938957711]
+position = Vector2(-378.16, 1286.38)
+scale = Vector2(2, 2)
+
+[node name="Dome" type="Sprite2D" parent="Dome" unique_id=1051706451]
 position = Vector2(0, 128)
 texture = ExtResource("11_f4hhb")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=761322133]
-zoom = Vector2(0.5, 0.5)
-
-[node name="Building" parent="." unique_id=1908622106 instance=ExtResource("2_dl85s")]
-
-[node name="Weapon" parent="." unique_id=1676257248 instance=ExtResource("2_chhlk")]
+[node name="Weapon" parent="Dome" unique_id=1676257248 instance=ExtResource("2_chhlk")]
 position = Vector2(0, 220)
 weapon = ExtResource("3_wddgr")
+
+[node name="Buildings" type="Node2D" parent="." unique_id=815607086]
+
+[node name="Health" parent="Buildings" unique_id=1908622106 instance=ExtResource("2_dl85s")]
+position = Vector2(-761.63, 1173.68)
+scale = Vector2(3, 3)
+building_type = ExtResource("7_lv62w")
+
+[node name="Movement" parent="Buildings" unique_id=522960382 instance=ExtResource("2_dl85s")]
+position = Vector2(-2.06, 1174.11)
+scale = Vector2(3, 3)
+building_type = ExtResource("8_r5yii")
+
+[node name="Weapon" parent="Buildings" unique_id=80698013 instance=ExtResource("2_dl85s")]
+position = Vector2(-455.9, 1105.96)
+scale = Vector2(3, 3)
+building_type = ExtResource("9_3yfwy")
+
+[node name="Descent" parent="Buildings" unique_id=559037139 instance=ExtResource("7_wddgr")]
+position = Vector2(-220.3, 1233.63)
+scale = Vector2(0.25, 0.25)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=2042386069]
 script = ExtResource("7_c3skn")
@@ -99,10 +126,6 @@ curve = SubResource("Curve2D_emm5o")
 
 [node name="SpawnTimer" type="Timer" parent="Enemies" unique_id=805915143]
 unique_name_in_owner = true
-
-[node name="DescentBuilding" parent="." unique_id=559037139 instance=ExtResource("7_wddgr")]
-position = Vector2(500, 0)
-scale = Vector2(0.25, 0.25)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1088448354]
 script = ExtResource("6_bq6bt")

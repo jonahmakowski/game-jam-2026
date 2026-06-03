@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://d1n0t77xswfs4"]
+
+[ext_resource type="Script" uid="uid://sntiseuvbiwu" path="res://Resources/Definitions/building.gd" id="1_jgrje"]
+[ext_resource type="Script" uid="uid://bxuhbe0j65rac" path="res://Resources/Definitions/upgrade.gd" id="2_ch6bm"]
+[ext_resource type="Texture2D" uid="uid://bn4jwljujji6o" path="res://Assets/City/Buildings/health_shop.png" id="2_l2a8q"]
+[ext_resource type="Resource" uid="uid://dxvrx4mfyixni" path="res://Resources/Upgrades/Energy/double_energy.tres" id="4_nrxih"]
+[ext_resource type="Resource" uid="uid://eixyamdq5vhm" path="res://Resources/Upgrades/Energy/energy_tier_1.tres" id="5_4gv1l"]
+[ext_resource type="Resource" uid="uid://byrg4nrar1l47" path="res://Resources/Upgrades/Energy/energy_tier_2.tres" id="6_wd0jw"]
+[ext_resource type="Resource" uid="uid://kwet5wtispq" path="res://Resources/Upgrades/Energy/energy_tier_3.tres" id="7_khwx5"]
+[ext_resource type="Resource" uid="uid://bsnxcq0k5q1ay" path="res://Resources/Upgrades/Energy/energy_tier_4.tres" id="8_d0val"]
+[ext_resource type="Resource" uid="uid://cbsjt0tcgibi3" path="res://Resources/Upgrades/Energy/energy_tier_5.tres" id="9_bqvjb"]
+[ext_resource type="Resource" uid="uid://reirb5bw76hp" path="res://Resources/Upgrades/City Repair Speed/city_repair_speed_tier_1.tres" id="10_h2kl1"]
+[ext_resource type="Resource" uid="uid://b03vc3onrot6w" path="res://Resources/Upgrades/City Repair Speed/city_repair_speed_tier_2.tres" id="11_4cylm"]
+[ext_resource type="Resource" uid="uid://b6su614hql8gb" path="res://Resources/Upgrades/City Repair Speed/city_repair_speed_tier_3.tres" id="12_pxx1o"]
+[ext_resource type="Resource" uid="uid://di5r3y5w50x8j" path="res://Resources/Upgrades/City Repair Speed/city_repair_speed_tier_4.tres" id="13_2vb8d"]
+[ext_resource type="Resource" uid="uid://184cg6uykggt" path="res://Resources/Upgrades/City Repair Speed/city_repair_speed_tier_5.tres" id="14_mmqr7"]
+[ext_resource type="Resource" uid="uid://dddmk0uubmu52" path="res://Resources/Upgrades/City Max Health/city_health_1.tres" id="15_e1648"]
+[ext_resource type="Resource" uid="uid://rc5vtk44nj8h" path="res://Resources/Upgrades/City Max Health/city_health_2.tres" id="16_4hft1"]
+[ext_resource type="Resource" uid="uid://dmn72ksbs3d23" path="res://Resources/Upgrades/City Max Health/city_health_2a.tres" id="17_sx2yq"]
+[ext_resource type="Resource" uid="uid://rxgwc8wn7pw2" path="res://Resources/Upgrades/City Max Health/city_health_3.tres" id="18_u7sje"]
+
+[resource]
+script = ExtResource("1_jgrje")
+sprite = ExtResource("2_l2a8q")
+name = "Health Shop"
+upgrades = Array[ExtResource("2_ch6bm")]([ExtResource("4_nrxih"), ExtResource("5_4gv1l"), ExtResource("6_wd0jw"), ExtResource("7_khwx5"), ExtResource("8_d0val"), ExtResource("9_bqvjb"), ExtResource("10_h2kl1"), ExtResource("11_4cylm"), ExtResource("12_pxx1o"), ExtResource("13_2vb8d"), ExtResource("14_mmqr7"), ExtResource("15_e1648"), ExtResource("16_4hft1"), ExtResource("17_sx2yq"), ExtResource("18_u7sje")])
+metadata/_custom_type_script = "uid://sntiseuvbiwu"

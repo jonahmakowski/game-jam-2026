@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bgivs5hgl3arw"]
 
 [ext_resource type="Script" uid="uid://cm3t5skhjnh0k" path="res://Scenes/City/Building/building.gd" id="1_a73p4"]
-[ext_resource type="Resource" uid="uid://b3wg51e6mg2v3" path="res://Resources/Buildings/test_building.tres" id="2_iu3v6"]
 [ext_resource type="Texture2D" uid="uid://bs5ptslwcyfsi" path="res://icon.svg" id="2_o5dnq"]
 [ext_resource type="PackedScene" uid="uid://c5i3rlxjr8ltc" path="res://Scenes/City/Building/UpgradeUI/upgrade_ui.tscn" id="3_41cir"]
 [ext_resource type="Texture2D" uid="uid://cpxk7ntvk8qvs" path="res://Assets/UI/icons.png" id="5_6eo2c"]
@@ -15,7 +14,6 @@ region = Rect2(4, 4, 56, 56)
 
 [node name="Building" type="Node2D" unique_id=1908622106]
 script = ExtResource("1_a73p4")
-building_type = ExtResource("2_iu3v6")
 upgrade_ui_scene = ExtResource("3_41cir")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1139232806]
@@ -26,6 +24,7 @@ texture = ExtResource("2_o5dnq")
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1793217829]
+unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_iu3v6")
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1913671967]

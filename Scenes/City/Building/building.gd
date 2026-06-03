@@ -13,20 +13,19 @@ var mouse_in_area = false
 @onready var title_label: Label = %TitleLabel
 @onready var close_button: TextureButton = %CloseButton
 @onready var upgrade_parent: VBoxContainer = %UpgradeParent
+@onready var collision_shape_2d: CollisionShape2D = %CollisionShape2D
 
 
 func _ready() -> void:
 	sprite.texture = building_type.sprite
+	collision_shape_2d.shape = collision_shape_2d.shape.duplicate()
+	collision_shape_2d.shape.size = building_type.sprite.get_size()
 	title_label.text = building_type.name
 	ui_layer.hide()
 	if not Engine.is_editor_hint():
 		EventBus.hide_building_ui.connect(ui_layer.hide)
 		EventBus.update_upgrades.connect(setup_upgrades)
 		setup_upgrades()
-
-
-func _process(_delta: float) -> void:
-	pass
 
 
 func _unhandled_input(event: InputEvent) -> void:

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://w85poa1bvwm0"]
+
+[ext_resource type="Script" uid="uid://sntiseuvbiwu" path="res://Resources/Definitions/building.gd" id="1_pm6i7"]
+[ext_resource type="Script" uid="uid://bxuhbe0j65rac" path="res://Resources/Definitions/upgrade.gd" id="2_6rwkb"]
+[ext_resource type="Texture2D" uid="uid://bx7qsp6grrbwb" path="res://Assets/City/Buildings/weapon_shop.png" id="2_rtwly"]
+[ext_resource type="Resource" uid="uid://b142ldlpcrgtk" path="res://Resources/Upgrades/Mining/Damage/mining_damage_tier_1.tres" id="3_t14cp"]
+[ext_resource type="Resource" uid="uid://y784vslwaevy" path="res://Resources/Upgrades/Mining/Damage/mining_damage_tier_2.tres" id="4_rtwly"]
+[ext_resource type="Resource" uid="uid://nr7upgngbpmw" path="res://Resources/Upgrades/Mining/Damage/mining_damage_tier_3a.tres" id="5_de317"]
+[ext_resource type="Resource" uid="uid://c5paw33x47wcq" path="res://Resources/Upgrades/Mining/Damage/mining_damage_tier_3b.tres" id="6_l1wka"]
+[ext_resource type="Resource" uid="uid://cnt8yopn2sd2g" path="res://Resources/Upgrades/Mining/Speed/mining_speed_tier_1.tres" id="7_lvf2y"]
+[ext_resource type="Resource" uid="uid://b5syt3mvm5un3" path="res://Resources/Upgrades/Mining/Speed/mining_speed_tier_2.tres" id="8_ph1su"]
+[ext_resource type="Resource" uid="uid://4qt3xr8hngtb" path="res://Resources/Upgrades/Mining/Speed/mining_speed_tier_3.tres" id="9_wquh4"]
+[ext_resource type="Resource" uid="uid://1kb2wikquj18" path="res://Resources/Upgrades/Mining/Speed/mining_speed_tier_4.tres" id="10_2eh1n"]
+[ext_resource type="Resource" uid="uid://k0aqfemfnx40" path="res://Resources/Upgrades/Inventory/inventory_tier_1.tres" id="11_l2omo"]
+[ext_resource type="Resource" uid="uid://dxjc5wim7coti" path="res://Resources/Upgrades/Inventory/inventory_tier_2.tres" id="12_j41g3"]
+[ext_resource type="Resource" uid="uid://c4din611u2823" path="res://Resources/Upgrades/Inventory/inventory_tier_3.tres" id="13_n37g2"]
+[ext_resource type="Resource" uid="uid://c43j5iyq1pg8m" path="res://Resources/Upgrades/Inventory/inventory_tier_4.tres" id="14_kbm1k"]
+[ext_resource type="Resource" uid="uid://ncbxpnt4qynl" path="res://Resources/Upgrades/Inventory/inventory_tier_5.tres" id="15_ktxlh"]
+[ext_resource type="Resource" uid="uid://c7vmusiye62jf" path="res://Resources/Upgrades/Inventory/inventory_tier_6.tres" id="16_o6mlh"]
+[ext_resource type="Resource" uid="uid://dxqf5vq84hqpt" path="res://Resources/Upgrades/Enemy Damage/enemy_damage_tier_1.tres" id="17_4oaxj"]
+[ext_resource type="Resource" uid="uid://de7aybsn2bwcq" path="res://Resources/Upgrades/Enemy Damage/enemy_damage_tier_2.tres" id="18_hhqke"]
+[ext_resource type="Resource" uid="uid://8ft0csq4n25y" path="res://Resources/Upgrades/Enemy Damage/enemy_damage_tier_3.tres" id="19_7ey76"]
+[ext_resource type="Resource" uid="uid://bdhsa3pdgelrf" path="res://Resources/Upgrades/Enemy Damage/enemy_damage_tier_4.tres" id="20_1plaa"]
+
+[resource]
+script = ExtResource("1_pm6i7")
+sprite = ExtResource("2_rtwly")
+name = "Weapon Shop"
+upgrades = Array[ExtResource("2_6rwkb")]([ExtResource("3_t14cp"), ExtResource("4_rtwly"), ExtResource("5_de317"), ExtResource("6_l1wka"), ExtResource("7_lvf2y"), ExtResource("8_ph1su"), ExtResource("9_wquh4"), ExtResource("10_2eh1n"), ExtResource("11_l2omo"), ExtResource("12_j41g3"), ExtResource("13_n37g2"), ExtResource("14_kbm1k"), ExtResource("15_ktxlh"), ExtResource("16_o6mlh"), ExtResource("17_4oaxj"), ExtResource("18_hhqke"), ExtResource("19_7ey76"), ExtResource("20_1plaa")])
+metadata/_custom_type_script = "uid://sntiseuvbiwu"

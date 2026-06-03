@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://cp6y36pb824bi"]
+
+[ext_resource type="Script" uid="uid://sntiseuvbiwu" path="res://Resources/Definitions/building.gd" id="1_pjw67"]
+[ext_resource type="Script" uid="uid://bxuhbe0j65rac" path="res://Resources/Definitions/upgrade.gd" id="2_nlyct"]
+[ext_resource type="Texture2D" uid="uid://cdiqa1l1vwrmk" path="res://Assets/City/Buildings/movement_shop.png" id="2_u0pxm"]
+[ext_resource type="Resource" uid="uid://ij5qup3wvenp" path="res://Resources/Upgrades/Grappling Hook/grappling_hook_tier_1.tres" id="4_dxd5g"]
+[ext_resource type="Resource" uid="uid://b36ua1tl8wxc3" path="res://Resources/Upgrades/Grappling Hook/grappling_hook_tier_2.tres" id="5_gfsav"]
+[ext_resource type="Resource" uid="uid://bb3gonl6ye378" path="res://Resources/Upgrades/Grappling Hook/grappling_hook_tier_3.tres" id="6_6u7ue"]
+[ext_resource type="Resource" uid="uid://day6tkn870nnv" path="res://Resources/Upgrades/Grappling Hook/grappling_hook_tier_4.tres" id="7_e3rpu"]
+[ext_resource type="Resource" uid="uid://dghax60chx46w" path="res://Resources/Upgrades/Grappling Hook/grappling_hook_tier_5.tres" id="8_7hotn"]
+[ext_resource type="Resource" uid="uid://n48inv5ymppx" path="res://Resources/Upgrades/Grappling Hook/grappling_hook_tier_6.tres" id="9_catke"]
+[ext_resource type="Resource" uid="uid://8kfpvt44oyf7" path="res://Resources/Upgrades/Speed/speed_tier_1.tres" id="10_637rm"]
+[ext_resource type="Resource" uid="uid://b65t7okoykrxp" path="res://Resources/Upgrades/Speed/speed_tier_2.tres" id="11_7kmqf"]
+[ext_resource type="Resource" uid="uid://da3ufewddlb0f" path="res://Resources/Upgrades/Speed/speed_tier_3.tres" id="12_kn01v"]
+[ext_resource type="Resource" uid="uid://bb7vefaea3kwb" path="res://Resources/Upgrades/Speed/speed_tier_4.tres" id="13_rbhfk"]
+[ext_resource type="Resource" uid="uid://giudx12mpi66" path="res://Resources/Upgrades/Max Jumps/max_jumps_tier_1.tres" id="14_o3lid"]
+[ext_resource type="Resource" uid="uid://4d6rkwqk8dso" path="res://Resources/Upgrades/Max Jumps/max_jumps_tier_2.tres" id="15_81dfj"]
+
+[resource]
+script = ExtResource("1_pjw67")
+sprite = ExtResource("2_u0pxm")
+name = "Movement Shop"
+upgrades = Array[ExtResource("2_nlyct")]([ExtResource("4_dxd5g"), ExtResource("5_gfsav"), ExtResource("6_6u7ue"), ExtResource("7_e3rpu"), ExtResource("8_7hotn"), ExtResource("9_catke"), ExtResource("10_637rm"), ExtResource("11_7kmqf"), ExtResource("12_kn01v"), ExtResource("13_rbhfk"), ExtResource("14_o3lid"), ExtResource("15_81dfj")])
+metadata/_custom_type_script = "uid://sntiseuvbiwu"
