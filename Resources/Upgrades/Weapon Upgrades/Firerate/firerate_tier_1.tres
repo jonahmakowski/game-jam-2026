@@ -16,6 +16,6 @@ name = "Firerate Increase Tier 1"
 description = "Increase firerate by 10%"
 icon = SubResource("AtlasTexture_2wl0j")
 price = Dictionary[ExtResource("1_q8k3d"), int]({
-ExtResource("3_36c62"): 1
+ExtResource("3_36c62"): 3
 })
 metadata/_custom_type_script = "uid://bp8vg70846drr"

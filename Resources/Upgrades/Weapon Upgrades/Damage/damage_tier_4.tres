@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="WeaponUpgrade" format=3 uid="uid://ciicy14yue83f"]
+
+[ext_resource type="Texture2D" uid="uid://cpxk7ntvk8qvs" path="res://Assets/UI/icons.png" id="1_g3s70"]
+[ext_resource type="Resource" uid="uid://r8ki42lp2cxa" path="res://Resources/Upgrades/Weapon Upgrades/Damage/damage_tier_3.tres" id="2_1heot"]
+[ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="3_nm6h8"]
+[ext_resource type="Resource" uid="uid://q81cnghelmi5" path="res://Resources/Item/lumonite.tres" id="4_0wqxv"]
+[ext_resource type="Resource" uid="uid://c4he4vn8jlrkg" path="res://Resources/Item/solarized_cobalt.tres" id="5_rmpsi"]
+[ext_resource type="Script" uid="uid://bp8vg70846drr" path="res://Resources/Definitions/Upgrades/weapon_upgrade.gd" id="6_5xa5m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efarx"]
+atlas = ExtResource("1_g3s70")
+region = Rect2(128, 64, 64, 64)
+
+[resource]
+script = ExtResource("6_5xa5m")
+damage_percentage_increase = 0.1
+name = "Firerate Increase Tier 4"
+description = "Increase damage by 10%"
+icon = SubResource("AtlasTexture_efarx")
+prereq_upgrade = ExtResource("2_1heot")
+price = Dictionary[ExtResource("3_nm6h8"), int]({
+ExtResource("4_0wqxv"): 4,
+ExtResource("5_rmpsi"): 3
+})
+metadata/_custom_type_script = "uid://bp8vg70846drr"

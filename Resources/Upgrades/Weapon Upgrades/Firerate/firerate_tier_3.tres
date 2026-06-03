@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="WeaponUpgrade" format=3 uid="uid://c7mdifrkeghpl"]
+
+[ext_resource type="Texture2D" uid="uid://cpxk7ntvk8qvs" path="res://Assets/UI/icons.png" id="1_5jema"]
+[ext_resource type="Resource" uid="uid://bpxev2lolli2f" path="res://Resources/Upgrades/Weapon Upgrades/Firerate/firerate_tier_2.tres" id="2_1tn8y"]
+[ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="3_lgrs7"]
+[ext_resource type="Script" uid="uid://bp8vg70846drr" path="res://Resources/Definitions/Upgrades/weapon_upgrade.gd" id="4_86gtu"]
+[ext_resource type="Resource" uid="uid://cjxg765yiadj4" path="res://Resources/Item/monster_parts.tres" id="4_lgrs7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wl0j"]
+atlas = ExtResource("1_5jema")
+region = Rect2(64, 128, 64, 64)
+
+[resource]
+script = ExtResource("4_86gtu")
+firerate_percentage = 0.1
+name = "Firerate Increase Tier 3"
+description = "Increase firerate by 10%"
+icon = SubResource("AtlasTexture_2wl0j")
+prereq_upgrade = ExtResource("2_1tn8y")
+price = Dictionary[ExtResource("3_lgrs7"), int]({
+ExtResource("4_lgrs7"): 1
+})
+metadata/_custom_type_script = "uid://bp8vg70846drr"

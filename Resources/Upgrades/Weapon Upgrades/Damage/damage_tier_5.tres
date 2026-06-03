@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="WeaponUpgrade" format=3 uid="uid://bn5scdiffmib3"]
+
+[ext_resource type="Texture2D" uid="uid://cpxk7ntvk8qvs" path="res://Assets/UI/icons.png" id="1_eqa0h"]
+[ext_resource type="Resource" uid="uid://ciicy14yue83f" path="res://Resources/Upgrades/Weapon Upgrades/Damage/damage_tier_4.tres" id="2_45oib"]
+[ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="3_ped6l"]
+[ext_resource type="Resource" uid="uid://q81cnghelmi5" path="res://Resources/Item/lumonite.tres" id="4_evwad"]
+[ext_resource type="Resource" uid="uid://c4he4vn8jlrkg" path="res://Resources/Item/solarized_cobalt.tres" id="5_aln5b"]
+[ext_resource type="Resource" uid="uid://cjxg765yiadj4" path="res://Resources/Item/monster_parts.tres" id="6_6xa8r"]
+[ext_resource type="Script" uid="uid://bp8vg70846drr" path="res://Resources/Definitions/Upgrades/weapon_upgrade.gd" id="7_o1bgv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pus3"]
+atlas = ExtResource("1_eqa0h")
+region = Rect2(128, 64, 64, 64)
+
+[resource]
+script = ExtResource("7_o1bgv")
+damage_percentage_increase = 0.2
+name = "Damage Increase Tier 5"
+description = "Increase damage by 20%"
+icon = SubResource("AtlasTexture_1pus3")
+prereq_upgrade = ExtResource("2_45oib")
+price = Dictionary[ExtResource("3_ped6l"), int]({
+ExtResource("4_evwad"): 4,
+ExtResource("5_aln5b"): 6,
+ExtResource("6_6xa8r"): 5
+})
+metadata/_custom_type_script = "uid://bp8vg70846drr"

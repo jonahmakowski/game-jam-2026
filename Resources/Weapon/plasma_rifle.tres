@@ -33,9 +33,9 @@ animations = [{
 
 [resource]
 script = ExtResource("2_4b26i")
-damage = 5.0
+damage = 2.0
 firerate = 2.0
-weapon_range = 500.0
+weapon_range = 200.0
 sprite = SubResource("SpriteFrames_aps16")
 name = "Plasma Rifle"
 upgrades = Array[ExtResource("4_7e2b3")]([ExtResource("5_4b26i")])
