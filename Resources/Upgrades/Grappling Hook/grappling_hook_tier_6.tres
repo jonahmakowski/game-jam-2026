@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="GrapplingHookUpgrade" format=3 uid="uid://n48inv5ymppx"]
+
+[ext_resource type="Resource" uid="uid://dghax60chx46w" path="res://Resources/Upgrades/Grappling Hook/grappling_hook_tier_5.tres" id="1_jtobv"]
+[ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="2_c4e5c"]
+[ext_resource type="Resource" uid="uid://q81cnghelmi5" path="res://Resources/Item/lumonite.tres" id="3_t5gpi"]
+[ext_resource type="Resource" uid="uid://c4he4vn8jlrkg" path="res://Resources/Item/solarized_cobalt.tres" id="4_oourt"]
+[ext_resource type="Script" uid="uid://j4lb167ejpwm" path="res://Resources/Definitions/Upgrades/grappling_hook_upgrade.gd" id="5_ut6wl"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pm4o8"]
+load_path = "res://.godot/imported/icons.png-b5b22720f5bf5210826fcf257ac02d0d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qljh"]
+atlas = SubResource("CompressedTexture2D_pm4o8")
+region = Rect2(0, 128, 64, 64)
+
+[resource]
+script = ExtResource("5_ut6wl")
+percentage_upgrade = 100.0
+name = "Grappling Hook Tier 6"
+description = "Double grappling hook range"
+icon = SubResource("AtlasTexture_3qljh")
+prereq_upgrade = ExtResource("1_jtobv")
+price = Dictionary[ExtResource("2_c4e5c"), int]({
+ExtResource("3_t5gpi"): 40,
+ExtResource("4_oourt"): 24
+})
+metadata/_custom_type_script = "uid://j4lb167ejpwm"

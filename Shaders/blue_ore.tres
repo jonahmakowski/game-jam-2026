@@ -1,9 +1,80 @@
 [gd_resource type="VisualShader" format=3 uid="uid://cwuherip53a7o"]
 
 [sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_4t25f"]
+constant = Color(0.85490197, 1, 0, 0.07058824)
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_g81gy"]
 constant = Color(0.05882353, 0.078431375, 0.42745098, 1)
 
+[sub_resource type="VisualShaderNodeVaryingGetter" id="VisualShaderNodeVaryingGetter_4t25f"]
+varying_name = "position"
+varying_type = 4
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g81gy"]
+noise_type = 3
+frequency = 0.0491
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_2mva7"]
+noise = SubResource("FastNoiseLite_g81gy")
+
+[sub_resource type="VisualShaderNodeTexture3D" id="VisualShaderNodeTexture3D_mbbdk"]
+texture = SubResource("NoiseTexture3D_2mva7")
+
+[sub_resource type="Gradient" id="Gradient_4t25f"]
+offsets = PackedFloat32Array(0, 0.44680852, 0.71276593, 0.88297874)
+colors = PackedColorArray(0, 0, 0, 1, 6.8963466e-08, 0.057833076, 0.16825415, 1, 1.4439226e-07, 0.121088006, 0.35228214, 1, 0, 0.5343606, 0.88237303, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g81gy"]
+gradient = SubResource("Gradient_4t25f")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_2mva7"]
+output_port_for_preview = 0
+texture = SubResource("GradientTexture1D_g81gy")
+
+[sub_resource type="VisualShaderNodeVectorFunc" id="VisualShaderNodeVectorFunc_g81gy"]
+default_input_values = [0, Vector2(0, 0)]
+op_type = 0
+function = 26
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_2mva7"]
+constant = 0.8
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_mbbdk"]
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_1k7i5"]
+constant = -0.1
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_1k7i5"]
+input_name = "vertex"
+
+[sub_resource type="VisualShaderNodeVaryingSetter" id="VisualShaderNodeVaryingSetter_hwtax"]
+varying_name = "position"
+varying_type = 4
+
 [resource]
-nodes/fragment/2/node = SubResource("VisualShaderNodeColorConstant_4t25f")
+varyings/pos = "0,0"
+varyings/position = "0,4"
+nodes/vertex/2/node = SubResource("VisualShaderNodeInput_1k7i5")
+nodes/vertex/2/position = Vector2(-198.48529, -14.035675)
+nodes/vertex/3/node = SubResource("VisualShaderNodeVaryingSetter_hwtax")
+nodes/vertex/3/position = Vector2(201.51471, -14.035675)
+nodes/vertex/connections = PackedInt32Array(2, 0, 3, 0)
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorConstant_g81gy")
 nodes/fragment/2/position = Vector2(100, 150)
-nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0)
+nodes/fragment/3/node = SubResource("VisualShaderNodeVaryingGetter_4t25f")
+nodes/fragment/3/position = Vector2(-440, 120)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture3D_mbbdk")
+nodes/fragment/4/position = Vector2(-220, 80)
+nodes/fragment/5/node = SubResource("VisualShaderNodeTexture_2mva7")
+nodes/fragment/5/position = Vector2(180, 80)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorFunc_g81gy")
+nodes/fragment/6/position = Vector2(-20, 120)
+nodes/fragment/7/node = SubResource("VisualShaderNodeFloatConstant_2mva7")
+nodes/fragment/7/position = Vector2(-40, 420)
+nodes/fragment/8/node = SubResource("VisualShaderNodeFloatConstant_mbbdk")
+nodes/fragment/8/position = Vector2(-40, 500)
+nodes/fragment/9/node = SubResource("VisualShaderNodeFloatConstant_1k7i5")
+nodes/fragment/9/position = Vector2(-40, 580)
+nodes/fragment/10/node = SubResource("VisualShaderNodeColorConstant_4t25f")
+nodes/fragment/10/position = Vector2(0, 800)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 3, 0, 4, 0, 5, 0, 0, 0, 4, 0, 6, 0, 6, 0, 5, 0, 7, 0, 0, 3, 8, 0, 0, 4, 9, 0, 0, 11, 10, 0, 0, 18)
