@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CityRepairSpeedUpgrade" format=3 uid="uid://reirb5bw76hp"]
+
+[ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="1_2yoha"]
+[ext_resource type="Script" uid="uid://du0p1du54ad1c" path="res://Resources/Definitions/Upgrades/city_repair_speed.gd" id="2_4uumf"]
+[ext_resource type="Resource" uid="uid://q81cnghelmi5" path="res://Resources/Item/lumonite.tres" id="2_ngh7a"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4mmw4"]
+load_path = "res://.godot/imported/icons.png-b5b22720f5bf5210826fcf257ac02d0d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34iry"]
+atlas = SubResource("CompressedTexture2D_4mmw4")
+region = Rect2(128, 0, 64, 64)
+
+[resource]
+script = ExtResource("2_4uumf")
+constant_upgrade = 1
+name = "City Repair Speed Tier 1"
+description = "Fix the city one more health point per turn"
+icon = SubResource("AtlasTexture_34iry")
+price = Dictionary[ExtResource("1_2yoha"), int]({
+ExtResource("2_ngh7a"): 4
+})
+metadata/_custom_type_script = "uid://du0p1du54ad1c"
