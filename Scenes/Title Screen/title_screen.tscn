@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://chu1iljm3op7k"]
 
 [ext_resource type="Script" uid="uid://vybwff4m1dx1" path="res://Scenes/Title Screen/title_screen.gd" id="1_2mq87"]
-[ext_resource type="PackedScene" uid="uid://cyyce8t63fh2u" path="res://Scenes/City/city_main.tscn" id="2_wwswu"]
+[ext_resource type="PackedScene" uid="uid://cbleqvptdfd41" path="res://Scenes/Abyss/abyss_main.tscn" id="2_78t28"]
 [ext_resource type="Texture2D" uid="uid://ckhlyhlkuk1iu" path="res://Assets/logo.png" id="3_78t28"]
 [ext_resource type="StyleBox" uid="uid://c3t3qxe2pqwin" path="res://Resources/UI/green_button.tres" id="3_qvf3b"]
 [ext_resource type="PackedScene" uid="uid://uukcuud6ijyp" path="res://Scenes/Title Screen/Settings/settings.tscn" id="3_wwswu"]
@@ -15,7 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2mq87")
-start_scene = ExtResource("2_wwswu")
+start_scene = ExtResource("2_78t28")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1005796854]
 layout_mode = 1

@@ -19,7 +19,7 @@ extends Resource
 @export var max_jumps: int = 1
 @export var mine_speed: float = 0.5
 @export var mine_damage: int = 1
-@export var grapling_hook_range: int = 25
+@export var grapling_hook_range: int = 100
 @export var current_wave: int = 0
 @export_group("Enemy Stats")
 @export var enemy_speed_mult: float = 0.9

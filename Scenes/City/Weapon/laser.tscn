@@ -15,5 +15,6 @@ gradient = SubResource("Gradient_m2cwx")
 [node name="Laser" type="Sprite2D" unique_id=1720158748]
 material = SubResource("ShaderMaterial_72tw7")
 instance_shader_parameters/direction = 0.0
+scale = Vector2(0.5, 0.5)
 texture = SubResource("GradientTexture2D_g7mn7")
 script = ExtResource("2_drjh4")

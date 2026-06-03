@@ -11,7 +11,9 @@ extends HBoxContainer
 
 
 func _ready() -> void:
+	update()
 	EventBus.update_inventory.connect(update)
+	EventBus.update_upgrades.connect(update)
 
 
 func update():
