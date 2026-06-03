@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="MineSpeedUpgrade" format=3 uid="uid://1kb2wikquj18"]
 
-[ext_resource type="Resource" uid="uid://b5syt3mvm5un3" path="res://Resources/Upgrades/Mining/Speed/mining_speed_tier_2.tres" id="1_x53p5"]
+[ext_resource type="Resource" uid="uid://4qt3xr8hngtb" path="res://Resources/Upgrades/Mining/Speed/mining_speed_tier_3.tres" id="1_43dpd"]
 [ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="2_43dpd"]
 [ext_resource type="Resource" uid="uid://cjxg765yiadj4" path="res://Resources/Item/monster_parts.tres" id="3_xxeqt"]
 [ext_resource type="Script" uid="uid://b5xbc5y6p6gwh" path="res://Resources/Definitions/Upgrades/mine_speed_upgrade.gd" id="4_gt6lg"]
+[ext_resource type="Resource" uid="uid://q81cnghelmi5" path="res://Resources/Item/lumonite.tres" id="4_xxeqt"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kfop8"]
 load_path = "res://.godot/imported/icons.png-b5b22720f5bf5210826fcf257ac02d0d.ctex"
@@ -18,8 +19,9 @@ upgrade_val = 10.0
 name = "Mining Speed Upgrade Tier 3"
 description = "Increasing mining speed by 10%"
 icon = SubResource("AtlasTexture_wn86t")
-prereq_upgrade = ExtResource("1_x53p5")
+prereq_upgrade = ExtResource("1_43dpd")
 price = Dictionary[ExtResource("2_43dpd"), int]({
-ExtResource("3_xxeqt"): 3
+ExtResource("3_xxeqt"): 3,
+ExtResource("4_xxeqt"): 2
 })
 metadata/_custom_type_script = "uid://b5xbc5y6p6gwh"

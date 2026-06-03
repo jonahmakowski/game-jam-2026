@@ -3,6 +3,7 @@
 [ext_resource type="Resource" uid="uid://y784vslwaevy" path="res://Resources/Upgrades/Mining/Damage/mining_damage_tier_2.tres" id="1_g2x6m"]
 [ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="2_hi387"]
 [ext_resource type="Resource" uid="uid://c4he4vn8jlrkg" path="res://Resources/Item/solarized_cobalt.tres" id="3_06sac"]
+[ext_resource type="Resource" uid="uid://cjxg765yiadj4" path="res://Resources/Item/monster_parts.tres" id="4_hi387"]
 [ext_resource type="Script" uid="uid://b67w3n5okjuc1" path="res://Resources/Definitions/Upgrades/mine_damage_upgrade.gd" id="4_kkur1"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_36w84"]
@@ -14,12 +15,13 @@ region = Rect2(128, 64, 64, 64)
 
 [resource]
 script = ExtResource("4_kkur1")
-percentage_upgrade = 10.0
-name = "Mining Damage Tier 3A"
-description = "Increase your mining damage by 10%"
+constant_upgrade = 3
+name = "Mining Damage Tier 3B"
+description = "Increase your mining damage by 3"
 icon = SubResource("AtlasTexture_ddnnn")
 prereq_upgrade = ExtResource("1_g2x6m")
 price = Dictionary[ExtResource("2_hi387"), int]({
-ExtResource("3_06sac"): 3
+ExtResource("3_06sac"): 3,
+ExtResource("4_hi387"): 2
 })
 metadata/_custom_type_script = "uid://b67w3n5okjuc1"

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EnergyUpgrade" format=3 uid="uid://eixyamdq5vhm"]
+
+[ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="1_kd6ky"]
+[ext_resource type="Resource" uid="uid://q81cnghelmi5" path="res://Resources/Item/lumonite.tres" id="2_2uw7e"]
+[ext_resource type="Script" uid="uid://bdyxdgv0k8gnn" path="res://Resources/Definitions/Upgrades/energy_upgrade.gd" id="2_bu1ca"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kd6ky"]
+load_path = "res://.godot/imported/icons.png-b5b22720f5bf5210826fcf257ac02d0d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu1ca"]
+atlas = SubResource("CompressedTexture2D_kd6ky")
+region = Rect2(0, 64, 64, 64)
+
+[resource]
+script = ExtResource("2_bu1ca")
+constant_upgrade = 10
+name = "Energy Tier 1"
+description = "Increase energy by 10."
+icon = SubResource("AtlasTexture_bu1ca")
+price = Dictionary[ExtResource("1_kd6ky"), int]({
+ExtResource("2_2uw7e"): 5
+})
+metadata/_custom_type_script = "uid://bdyxdgv0k8gnn"

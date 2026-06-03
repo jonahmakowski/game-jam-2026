@@ -1,23 +1,23 @@
 [gd_resource type="Resource" script_class="WeaponUpgrade" format=3 uid="uid://bpxev2lolli2f"]
 
-[ext_resource type="Texture2D" uid="uid://cpxk7ntvk8qvs" path="res://Assets/UI/icons.png" id="1_cn6ap"]
-[ext_resource type="Resource" uid="uid://5jk3y3sm2nnt" path="res://Resources/Upgrades/Weapon/Firerate/firerate_tier_1.tres" id="2_cn6ap"]
-[ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="2_e4c04"]
-[ext_resource type="Resource" uid="uid://c4he4vn8jlrkg" path="res://Resources/Item/solarized_cobalt.tres" id="4_e4c04"]
-[ext_resource type="Script" uid="uid://bp8vg70846drr" path="res://Resources/Definitions/Upgrades/weapon_upgrade.gd" id="4_vat1k"]
+[ext_resource type="Texture2D" uid="uid://cpxk7ntvk8qvs" path="res://Assets/UI/icons.png" id="1_sserg"]
+[ext_resource type="Resource" uid="uid://5jk3y3sm2nnt" path="res://Resources/Upgrades/Weapon/Firerate/firerate_tier_1.tres" id="2_fkdnv"]
+[ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="3_jrmrs"]
+[ext_resource type="Resource" uid="uid://c4he4vn8jlrkg" path="res://Resources/Item/solarized_cobalt.tres" id="4_6yquv"]
+[ext_resource type="Script" uid="uid://bp8vg70846drr" path="res://Resources/Definitions/Upgrades/weapon_upgrade.gd" id="5_blhnu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wl0j"]
-atlas = ExtResource("1_cn6ap")
+atlas = ExtResource("1_sserg")
 region = Rect2(64, 128, 64, 64)
 
 [resource]
-script = ExtResource("4_vat1k")
-firerate_percentage = 0.1
+script = ExtResource("5_blhnu")
+firerate_percentage = 10.0
 name = "Firerate Increase Tier 2"
 description = "Increase firerate by 10%"
 icon = SubResource("AtlasTexture_2wl0j")
-prereq_upgrade = ExtResource("2_cn6ap")
-price = Dictionary[ExtResource("2_e4c04"), int]({
-ExtResource("4_e4c04"): 1
+prereq_upgrade = ExtResource("2_fkdnv")
+price = Dictionary[ExtResource("3_jrmrs"), int]({
+ExtResource("4_6yquv"): 1
 })
 metadata/_custom_type_script = "uid://bp8vg70846drr"
