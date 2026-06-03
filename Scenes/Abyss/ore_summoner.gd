@@ -77,7 +77,7 @@ const POSITIONS = [
 ]
 
 var scene: PackedScene = preload("uid://by1ssldc3md2j")
-var possible_ores: Array[Ore] = [preload("uid://bo8rf66bpefv5")]
+var possible_ores: Array[Ore] = [preload("uid://bo8rf66bpefv5"), preload("uid://c4ypk5186d5q2")]
 var possible_monster: Array[Monster] = [preload("uid://b6j4q5yinv5y1")]
 
 

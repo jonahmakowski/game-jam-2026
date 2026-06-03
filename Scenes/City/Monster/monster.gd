@@ -13,14 +13,20 @@ var current_health: float
 @onready var collision_shape: CollisionShape2D = %CollisionShape
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	setup()
 
 
 func _physics_process(delta: float) -> void:
 	if not Engine.is_editor_hint():
-		progress += monster.speed_2d * delta
+		var premove_progress = progress_ratio
+
+		progress += monster.speed_2d * delta * Globals.player_data.enemy_speed_mult
+
+		if premove_progress > progress_ratio:
+			Globals.player_data.city_health -= int(monster.damage * Globals.player_data.enemy_damage_mult)
+			queue_free()
+			EventBus.update_hud.emit()
 
 
 func take_damage(damage: float):

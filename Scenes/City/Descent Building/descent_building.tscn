@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://becbrrpmtduaq"]
 
 [ext_resource type="Texture2D" uid="uid://yqwxhlv264rv" path="res://Assets/City/Buildings/descent.png" id="1_a887d"]
-[ext_resource type="Script" uid="uid://beksgs1k0vua0" path="res://Scenes/City/DescentBuilding/descent_building.gd" id="1_f14p5"]
+[ext_resource type="Script" uid="uid://beksgs1k0vua0" path="res://Scenes/City/Descent Building/descent_building.gd" id="1_f14p5"]
+[ext_resource type="StyleBox" uid="uid://bxg1wq1enpxyu" path="res://Resources/UI/cancel_button.tres" id="3_ud1u7"]
+[ext_resource type="StyleBox" uid="uid://c3t3qxe2pqwin" path="res://Resources/UI/confirm_button.tres" id="4_ttmsj"]
+[ext_resource type="Script" uid="uid://cnvfyx4bd7dts" path="res://Scenes/City/Descent Building/popup.gd" id="5_joytw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a887d"]
-size = Vector2(1166, 1398)
+size = Vector2(434, 426)
 
 [node name="DescentBuilding" type="Node2D" unique_id=559037139]
 script = ExtResource("1_f14p5")
@@ -18,6 +21,8 @@ texture = ExtResource("1_a887d")
 shape = SubResource("RectangleShape2D_a887d")
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1507365442]
+unique_name_in_owner = true
+layer = 2
 visible = false
 
 [node name="CenterContainer" type="CenterContainer" parent="UILayer" unique_id=679506821]
@@ -43,6 +48,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="UILayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=398259708]
 layout_mode = 2
 text = "Go to the Abyss?"
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UILayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=6145892]
 layout_mode = 2
@@ -50,13 +56,40 @@ layout_mode = 2
 [node name="CancelButton" type="Button" parent="UILayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1682315571]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_styles/normal = ExtResource("3_ud1u7")
+theme_override_styles/pressed = ExtResource("3_ud1u7")
+theme_override_styles/hover = ExtResource("3_ud1u7")
 text = "Cancel"
 
 [node name="ConfirmButton" type="Button" parent="UILayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1438423841]
 layout_mode = 2
 size_flags_horizontal = 8
+theme_override_styles/normal = ExtResource("4_ttmsj")
+theme_override_styles/pressed = ExtResource("4_ttmsj")
+theme_override_styles/hover = ExtResource("4_ttmsj")
 text = "Confirm"
+
+[node name="Popup" type="Window" parent="." unique_id=327102999]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "Error"
+initial_position = 1
+size = Vector2i(250, 75)
+visible = false
+script = ExtResource("5_joytw")
+
+[node name="Label" type="Label" parent="Popup" unique_id=2010915355]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You are not permitted to enter the abyss until the city is safe!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="pressed" from="UILayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
 [connection signal="pressed" from="UILayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="close_requested" from="Popup" to="Popup" method="_on_close_requested"]

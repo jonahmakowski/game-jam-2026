@@ -4,6 +4,7 @@ extends Sprite2D
 
 var target: MonsterScene2D
 var origin: Vector2
+var firing_offset: int
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,6 +12,7 @@ func _ready() -> void:
 	look_at(target.global_position)
 
 	var angle := origin.direction_to(target.global_position)
+	origin += angle * firing_offset
 	var distance = origin.distance_to(target.global_position)
 	global_position = (angle * (distance / 2)) + origin
 

@@ -1,32 +1,65 @@
 [gd_scene format=3 uid="uid://cyyce8t63fh2u"]
 
-[ext_resource type="Texture2D" uid="uid://bs5ptslwcyfsi" path="res://icon.svg" id="1_hlii5"]
 [ext_resource type="Script" uid="uid://qa03nt5ndrin" path="res://Scenes/City/city_main.gd" id="1_osyyr"]
 [ext_resource type="PackedScene" uid="uid://ej5h7xbolar1" path="res://Scenes/City/Weapon/weapon.tscn" id="2_chhlk"]
 [ext_resource type="PackedScene" uid="uid://bgivs5hgl3arw" path="res://Scenes/City/Building/building.tscn" id="2_dl85s"]
+[ext_resource type="Texture2D" uid="uid://bxlyaf1cl36xr" path="res://Assets/City/background.png" id="2_g5uiw"]
 [ext_resource type="Resource" uid="uid://dk27ffqewpp7y" path="res://Resources/Weapon/plasma_rifle.tres" id="3_wddgr"]
 [ext_resource type="PackedScene" uid="uid://wsmafjcchcng" path="res://Scenes/City/Monster/monster.tscn" id="4_gxlp6"]
 [ext_resource type="Script" uid="uid://btnuwlpaahn4w" path="res://Scenes/City/city_main_ui.gd" id="6_bq6bt"]
+[ext_resource type="Script" uid="uid://bcvi17qra6la2" path="res://Scenes/City/enemies.gd" id="7_c3skn"]
 [ext_resource type="PackedScene" uid="uid://1w8k1gkawc67" path="res://Scenes/Abyss/Player/Player UI/inventory_item.tscn" id="7_u6g28"]
-[ext_resource type="PackedScene" uid="uid://becbrrpmtduaq" path="res://Scenes/City/DescentBuilding/descent_building.tscn" id="7_wddgr"]
-[ext_resource type="Texture2D" uid="uid://cpxk7ntvk8qvs" path="res://Assets/UI/gamejam_icons.png" id="8_cyef1"]
+[ext_resource type="PackedScene" uid="uid://becbrrpmtduaq" path="res://Scenes/City/Descent Building/descent_building.tscn" id="7_wddgr"]
+[ext_resource type="Texture2D" uid="uid://cpxk7ntvk8qvs" path="res://Assets/UI/icons.png" id="8_cyef1"]
+[ext_resource type="Resource" uid="uid://b6j4q5yinv5y1" path="res://Resources/Monster/test_monster.tres" id="9_g5uiw"]
+[ext_resource type="Texture2D" uid="uid://33vo7eslkcm6" path="res://Assets/City/Buildings/dome.png" id="11_f4hhb"]
+[ext_resource type="Script" uid="uid://dp0j42td3lq6c" path="res://Scenes/City/health.gd" id="13_emm5o"]
+
+[sub_resource type="Curve2D" id="Curve2D_f4hhb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, -200, 0, -800, 0, 0, 0, 0, -200, -1000, 0, 0, 0, 0, -1000, -1000)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_c3skn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, -200, 0, -800, 0, 0, 0, 0, -200, -1000, 0, 0, 0, 0, -800, -1000)
+}
+point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_7q2q6"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 1000)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, -200, 0, -800, 0, 0, 0, 0, 200, -1000, 0, 0, 0, 0, 1000, -1000)
 }
-point_count = 2
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_emm5o"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, -200, 0, -800, 0, 0, 0, 0, 200, -1000, 0, 0, 0, 0, 800, -1000)
+}
+point_count = 4
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4hhb"]
 atlas = ExtResource("8_cyef1")
 region = Rect2(4, 4, 56, 56)
 
+[sub_resource type="Gradient" id="Gradient_qyhws"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_my05r"]
+gradient = SubResource("Gradient_qyhws")
+
 [node name="CityMain" type="Node2D" unique_id=150180100]
 script = ExtResource("1_osyyr")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=894755570]
-scale = Vector2(20, 10)
-texture = ExtResource("1_hlii5")
+[node name="Background" type="Sprite2D" parent="." unique_id=894755570]
+texture_filter = 1
+scale = Vector2(7, 7)
+texture = ExtResource("2_g5uiw")
+
+[node name="Dome" type="Sprite2D" parent="." unique_id=1051706451]
+position = Vector2(0, 128)
+texture = ExtResource("11_f4hhb")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=761322133]
 zoom = Vector2(0.5, 0.5)
@@ -34,22 +67,44 @@ zoom = Vector2(0.5, 0.5)
 [node name="Building" parent="." unique_id=1908622106 instance=ExtResource("2_dl85s")]
 
 [node name="Weapon" parent="." unique_id=1676257248 instance=ExtResource("2_chhlk")]
-position = Vector2(0, 200)
+position = Vector2(0, 220)
 weapon = ExtResource("3_wddgr")
 
-[node name="Path2D" type="Path2D" parent="." unique_id=2145362334]
-position = Vector2(-1000, -1000)
+[node name="Enemies" type="Node2D" parent="." unique_id=2042386069]
+script = ExtResource("7_c3skn")
+enemy_scene = ExtResource("4_gxlp6")
+monster_data = ExtResource("9_g5uiw")
+
+[node name="RightPathes" type="Node2D" parent="Enemies" unique_id=1134912885]
+unique_name_in_owner = true
+
+[node name="Path1" type="Path2D" parent="Enemies/RightPathes" unique_id=1917352673]
+position = Vector2(1000, 1000)
+curve = SubResource("Curve2D_f4hhb")
+
+[node name="Path2" type="Path2D" parent="Enemies/RightPathes" unique_id=643321203]
+position = Vector2(800, 1200)
+curve = SubResource("Curve2D_c3skn")
+
+[node name="LeftPathes" type="Node2D" parent="Enemies" unique_id=1034086039]
+unique_name_in_owner = true
+
+[node name="Path1" type="Path2D" parent="Enemies/LeftPathes" unique_id=2145362334]
+position = Vector2(-1000, 1000)
 curve = SubResource("Curve2D_7q2q6")
 
-[node name="Monster" parent="Path2D" unique_id=972345731 instance=ExtResource("4_gxlp6")]
-rotation = 0.7853982
+[node name="Path2" type="Path2D" parent="Enemies/LeftPathes" unique_id=2080387226]
+position = Vector2(-800, 1200)
+curve = SubResource("Curve2D_emm5o")
+
+[node name="SpawnTimer" type="Timer" parent="Enemies" unique_id=805915143]
+unique_name_in_owner = true
 
 [node name="DescentBuilding" parent="." unique_id=559037139 instance=ExtResource("7_wddgr")]
 position = Vector2(500, 0)
 scale = Vector2(0.25, 0.25)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1088448354]
-visible = false
 script = ExtResource("6_bq6bt")
 inventory_scene = ExtResource("7_u6g28")
 
@@ -60,31 +115,40 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HBoxContainer" unique_id=2067747775]
+[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer" unique_id=1476174650]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Hider" type="PanelContainer" parent="CanvasLayer/HBoxContainer/Control" unique_id=2067747775]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_right = 384.0
+offset_bottom = 648.0
 size_flags_horizontal = 3
 mouse_filter = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/PanelContainer" unique_id=991893464]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/Control/Hider" unique_id=991893464]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer" unique_id=6006357]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/Control/Hider/MarginContainer" unique_id=6006357]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2090728846]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/Control/Hider/MarginContainer/VBoxContainer" unique_id=2090728846]
 layout_mode = 2
 
-[node name="StatsLabel" type="Label" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=716473458]
+[node name="StatsLabel" type="Label" parent="CanvasLayer/HBoxContainer/Control/Hider/MarginContainer/VBoxContainer/HBoxContainer" unique_id=716473458]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Stats"
 horizontal_alignment = 1
 
-[node name="CloseButton" type="TextureButton" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2041243239]
+[node name="CloseButton" type="TextureButton" parent="CanvasLayer/HBoxContainer/Control/Hider/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2041243239]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
@@ -92,40 +156,75 @@ texture_normal = SubResource("AtlasTexture_f4hhb")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1158397654]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/HBoxContainer/Control/Hider/MarginContainer/VBoxContainer" unique_id=1158397654]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="StatsParent" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=252766194]
+[node name="StatsParent" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/Control/Hider/MarginContainer/VBoxContainer/ScrollContainer" unique_id=252766194]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HSeparator" type="HSeparator" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=598486979]
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/HBoxContainer/Control/Hider/MarginContainer/VBoxContainer" unique_id=598486979]
 layout_mode = 2
 
-[node name="InventoryLabel" type="Label" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=202307109]
+[node name="InventoryLabel" type="Label" parent="CanvasLayer/HBoxContainer/Control/Hider/MarginContainer/VBoxContainer" unique_id=202307109]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Inventory"
 horizontal_alignment = 1
 
-[node name="ScrollContainer2" type="ScrollContainer" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=527693333]
+[node name="ScrollContainer2" type="ScrollContainer" parent="CanvasLayer/HBoxContainer/Control/Hider/MarginContainer/VBoxContainer" unique_id=527693333]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="InventoryParent" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer2" unique_id=816776684]
+[node name="InventoryParent" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/Control/Hider/MarginContainer/VBoxContainer/ScrollContainer2" unique_id=816776684]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer" unique_id=2099718858]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HealthContainer" type="PanelContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=1800578765]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("13_emm5o")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/HealthContainer" unique_id=391458870]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer/HBoxContainer/VBoxContainer/HealthContainer/MarginContainer" unique_id=1930691622]
+unique_name_in_owner = true
+layout_mode = 2
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 10
+stretch_margin_right = 10
+stretch_margin_bottom = 10
+texture_progress = SubResource("GradientTexture1D_my05r")
+
+[node name="HealthLabel" type="Label" parent="CanvasLayer/HBoxContainer/VBoxContainer/HealthContainer/MarginContainer" unique_id=842125806]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "x / x"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Spacer" type="Control" parent="CanvasLayer/HBoxContainer" unique_id=588033244]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
 mouse_filter = 1
 
-[connection signal="pressed" from="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CloseButton" to="CanvasLayer" method="_on_close_button_pressed"]
+[connection signal="timeout" from="Enemies/SpawnTimer" to="Enemies" method="_on_spawn_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Control/Hider/MarginContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Control/Hider/MarginContainer/VBoxContainer/HBoxContainer/CloseButton" to="CanvasLayer" method="_on_close_button_pressed"]

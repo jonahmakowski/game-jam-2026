@@ -16,4 +16,5 @@ ore_part = ExtResource("2_elcct")
 health = 10
 rock_shader = ExtResource("3_e054v")
 mineral_shader = ExtResource("1_xn3o3")
+rarity = 2
 metadata/_custom_type_script = "uid://cncnbd3umy0c7"

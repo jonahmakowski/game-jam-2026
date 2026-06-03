@@ -11,6 +11,9 @@ enum ProjectileType { LASER, PROJECTILE }
 @export var sprite: SpriteFrames
 @export var name: String
 @export var upgrades: Array[WeaponUpgrade]
+@export_group("Location Adjustment")
+@export var horizontal_offset: int
+@export var firing_offset: int
 @export_group("Projectile Settings")
 @export var projectile_type: ProjectileType
 @export_subgroup("Laser", "laser")

@@ -65,11 +65,19 @@ func _physics_process(_delta: float) -> void:
 			"walking":
 				velocity = Vector3.ZERO
 
-				nav_agent.target_position = player.global_position
+				var see_player = can_see_player()
+
+				if see_player:
+					nav_agent.target_position = player.global_position
+					nav_agent.navigation_layers = 1
+				else:
+					nav_agent.target_position = global_position
+					nav_agent.navigation_layers = 0
+
+				var next_position = nav_agent.get_next_path_position()
 
 				if not nav_agent.is_navigation_finished():
-					var next_position = nav_agent.get_next_path_position()
-					if can_see_player():
+					if see_player:
 						if global_position != next_position:
 							model.look_at(position + global_position.direction_to(next_position))
 						velocity = global_position.direction_to(next_position) * monster_data.speed_3d

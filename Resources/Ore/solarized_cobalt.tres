@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Ore" format=3 uid="uid://c4ypk5186d5q2"]
+
+[ext_resource type="Shader" uid="uid://cwuherip53a7o" path="res://Shaders/blue_ore.tres" id="1_60o2f"]
+[ext_resource type="ArrayMesh" uid="uid://b8t22qk1doyd2" path="res://Assets/Abyss/Ore/ore.tres" id="2_iqep8"]
+[ext_resource type="ArrayMesh" uid="uid://b6nwe8h5u08ow" path="res://Assets/Abyss/Ore/rock.tres" id="3_oxojy"]
+[ext_resource type="Shader" uid="uid://n0luw123hvv0" path="res://Shaders/rock_shader.tres" id="4_w1174"]
+[ext_resource type="Script" uid="uid://cncnbd3umy0c7" path="res://Resources/Definitions/ore.gd" id="5_oumt4"]
+[ext_resource type="Resource" uid="uid://c4he4vn8jlrkg" path="res://Resources/Item/solarized_cobalt.tres" id="6_iqep8"]
+
+[resource]
+script = ExtResource("5_oumt4")
+name = "Solarized Cobalt"
+to_drop = ExtResource("6_iqep8")
+rock_part = ExtResource("3_oxojy")
+ore_part = ExtResource("2_iqep8")
+health = 15
+rock_shader = ExtResource("4_w1174")
+mineral_shader = ExtResource("1_60o2f")
+metadata/_custom_type_script = "uid://cncnbd3umy0c7"

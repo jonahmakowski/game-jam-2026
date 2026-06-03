@@ -24,7 +24,7 @@ func run():
 
 	var monster_scene_instance: MonsterScene3D = monster_scene.instantiate()
 
-	monster_scene_instance.ore_type = selected_monster
+	monster_scene_instance.monster_data = selected_monster
 	monster_scene_instance.transform = transform
 
 	call_deferred("replace_with_ore", monster_scene_instance)

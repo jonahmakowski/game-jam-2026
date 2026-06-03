@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://dyj24eou0cbx8"]
 
-[ext_resource type="Texture2D" uid="uid://cpxk7ntvk8qvs" path="res://Assets/UI/gamejam_icons.png" id="1_hqdoq"]
+[ext_resource type="Texture2D" uid="uid://cpxk7ntvk8qvs" path="res://Assets/UI/icons.png" id="1_hqdoq"]
 [ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="1_w7w2g"]
 [ext_resource type="Script" uid="uid://bxuhbe0j65rac" path="res://Resources/Definitions/upgrade.gd" id="2_b63hd"]
-[ext_resource type="Resource" uid="uid://cjxg765yiadj4" path="res://Resources/Item/test_item.tres" id="3_oddis"]
+[ext_resource type="Resource" uid="uid://cjxg765yiadj4" path="res://Resources/Item/monster_parts.tres" id="3_oddis"]
 [ext_resource type="Resource" uid="uid://q81cnghelmi5" path="res://Resources/Item/lumonite.tres" id="4_oddis"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oddis"]

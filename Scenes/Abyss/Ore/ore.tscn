@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://b6ydojbgko7ok"]
 
 [ext_resource type="Script" uid="uid://r22344j6hpqw" path="res://Scenes/Abyss/Ore/ore.gd" id="1_aq6hm"]
-[ext_resource type="Resource" uid="uid://bo8rf66bpefv5" path="res://Resources/Ore/lumonite.tres" id="2_aq6hm"]
+[ext_resource type="Resource" uid="uid://c4ypk5186d5q2" path="res://Resources/Ore/solarized_cobalt.tres" id="2_a07hb"]
 [ext_resource type="ArrayMesh" uid="uid://b8t22qk1doyd2" path="res://Assets/Abyss/Ore/ore.tres" id="3_ih5we"]
+[ext_resource type="Shader" uid="uid://cwuherip53a7o" path="res://Shaders/blue_ore.tres" id="4_1x5dp"]
 [ext_resource type="ArrayMesh" uid="uid://b6nwe8h5u08ow" path="res://Assets/Abyss/Ore/rock.tres" id="4_2lsbe"]
-[ext_resource type="Shader" uid="uid://dyci6la46vdla" path="res://Shaders/light_ore.tres" id="4_a07hb"]
 [ext_resource type="Shader" uid="uid://n0luw123hvv0" path="res://Shaders/rock_shader.tres" id="6_1x5dp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a07hb"]
 render_priority = 0
-shader = ExtResource("4_a07hb")
+shader = ExtResource("4_1x5dp")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1x5dp"]
 render_priority = 0
@@ -22,7 +22,7 @@ size = Vector3(1.704747, 1.500017, 1.6065595)
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 collision_layer = 7
 script = ExtResource("1_aq6hm")
-ore_type = ExtResource("2_aq6hm")
+ore_type = ExtResource("2_a07hb")
 
 [node name="Model" type="Node3D" parent="." unique_id=1323842623]
 unique_name_in_owner = true

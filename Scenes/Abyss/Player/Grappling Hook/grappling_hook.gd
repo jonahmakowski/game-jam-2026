@@ -1,11 +1,11 @@
 class_name GrapplingHookScene
 extends Node3D
 
-const MAX_LENGTH = 500000.0
 const SPEED = 100
 
 var active = false
 
+@onready var length = Globals.player_data.grapling_hook_range
 @onready var ray_cast_3d: RayCast3D = %RayCast3D
 @onready var rope: RopeScene = %Rope
 @onready var marker: Marker3D = %Marker3D
@@ -28,7 +28,7 @@ func _physics_process(_delta: float) -> void:
 
 func activate():
 	if not active:
-		ray_cast_3d.target_position = Vector3(0, 0, -MAX_LENGTH)
+		ray_cast_3d.target_position = Vector3(0, 0, -length)
 		ray_cast_3d.force_raycast_update()
 
 		if not ray_cast_3d.is_colliding():

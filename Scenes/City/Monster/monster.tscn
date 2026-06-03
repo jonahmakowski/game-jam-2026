@@ -54,6 +54,7 @@ rotation = 1.5707964
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_3dhph")
 animation = &"walk"
+frame_progress = 0.7652929
 
 [node name="CollisionShape" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1775098115]
 unique_name_in_owner = true

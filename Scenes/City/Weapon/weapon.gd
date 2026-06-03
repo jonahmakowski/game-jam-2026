@@ -14,6 +14,7 @@ var mouse_in_area = false
 @onready var ui_layer: CanvasLayer = %UILayer
 @onready var upgrade_parent: VBoxContainer = %UpgradeParent
 @onready var title_label: Label = %TitleLabel
+@onready var collision_shape: CollisionShape2D = %CollisionShape
 
 
 func _ready() -> void:
@@ -45,6 +46,7 @@ func _process(_delta: float) -> void:
 		laser_instance.origin = global_position
 		laser_instance.target = confirmed
 		laser_instance.weapon = weapon
+		laser_instance.firing_offset = weapon.firing_offset
 		projectile_folder.add_child(laser_instance)
 
 	fire_timer.start(weapon.firerate)
@@ -63,15 +65,15 @@ func find_best_target():
 	if len(monsters) == 0:
 		return null
 
-	var monster_distance: Dictionary[MonsterScene2D, float]
+	var monster_distance: Array[Array]
 	for monster in monsters:
 		if monster is not MonsterScene2D:
 			continue
-		monster_distance[monster as MonsterScene2D] = monster.global_position.distance_squared_to(global_position)
+		monster_distance.append([monster as MonsterScene2D, monster.global_position.distance_squared_to(global_position)])
 
-	monster_distance.sort()
+	monster_distance.sort_custom(func(x, y): return x[1] < y[1])
 
-	var target: MonsterScene2D = monster_distance.keys()[0]
+	var target: MonsterScene2D = monster_distance[0][0]
 
 	if target.global_position.distance_to(global_position) > weapon.weapon_range:
 		return null
@@ -84,6 +86,8 @@ func setup():
 	weapon = weapon.duplicate()
 	weapon.weapon_scene = self
 	sprite.sprite_frames = weapon.sprite
+	sprite.position.x = weapon.horizontal_offset
+	collision_shape.shape.radius = weapon.horizontal_offset * 2
 
 
 func setup_upgrades():

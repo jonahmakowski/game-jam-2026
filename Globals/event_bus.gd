@@ -9,3 +9,5 @@ signal run_summoners
 signal hide_building_ui
 @warning_ignore("unused_signal")
 signal update_upgrades
+@warning_ignore("unused_signal")
+signal update_hud
