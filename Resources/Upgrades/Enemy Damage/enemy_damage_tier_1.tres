@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EnemyDamageUpgrade" format=3 uid="uid://dxqf5vq84hqpt"]
+
+[ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="1_ba4fu"]
+[ext_resource type="Script" uid="uid://br3i48k45v8xo" path="res://Resources/Definitions/Upgrades/enemy_damage_upgrade.gd" id="2_il313"]
+[ext_resource type="Resource" uid="uid://q81cnghelmi5" path="res://Resources/Item/lumonite.tres" id="2_joewu"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ujnjm"]
+load_path = "res://.godot/imported/icons.png-b5b22720f5bf5210826fcf257ac02d0d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ccw0"]
+atlas = SubResource("CompressedTexture2D_ujnjm")
+region = Rect2(128, 64, 64, 64)
+
+[resource]
+script = ExtResource("2_il313")
+constant_upgrade = 1
+name = "Enemy Damage Tier 1"
+description = "Deal 1 more damage to enemies in The Abyss"
+icon = SubResource("AtlasTexture_4ccw0")
+price = Dictionary[ExtResource("1_ba4fu"), int]({
+ExtResource("2_joewu"): 5
+})
+metadata/_custom_type_script = "uid://br3i48k45v8xo"
