@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="WeaponUpgrade" format=3 uid="uid://xsi85hk33orr"]
 
 [ext_resource type="Texture2D" uid="uid://cpxk7ntvk8qvs" path="res://Assets/UI/icons.png" id="1_i2k66"]
-[ext_resource type="Resource" uid="uid://bnmgluhrldck3" path="res://Resources/Upgrades/Weapon Upgrades/Damage/damage_tier_1.tres" id="2_tpyj7"]
+[ext_resource type="Resource" uid="uid://bnmgluhrldck3" path="res://Resources/Upgrades/Weapon/Damage/damage_tier_1.tres" id="2_tpyj7"]
 [ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="3_7643h"]
 [ext_resource type="Resource" uid="uid://c4he4vn8jlrkg" path="res://Resources/Item/solarized_cobalt.tres" id="4_o1civ"]
 [ext_resource type="Script" uid="uid://bp8vg70846drr" path="res://Resources/Definitions/Upgrades/weapon_upgrade.gd" id="5_gc67t"]

@@ -4,7 +4,16 @@
 [ext_resource type="Script" uid="uid://fqyi0vgq6hcj" path="res://Resources/Definitions/weapon.gd" id="2_4b26i"]
 [ext_resource type="Texture2D" uid="uid://bupqos4iqk4d7" path="res://Assets/City/Weapons/plasmarifle.png" id="3_ru3xb"]
 [ext_resource type="Script" uid="uid://bp8vg70846drr" path="res://Resources/Definitions/Upgrades/weapon_upgrade.gd" id="4_7e2b3"]
-[ext_resource type="Resource" uid="uid://5jk3y3sm2nnt" path="res://Resources/Upgrades/Weapon Upgrades/Firerate/firerate_tier_1.tres" id="5_4b26i"]
+[ext_resource type="Resource" uid="uid://bnmgluhrldck3" path="res://Resources/Upgrades/Weapon/Damage/damage_tier_1.tres" id="5_6mv7e"]
+[ext_resource type="Resource" uid="uid://xsi85hk33orr" path="res://Resources/Upgrades/Weapon/Damage/damage_tier_2.tres" id="6_mhq1y"]
+[ext_resource type="Resource" uid="uid://r8ki42lp2cxa" path="res://Resources/Upgrades/Weapon/Damage/damage_tier_3.tres" id="7_f0aph"]
+[ext_resource type="Resource" uid="uid://ciicy14yue83f" path="res://Resources/Upgrades/Weapon/Damage/damage_tier_4.tres" id="8_3e65e"]
+[ext_resource type="Resource" uid="uid://bn5scdiffmib3" path="res://Resources/Upgrades/Weapon/Damage/damage_tier_5.tres" id="9_03wao"]
+[ext_resource type="Resource" uid="uid://5jk3y3sm2nnt" path="res://Resources/Upgrades/Weapon/Firerate/firerate_tier_1.tres" id="10_roj6s"]
+[ext_resource type="Resource" uid="uid://bpxev2lolli2f" path="res://Resources/Upgrades/Weapon/Firerate/firerate_tier_2.tres" id="11_qbetl"]
+[ext_resource type="Resource" uid="uid://c7mdifrkeghpl" path="res://Resources/Upgrades/Weapon/Firerate/firerate_tier_3.tres" id="12_0u8pk"]
+[ext_resource type="Resource" uid="uid://cgm4b63x138l" path="res://Resources/Upgrades/Weapon/Firerate/firerate_tier_4.tres" id="13_fcbeo"]
+[ext_resource type="Resource" uid="uid://d01lp83ivkqv1" path="res://Resources/Upgrades/Weapon/Firerate/firerate_tier_5.tres" id="14_lmpar"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7e2b3"]
 atlas = ExtResource("3_ru3xb")
@@ -38,7 +47,7 @@ firerate = 2.0
 weapon_range = 200.0
 sprite = SubResource("SpriteFrames_aps16")
 name = "Plasma Rifle"
-upgrades = Array[ExtResource("4_7e2b3")]([ExtResource("5_4b26i")])
+upgrades = Array[ExtResource("4_7e2b3")]([ExtResource("5_6mv7e"), ExtResource("6_mhq1y"), ExtResource("7_f0aph"), ExtResource("8_3e65e"), ExtResource("9_03wao"), ExtResource("10_roj6s"), ExtResource("11_qbetl"), ExtResource("12_0u8pk"), ExtResource("13_fcbeo"), ExtResource("14_lmpar")])
 horizontal_offset = 88
 firing_offset = 44
 laser_color = Color(0.38431373, 1, 0.9764706, 1)

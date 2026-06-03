@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="WeaponUpgrade" format=3 uid="uid://cgm4b63x138l"]
 
 [ext_resource type="Texture2D" uid="uid://cpxk7ntvk8qvs" path="res://Assets/UI/icons.png" id="1_q3jig"]
-[ext_resource type="Resource" uid="uid://c7mdifrkeghpl" path="res://Resources/Upgrades/Weapon Upgrades/Firerate/firerate_tier_3.tres" id="2_cqdfm"]
+[ext_resource type="Resource" uid="uid://c7mdifrkeghpl" path="res://Resources/Upgrades/Weapon/Firerate/firerate_tier_3.tres" id="2_cqdfm"]
 [ext_resource type="Script" uid="uid://4pj1gcrat37c" path="res://Resources/Definitions/item.gd" id="3_8bw6i"]
 [ext_resource type="Resource" uid="uid://q81cnghelmi5" path="res://Resources/Item/lumonite.tres" id="4_cqdfm"]
 [ext_resource type="Script" uid="uid://bp8vg70846drr" path="res://Resources/Definitions/Upgrades/weapon_upgrade.gd" id="5_2gbfa"]
